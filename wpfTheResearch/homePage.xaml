@@ -1,0 +1,90 @@
+﻿<Page x:Class="viewModelWpfTheResearch.homePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:viewModelWpfTheResearch" xmlns:local1="clr-namespace:wpfTheResearch"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="homePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="3*"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="1" 
+                   FontSize="48" FontWeight="Bold" 
+                   Style="{StaticResource txblCenter }" FontFamily="Algerian">welcome
+        </TextBlock>
+
+        <Grid Grid.Row="1" Grid.Column="1" >
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition ></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="2*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Row="0"
+                       Grid.Column="2" 
+                       Style="{StaticResource txblCenter }"  
+                       >
+                אימייל</TextBlock>
+
+
+
+
+            <TextBlock Grid.Row="1" 
+                       Grid.Column="2"
+                       Style="{StaticResource txblCenter }"  
+                       >
+                ססמה</TextBlock>
+
+            <TextBox Grid.Row="0"
+                     Name="txbEmail"
+                     Background="Transparent"
+                     Width="150" 
+                     Height="30"
+                     TextAlignment="Right"
+                     Grid.Column="1"
+                     BorderBrush="DimGray"
+                     BorderThickness="0 0 0 1">
+            </TextBox>
+
+            <TextBox Grid.Row="1" 
+                     Background="Transparent"
+                     TextAlignment="Right"
+                     BorderBrush="DimGray"
+                     BorderThickness="0 0 0 1"
+                     Name="txbPassword" 
+                     Width="150"  
+                     Height="30"
+                     Grid.Column="1"                    
+                     Style="{StaticResource txbCenter}"
+                     >
+            </TextBox>
+
+            <Button  Name="btLogIn"   
+                     Grid.Column="1" 
+                     Grid.Row="2"      
+                     HorizontalAlignment="Center"
+                     Style="{StaticResource btConfirm}"
+                     Click="btLogIn_Click" >
+                    כניסה
+            </Button>
+
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="2158036d-6973-4831-bdb5-6212a830ab7c" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/AuthService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="97ea0efc-e71e-42b9-9432-b99a2d6824d2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/AuthService/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="a9ec9972-89a7-4dab-90f2-3a15be4f7458" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/AuthService/?xsd=xsd0" />
+    <MetadataFile FileName="AuthService.wsdl" MetadataType="Wsdl" ID="1f9c000c-8f05-4bf2-9d24-466f8aab148d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/AuthService/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="ae8ece03-9918-40dd-a3d4-f909a36891dc" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/AuthService/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="c1ff4277-aea0-45bf-bbb4-cb60d558e83b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/AuthService/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

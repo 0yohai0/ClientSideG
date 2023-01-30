@@ -1,0 +1,600 @@
+﻿/*באופן כללי*/
+a {
+    outline: none !important;
+    text-decoration: none !important;
+}
+*{
+    padding:0;
+    box-sizing:border-box;
+    margin:0;
+}
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+body {
+    direction: rtl;
+    overflow-x:hidden;
+}
+html {
+    scroll-behavior: smooth;
+}
+/*תפריט נפתח והמבורגר*/
+.l{
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  width: 32px;
+  height: 3px;
+  background-color: black;
+  transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+}
+
+.top {
+  transform: translateY(-8px);
+  animation-delay: 100ms;
+  color:white;
+}
+
+.bottom {
+    transform: translateY(8px);
+    animation-delay: 250ms;
+    color: white;
+}
+
+.hamburger-icon {
+    position: fixed;
+    right:2%;
+    height: 60px;
+    width: 60px;
+    z-index: 1000;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+    transition: all 500ms cubic-bezier(0.62, 0.04, 0.3, 1.8);
+    background: rgba(255, 255, 255, 0.2);
+}
+.hamburger-icon:hover {
+  transform: scale(1.2);
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+}
+.humburger-icon-black {
+    position: fixed;
+    right: 2%;
+    height: 60px;
+    width: 60px;
+    z-index: 1000;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+    transition: all 500ms cubic-bezier(0.62, 0.04, 0.3, 1.8);
+    background: rgba(255, 255, 255, 0.2);
+}
+.icon-1.top {
+  transform: rotate(45deg);
+}
+
+.icon-3.bottom {
+  transform: rotate(-45deg);
+}
+
+.icon-2.middle {
+    opacity: 0;
+}
+
+.clear {
+  clear: both;
+}
+
+@keyframes slideIn {
+  0% {
+    width: 0%;
+    opacity: 0;
+  }
+  100% {
+    width: 20%;
+    opacity: 1;
+  }
+}
+nav {
+  background: black;
+  position: fixed;
+  direction:rtl;
+  top: 0;
+  right: 0;
+  border-left:red 2px solid;
+  height: 100%;
+  width: 0%;
+  z-index: 20;
+  opacity: 0;
+  transition: all 600ms cubic-bezier(0.62, 0.04, 0.3, 1.56);
+  transition-delay: 100ms;
+}
+.line{
+    width:300px;
+    margin:auto;
+    height:2px;
+    border-radius:1px;
+    background:white;
+    position:relative;
+    top:90%;
+}
+nav ul {
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 40%;
+}
+.li {
+    cursor: pointer;
+    list-style: none;
+    font-size: 22px;
+    line-height: 2;
+    font-family: 'Bellefair', serif;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    transition: all 600ms cubic-bezier(0.62, 0.04, 0.3, 1.56);
+}
+nav ul li {
+    cursor:pointer;
+    list-style: none;
+    font-size: 22px;
+    color: white;
+    line-height: 2;
+    font-family: 'Bellefair', serif;
+    text-transform: uppercase;
+    letter-spacing: 1.7px;
+    transition: all 600ms cubic-bezier(0.62, 0.04, 0.3, 1.56);
+}
+.join{
+    margin-top:1vh;
+    color:#eb4747!important;
+}
+.li:hover{
+    border-right:1px solid white;
+}
+nav.show {
+  width: 20%;
+  opacity: 1;
+}
+
+.follower {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: red;
+    height: 100%;
+    width: 0%;
+    transition: all 500ms cubic-bezier(0.62, 0.04, 0.3, 1.8);
+    transition-delay:50ms;
+    z-index: 5;
+    opacity: 1;
+}
+
+.follower.slide {
+    width: 20%;
+    opacity: 1;
+}
+
+@keyframes shotup {
+  0% {
+    transform: translateY(300%);
+    opacity: 0;
+  }
+  90% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+
+.tbSearch{
+    border:none;
+    outline:none;
+    font-size:30px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-bottom:solid 1px white;
+    background-color:black;
+    width:150px;
+    margin-bottom:5vh;
+    color:white;
+}
+/*---------------------------------------------------*/
+/*תפריט עליון*/
+.horizontal-nav {
+    position:sticky;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 25px 0;
+    z-index:100;
+    background-color: #1d1d1d;
+    width: 100%;
+    transition: all 500ms cubic-bezier(0.62, 0.04, 0.3, 1.8);
+}
+.horizontal-nav-white {
+    background-color: #ffffff;
+    border-bottom:1px solid black
+}
+.horizontal-nav-cont-without-hamburger {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 96.5%;
+}
+
+.buttons{
+    margin-right: 10px;
+}
+
+.logo-content {
+    font-size: 45px;
+    color: #ffffff;
+    font-family: Bahnschrift;
+    transition: all 500ms cubic-bezier(0.62, 0.04, 0.3, 1.8);
+}
+.logo-black{
+    color: black;
+}
+.logo-content-hebrew {
+    color: white;
+    font-size: 25px
+}
+.logo-cont {
+    position: absolute;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.horizontal-nav-cont {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*אחרי לחיצה*/
+/*אחרי לחיצה*/
+/*כפתורי רישום וכניסה בתפריט עליון*/
+.bt-log-in, .bt-register, .red-register, .bt-log-out {
+    border: 1px solid black;
+    border-radius: 5px;
+    width: 6vw;
+    margin-right: 0.5vw;
+    height: 5vh;
+    cursor: pointer;
+    font-size: 15px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: white;
+    transition: 500ms cubic-bezier(0.62, 0.04, 0.3, 1.8);
+    color: black;
+}
+.bt-log-in, .bt-log-out{
+    margin-right:5vw;
+}
+
+.link-to-about-page {
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #1c1c1c;
+    font-size: 25px;
+    transition: 500ms cubic-bezier(0.62, 0.04, 0.3, 1.8);
+}
+.about-red {
+    color: #eb4747 !important;
+}
+.bt-register {
+    border: #eb4747 2px solid !important;
+    background-color: black;
+    color: #eb4747;
+}
+.red-register {
+    color: white !important;
+    border: #ae7272 1px solid !important;
+    background-color: #eb4747;
+}
+/*---------------------------------------------------*/
+/* דף התחברות/רישום*/
+.login-page-wrap, .registration-page-wrap {
+}
+.headLine {
+    position: absolute !important;
+    left: 50% !important;
+    transform: translate(-50%,-50%) !important;
+    top: 120px;
+    font-size: 60px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+.glassWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 480px;
+    height: 600px;
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background: rgba( 255, 255, 255, 0.15 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+}
+.back{
+    position:absolute;
+    width:120%;
+    right:-15%;
+    top:-5%;
+    z-index:-1;
+}
+.input {
+    position:static;
+    font-size: 14px;
+    border: none;
+    width: 350px;
+    border-radius: 6px;
+    padding: 6px 3px;
+    margin-bottom:12px;
+}
+.input:hover{
+    border-bottom: 1px solid black;
+}
+.action-button {
+    padding: 3px 1px;
+    color: white;
+    display:inline-block;
+    font-family: 'Segoe Print';
+    width:175px;
+    border: none;
+    margin:auto;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #eb4747;
+    border-bottom: 4px solid #971d1d;
+    transition: 100ms cubic-bezier(0.62, 0.04, 0.3, 1.8);
+}
+.action-button:hover {
+    border-bottom: 3px solid #971d1d;
+    transform: translateY(1px);
+}
+.action-button:active {
+    border-bottom: 1px solid #971d1d;
+    transform:translateY(2px);
+}
+.error{
+    display:block;
+    color:red;
+    font-size:15px;
+    font-family:'Times New Roman', Times, serif;
+}
+.validatePos{
+   position:absolute;
+   top:450px;
+   display:flex;
+   flex-direction:column;
+   align-items:center;
+   justify-content:center;
+ 
+}
+.innerValidator{
+    text-align:center;
+    margin:auto;
+    font-size:15px;
+    color:red;
+}
+/*---------------------------------------------------*/
+/*דף אודות*/
+.rect-vertical-1, .rect-vertical-2 {
+    position: absolute;
+    height: 110vh;
+    width: 40vw;
+    transform: rotate(-9deg);
+}
+.about-content-wrap{
+    position:absolute;
+    top:30vh;
+    right:5vw;
+    width:50vw;
+}
+.head {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
+    color: #eb3d3d !important;
+    text-shadow: 1px 1px 1px #121212 !important;
+    font-size: 40px !important;
+}
+.content{
+    font-size:20px;
+    padding-top:3vh;
+    padding-bottom:3vh;
+}
+/*--------------------------------------------------------------------------*/
+/*דף הוספת חדשות*/
+.add-news-table {
+    position: relative;
+    top: 25vh;
+    border-collapse:collapse;
+    right: 12vw;
+}
+.add-news-table tr {
+    border-bottom: #971d1d 2px solid;
+    text-align: right;
+    padding-top: 6vh;
+    padding-bottom: 6vh;
+}
+.contentNews{
+    width:30vw;
+    height:15vh;
+}
+.subject {
+    font-size: 30px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left:2vw;
+}
+/*---------------------------------------------*/
+/*דף גריד משתמשים*/
+.grid-users{
+    margin:20vh 20vw;
+    font-size:20px;
+}
+.demarcation-wrap{
+    position:relative;
+    top:10vh;
+    width:100vw;
+    height:10vh;
+    background-color:#b4b4b4;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+}
+.txb-demarcation {
+    font-size: 20px;
+    border: none;
+    border-radius: 20px;
+    outline: none;
+    text-align:center;
+}
+/*------------------------------------------------------*/
+/*דף הבית- חדשות*/
+.top-News-Block-Wrap{
+    position:relative;
+    right:1vw;
+    top:5vh;
+}
+.firstNewsWrap{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.bigNewsImg{
+    border-radius:5px;
+    width:600px;
+    height:400px;
+    margin-left:30px;
+}
+.Minor3Img {
+    border-radius: 2px;
+    width: 155px;
+    height: 126px;
+}
+.infoWrap{
+    margin-bottom:65px;
+    text-align:right;
+    display:flex;
+    justify-content:center;
+    align-items:start;
+    flex-direction:column;
+    width:400px;
+    height:inherit;
+}
+.seperetion-line {
+    height: 1vh;
+    width: 90vw;
+    position: relative;
+    top: 10vh;
+    margin: auto;
+    border-bottom: solid 2px black;
+    border-top: solid 2px red;
+}
+.headLineNews {
+    margin-top:10px;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.second-title {
+    font-size: 12px;
+    font-family: 'Segoe UI';
+}
+.date {
+   float: left;
+}
+.stuff-names{
+    float:right;
+}
+.date-stuff{
+    font-size:12px!important;
+    font-family:'Times New Roman', Times, serif;
+}
+/*---------------------------------------------------------------------*/
+
+/*דף חדשה יחידה*/
+.tb-single-item{
+    margin:auto; 
+    margin-top:5vh;
+}
+.tb-single-item td {
+    width: 70vw;
+}
+.img-news {
+    width: 70vw;
+    height:45vh;
+    border:solid red 1px;
+}
+.single-item-headLine {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 45px;
+    text-align:center;
+}
+.single-item-secondary-title {
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 25px;
+    text-align: right;
+}
+.single-item-content {
+    line-height:2;
+    font-size: 20px;
+    text-align: right;
+}
+.first-letter {
+    font-size: 40px;
+    color:red;
+    display:inline;
+}
+.single-item-date {
+    float: right;
+    display: inline;
+}
+.single-item-writers-and-editors {
+    float: left;
+    display: inline;
+}
+/*-----------------------------------------*/
+
+/*מועדפים*/
+.favorite-table{
+ margin-top:10vh!important;
+}
+.headLine-favorites{
+    margin:auto;
+    margin-top:8vh;
+    font-size:50px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    position:relative;
+    right:45%;
+}
+/*------------------------------------------*/
+/*דף הצלחת קנייה*/
+.success-body{
+    background-color:cadetblue;
+}
+.succsess-msg-wrap {
+    position: relative;
+    top: 200px;
+    margin: auto;
+    width: 500px;
+    height: 300px;
+    background-color: #8dbbff;
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    justify-content:space-evenly;
+}
+.success-msg{
+    font-size:35px;
+    color:whitesmoke;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.transfer-success{
+    font-size:20px;
+    color:darkslateblue;
+}

@@ -1,0 +1,11 @@
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\wpfTheResearch.csproj.AssemblyReference.cache
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\wpfTheResearch.csproj.SuggestedBindingRedirects.cache
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\ResourceDictionary\StyleGeneral.baml
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\Formula1Game.g.cs
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\homePage.g.cs
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\MainWindow.g.cs
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\RacePage.g.cs
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\showUsers.g.cs
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\App.g.cs
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\wpfTheResearch_MarkupCompile.cache
+C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Release\wpfTheResearch_MarkupCompile.lref

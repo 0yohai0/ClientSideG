@@ -1,0 +1,57 @@
+﻿<Page x:Class="WpfViewModelTheResearch.Formula1Game"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WpfViewModelTheResearch"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="Formula1Game"
+      Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="22" Margin="30,43,0,0">הסכום להימור</TextBlock>
+            <TextBox Grid.Column="1" Name="tbxAmountBetting" Width="200" Height="80" VerticalAlignment="Center" HorizontalAlignment="Right"/>
+            <TextBlock Grid.Column="0" Name="tbxAmountHaving" Width="200" Height="80" HorizontalAlignment="Right" VerticalAlignment="Top" FontSize="22" Margin="30,43,0,0" Text="הסכום הנוכחי" />
+        </Grid>
+        <TextBlock Grid.Row="0" Text="המרו עוד היום" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="36" FontWeight="Bold" Foreground="#FFE32828"></TextBlock>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <Button Name="btDriver1Bet" Margin="58,41,42,34"  Grid.Column="2" Click="btDriver1Bet_Click">נהג אנטון</Button>
+            <Button Name="btDriver2Bet" Grid.Column="1" Margin="58,41,42,34" Click="btDriver2Bet_Click">נהג ברטולומאו</Button>
+            <Button Name="btDriver3Bet"  Grid.Column="0" Margin="58,41,42,34" Click="btDriver3Bet_Click">נהג לואיג'י</Button>
+        </Grid>
+
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock Name="txblInfo" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="20"></TextBlock>
+            <Button Name="tbToTheRace" Height="30" Width="120" Click="tbToTheRace_Click">למירוץ</Button>
+        </Grid>
+    </Grid>
+</Page>

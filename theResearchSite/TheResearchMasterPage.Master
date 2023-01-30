@@ -1,0 +1,63 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="TheResearchMasterPage.master.cs" Inherits="theResearchSite.TheResearchMasterPage" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title></title>
+    <link href="GeneralCss.css" rel="stylesheet" />
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="horizontal-nav-cont">
+                <div class="horizontal-nav">
+                    <div class="logo-cont">
+                        <div class="logo-content logo">TheResearch</div>
+                        <div class="logo-content-hebrew logo">המחקר</div>
+                    </div>
+                    <div class="horizontal-nav-cont-without-hamburger">
+                        <div class="links">
+                            <a class="link-to-about-page" id="about" href="About.aspx"></a>
+                        </div>
+                        <div class="buttons">
+                            <%if (Session["user"] != null || Session["journalist"] != null || Session["editor"] != null || Session["admin"] != null)
+                                {%>
+                            <asp:Button ID="btLogOut" CausesValidation="false" CssClass="bt-log-out" OnClick="btLogOut_Click" runat="server" Text="התנתקות" />
+                            <%} %>
+                            <asp:Button ID="btLogIn" CausesValidation="false" CssClass="bt-log-in" OnClick="btLogIn_Click" runat="server" Text="כניסה" />
+                            <asp:Button ID="btRegister" CausesValidation="false" CssClass="bt-register" OnClick="btRegister_Click" runat="server" Text="רישום" />
+                        </div>
+                    </div>
+                    <div class="hamburger-icon" id="icon">
+                        <div class="icon-1 l" id="top"></div>
+                        <div class="icon-2 l" id="middle"></div>
+                        <div class="icon-3 l" id="bottom"></div>
+                        <div class="clear" id="clear"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <nav id="nav">
+                <ul>
+                    <li>
+                        <asp:TextBox ID="search" CssClass="tbSearch" placeholder="חיפוש" runat="server"></asp:TextBox>
+                    </li>
+                    <li class="li"><a href="homePage.aspx">דף בית</a></li>
+                    <li class="li"><a href="aboutSiteaspx.aspx">אודות</a></li>
+                    <li class="li"><a href="favorites.aspx">מועדפים</a></li>
+                    <li class="li"><a href="subscriptionPage.aspx">קניית מנוי</a></li>
+                </ul>
+                <div class="line"></div>
+            </nav>
+            <div class="follower" id="follower"></div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+        <script src="GeneralJS.js"></script>
+    </form>
+
+</body>
+</html>

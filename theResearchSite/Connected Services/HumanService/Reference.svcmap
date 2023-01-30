@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="f6c22d56-87d9-4423-9cb3-4353091db286" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/HumanService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="HumanService.wsdl" MetadataType="Wsdl" ID="713afd35-f13c-465e-8a20-83095c586820" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/HumanService/?wsdl" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="0ed23d5f-6b33-47ab-97a4-f7c5d33afd62" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/HumanService/?xsd=xsd0" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="b6c6485e-0d88-42cc-83a6-0baaa7c45b4c" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/HumanService/?disco" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="954c1e76-535c-4ea9-b8de-efec97380c57" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/HumanService/?xsd=xsd2" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="46a119b8-7c0b-41be-9d43-3377d53e916b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/HumanService/?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

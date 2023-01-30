@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="2254aed3-3967-4863-bb6e-dfddc65d6c62" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/UserNewsInteractionService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="a7820619-9c7f-4f84-b777-94d823f8468a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/UserNewsInteractionService/?disco" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="e9920a0c-28c3-4c17-8aee-e2f1c546fd7e" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/UserNewsInteractionService/?xsd=xsd1" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="99fd0209-751f-4ec2-a929-e5c077049bfd" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/UserNewsInteractionService/?xsd=xsd0" />
+    <MetadataFile FileName="UserNewsInteractionService.wsdl" MetadataType="Wsdl" ID="40f2a657-d589-4ce5-b5e0-baf6fc8cf237" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/UserNewsInteractionService/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="f4bd4c17-ca9b-4961-be90-5ea98b0e8468" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/UserNewsInteractionService/?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
