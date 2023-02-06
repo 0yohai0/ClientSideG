@@ -85,6 +85,9 @@
                     כניסה
             </Button>
 
+            <TextBlock x:Name="emailError" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="Red" Grid.Row="0"></TextBlock>
+            <TextBlock x:Name="passwordError" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="12" Foreground="Red" Grid.Row="0"></TextBlock>
+
         </Grid>
     </Grid>
 </Page>

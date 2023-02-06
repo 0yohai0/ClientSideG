@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="isEmail">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isEmailResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isEmailResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isFrancePhoneNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isFrancePhoneNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isFrancePhoneNumberResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isGermanPhoneNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isGermanPhoneNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isGermanPhoneNumberResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isUSPhoneNumber">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isUSPhoneNumberResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isUSPhoneNumberResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isIp">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isIpResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isIpResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isISBN">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isISBNResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isISBNResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isGUID">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isGUIDResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isGUIDResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isURL">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="isURLResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="isURLResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="is5Numbers">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="str" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="is5NumbersResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="is5NumbersResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="isEmailSoapIn">
+    <wsdl:part name="parameters" element="tns:isEmail" />
+  </wsdl:message>
+  <wsdl:message name="isEmailSoapOut">
+    <wsdl:part name="parameters" element="tns:isEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="isFrancePhoneNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:isFrancePhoneNumber" />
+  </wsdl:message>
+  <wsdl:message name="isFrancePhoneNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:isFrancePhoneNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="isGermanPhoneNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:isGermanPhoneNumber" />
+  </wsdl:message>
+  <wsdl:message name="isGermanPhoneNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:isGermanPhoneNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="isUSPhoneNumberSoapIn">
+    <wsdl:part name="parameters" element="tns:isUSPhoneNumber" />
+  </wsdl:message>
+  <wsdl:message name="isUSPhoneNumberSoapOut">
+    <wsdl:part name="parameters" element="tns:isUSPhoneNumberResponse" />
+  </wsdl:message>
+  <wsdl:message name="isIpSoapIn">
+    <wsdl:part name="parameters" element="tns:isIp" />
+  </wsdl:message>
+  <wsdl:message name="isIpSoapOut">
+    <wsdl:part name="parameters" element="tns:isIpResponse" />
+  </wsdl:message>
+  <wsdl:message name="isISBNSoapIn">
+    <wsdl:part name="parameters" element="tns:isISBN" />
+  </wsdl:message>
+  <wsdl:message name="isISBNSoapOut">
+    <wsdl:part name="parameters" element="tns:isISBNResponse" />
+  </wsdl:message>
+  <wsdl:message name="isGUIDSoapIn">
+    <wsdl:part name="parameters" element="tns:isGUID" />
+  </wsdl:message>
+  <wsdl:message name="isGUIDSoapOut">
+    <wsdl:part name="parameters" element="tns:isGUIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="isURLSoapIn">
+    <wsdl:part name="parameters" element="tns:isURL" />
+  </wsdl:message>
+  <wsdl:message name="isURLSoapOut">
+    <wsdl:part name="parameters" element="tns:isURLResponse" />
+  </wsdl:message>
+  <wsdl:message name="is5NumbersSoapIn">
+    <wsdl:part name="parameters" element="tns:is5Numbers" />
+  </wsdl:message>
+  <wsdl:message name="is5NumbersSoapOut">
+    <wsdl:part name="parameters" element="tns:is5NumbersResponse" />
+  </wsdl:message>
+  <wsdl:portType name="ValidationSoap">
+    <wsdl:operation name="isEmail">
+      <wsdl:input message="tns:isEmailSoapIn" />
+      <wsdl:output message="tns:isEmailSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isFrancePhoneNumber">
+      <wsdl:input message="tns:isFrancePhoneNumberSoapIn" />
+      <wsdl:output message="tns:isFrancePhoneNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isGermanPhoneNumber">
+      <wsdl:input message="tns:isGermanPhoneNumberSoapIn" />
+      <wsdl:output message="tns:isGermanPhoneNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isUSPhoneNumber">
+      <wsdl:input message="tns:isUSPhoneNumberSoapIn" />
+      <wsdl:output message="tns:isUSPhoneNumberSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isIp">
+      <wsdl:input message="tns:isIpSoapIn" />
+      <wsdl:output message="tns:isIpSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isISBN">
+      <wsdl:input message="tns:isISBNSoapIn" />
+      <wsdl:output message="tns:isISBNSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isGUID">
+      <wsdl:input message="tns:isGUIDSoapIn" />
+      <wsdl:output message="tns:isGUIDSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="isURL">
+      <wsdl:input message="tns:isURLSoapIn" />
+      <wsdl:output message="tns:isURLSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="is5Numbers">
+      <wsdl:input message="tns:is5NumbersSoapIn" />
+      <wsdl:output message="tns:is5NumbersSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ValidationSoap" type="tns:ValidationSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="isEmail">
+      <soap:operation soapAction="http://tempuri.org/isEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isFrancePhoneNumber">
+      <soap:operation soapAction="http://tempuri.org/isFrancePhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isGermanPhoneNumber">
+      <soap:operation soapAction="http://tempuri.org/isGermanPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isUSPhoneNumber">
+      <soap:operation soapAction="http://tempuri.org/isUSPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isIp">
+      <soap:operation soapAction="http://tempuri.org/isIp" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isISBN">
+      <soap:operation soapAction="http://tempuri.org/isISBN" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isGUID">
+      <soap:operation soapAction="http://tempuri.org/isGUID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isURL">
+      <soap:operation soapAction="http://tempuri.org/isURL" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="is5Numbers">
+      <soap:operation soapAction="http://tempuri.org/is5Numbers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="ValidationSoap12" type="tns:ValidationSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="isEmail">
+      <soap12:operation soapAction="http://tempuri.org/isEmail" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isFrancePhoneNumber">
+      <soap12:operation soapAction="http://tempuri.org/isFrancePhoneNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isGermanPhoneNumber">
+      <soap12:operation soapAction="http://tempuri.org/isGermanPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isUSPhoneNumber">
+      <soap12:operation soapAction="http://tempuri.org/isUSPhoneNumber" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isIp">
+      <soap12:operation soapAction="http://tempuri.org/isIp" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isISBN">
+      <soap12:operation soapAction="http://tempuri.org/isISBN" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isGUID">
+      <soap12:operation soapAction="http://tempuri.org/isGUID" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="isURL">
+      <soap12:operation soapAction="http://tempuri.org/isURL" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="is5Numbers">
+      <soap12:operation soapAction="http://tempuri.org/is5Numbers" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Validation">
+    <wsdl:port name="ValidationSoap" binding="tns:ValidationSoap">
+      <soap:address location="https://renad.org/WebServices/Services/Validation.asmx" />
+    </wsdl:port>
+    <wsdl:port name="ValidationSoap12" binding="tns:ValidationSoap12">
+      <soap12:address location="https://renad.org/WebServices/Services/Validation.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

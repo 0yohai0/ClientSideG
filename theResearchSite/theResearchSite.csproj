@@ -113,6 +113,10 @@
     <Content Include="Connected Services\HumanService\theResearchSite.HumanService.WorkerList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
+    <None Include="Connected Services\IdService\IdTools.wsdl" />
+    <Content Include="Connected Services\IdService\theResearchSite.IdService.CheckIsraelIdNumResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
     <None Include="Connected Services\NewsService\item.disco" />
     <None Include="Connected Services\NewsService\configuration91.svcinfo" />
     <None Include="Connected Services\NewsService\configuration.svcinfo" />
@@ -134,6 +138,81 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+    <None Include="Connected Services\IdService\IdTools.disco" />
+    <None Include="Connected Services\IdService\configuration91.svcinfo" />
+    <None Include="Connected Services\IdService\configuration.svcinfo" />
+    <None Include="Connected Services\IdService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\ValidationService\theResearchSite.ValidationService.is5NumbersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ValidationService\theResearchSite.ValidationService.isEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ValidationService\theResearchSite.ValidationService.isFrancePhoneNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ValidationService\theResearchSite.ValidationService.isGermanPhoneNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ValidationService\theResearchSite.ValidationService.isGUIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ValidationService\theResearchSite.ValidationService.isIpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ValidationService\theResearchSite.ValidationService.isISBNResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ValidationService\theResearchSite.ValidationService.isURLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\ValidationService\theResearchSite.ValidationService.isUSPhoneNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ValidationService\Validation.disco" />
+    <None Include="Connected Services\ValidationService\configuration91.svcinfo" />
+    <None Include="Connected Services\ValidationService\configuration.svcinfo" />
+    <None Include="Connected Services\ValidationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Connected Services\Validation\theResearchSite.Validation.is5NumbersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Validation\theResearchSite.Validation.isEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Validation\theResearchSite.Validation.isFrancePhoneNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Validation\theResearchSite.Validation.isGermanPhoneNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Validation\theResearchSite.Validation.isGUIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Validation\theResearchSite.Validation.isIpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Validation\theResearchSite.Validation.isISBNResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Validation\theResearchSite.Validation.isURLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <Content Include="Connected Services\Validation\theResearchSite.Validation.isUSPhoneNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\Validation\Validation.disco" />
+    <None Include="Connected Services\Validation\configuration91.svcinfo" />
+    <None Include="Connected Services\Validation\configuration.svcinfo" />
+    <None Include="Connected Services\Validation\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="favorites.aspx" />
     <Content Include="GeneralCss.css" />
     <Content Include="generalImages\mars.jpg" />
@@ -142,6 +221,7 @@
     <Content Include="generalImages\spaceEarth.jpeg" />
     <Content Include="generalImages\splash.jpg" />
     <Content Include="GeneralJS.js" />
+    <Content Include="GvNews.aspx" />
     <Content Include="homePage.aspx" />
     <Content Include="logIn.aspx" />
     <Content Include="newsImages\blackHoleCollision.jpg" />
@@ -177,6 +257,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\IdService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\NewsService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -187,12 +272,29 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ValidationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Validation\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="favorites.aspx.cs">
       <DependentUpon>favorites.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="favorites.aspx.designer.cs">
       <DependentUpon>favorites.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GvNews.aspx.cs">
+      <DependentUpon>GvNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GvNews.aspx.designer.cs">
+      <DependentUpon>GvNews.aspx</DependentUpon>
     </Compile>
     <Compile Include="homePage.aspx.cs">
       <DependentUpon>homePage.aspx</DependentUpon>
@@ -276,6 +378,8 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\UserNewsInteractionService\UserNewsInteractionService.wsdl" />
+    <None Include="Connected Services\ValidationService\Validation.wsdl" />
+    <None Include="Connected Services\Validation\Validation.wsdl" />
     <None Include="packages.config" />
     <Content Include="TheResearchMasterPage.Master" />
     <None Include="Web.Debug.config">
@@ -292,8 +396,11 @@
     <WCFMetadataStorage Include="Connected Services\AuthService\" />
     <WCFMetadataStorage Include="Connected Services\creditCardService\" />
     <WCFMetadataStorage Include="Connected Services\HumanService\" />
+    <WCFMetadataStorage Include="Connected Services\IdService\" />
     <WCFMetadataStorage Include="Connected Services\NewsService\" />
     <WCFMetadataStorage Include="Connected Services\UserNewsInteractionService\" />
+    <WCFMetadataStorage Include="Connected Services\ValidationService\" />
+    <WCFMetadataStorage Include="Connected Services\Validation\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

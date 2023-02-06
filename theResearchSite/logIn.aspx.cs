@@ -133,7 +133,7 @@ namespace theResearchSite
                 if (authLevel == "מנהל")
                 {
                     Session["admin"] = true;
-                    Response.Redirect("gvUsersPage.aspx");
+                    Response.Redirect("GvNews.aspx");
                 }
             }
         }

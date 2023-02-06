@@ -11,6 +11,12 @@
                     <asp:TextBox ID="txbCreditNumber" placeholder="מספר כרטיס" runat="server" CssClass="input"></asp:TextBox>
                 </td>
             </tr>
+
+            <tr>
+                <td>
+                    <asp:TextBox ID="txbId" placeholder="ת.ז" runat="server" CssClass="input"></asp:TextBox>
+                </td>
+            </tr>
             <tr>
                 <td>
                     <input id="dExpaireDate" name="dExpaireDate" type="date" class="input" />

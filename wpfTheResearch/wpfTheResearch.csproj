@@ -69,6 +69,11 @@
     </Compile>
     <Compile Include="AuthorizationControl.cs" />
     <Compile Include="CarInRace.cs" />
+    <Compile Include="Connected Services\ValidationService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Driver.cs" />
     <Compile Include="Connected Services\AuthService\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -97,12 +102,21 @@
     </Compile>
     <Compile Include="Formula1Race.cs" />
     <Compile Include="FormulaCar.cs" />
+    <Compile Include="oneAuth.xaml.cs">
+      <DependentUpon>oneAuth.xaml</DependentUpon>
+    </Compile>
     <Compile Include="oneUser.xaml.cs">
       <DependentUpon>oneUser.xaml</DependentUpon>
     </Compile>
     <Compile Include="RaceGameUser.cs" />
     <Compile Include="RacePage.xaml.cs">
       <DependentUpon>RacePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="showAuths.xaml.cs">
+      <DependentUpon>showAuths.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowComments.xaml.cs">
+      <DependentUpon>ShowComments.xaml</DependentUpon>
     </Compile>
     <Compile Include="showUsers.xaml.cs">
       <DependentUpon>showUsers.xaml</DependentUpon>
@@ -196,6 +210,34 @@
     <None Include="Connected Services\UserNewsInteractionService\wpfTheResearch.UserNewsInteractionService.FavoriteList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
+    <None Include="Connected Services\ValidationService\Validation.wsdl" />
+    <None Include="Connected Services\ValidationService\wpfTheResearch.ValidationService.is5NumbersResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ValidationService\wpfTheResearch.ValidationService.isEmailResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ValidationService\wpfTheResearch.ValidationService.isFrancePhoneNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ValidationService\wpfTheResearch.ValidationService.isGermanPhoneNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ValidationService\wpfTheResearch.ValidationService.isGUIDResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ValidationService\wpfTheResearch.ValidationService.isIpResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ValidationService\wpfTheResearch.ValidationService.isISBNResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ValidationService\wpfTheResearch.ValidationService.isURLResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\ValidationService\wpfTheResearch.ValidationService.isUSPhoneNumberResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -222,6 +264,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="oneAuth.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="oneUser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -233,6 +279,14 @@
     <Page Include="ResourceDictionary\StyleGeneral.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="showAuths.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowComments.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="showUsers.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -283,6 +337,7 @@
     <WCFMetadataStorage Include="Connected Services\HumanService\" />
     <WCFMetadataStorage Include="Connected Services\NewsService\" />
     <WCFMetadataStorage Include="Connected Services\UserNewsInteractionService\" />
+    <WCFMetadataStorage Include="Connected Services\ValidationService\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\creditService\creditService.disco" />
@@ -359,8 +414,21 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="classesInUse\" />
+    <None Include="Connected Services\ValidationService\Validation.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ValidationService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ValidationService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ValidationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

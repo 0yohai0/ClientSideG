@@ -24,13 +24,14 @@ namespace theResearchSite
             int.TryParse(Session["userId"].ToString(), out int userID);
             DateTime.TryParse(Request.Form["dExpaireDate"], out DateTime expireDate);
 
-
             //בדיקות
+            bool error = false;
+            //בדיקת ת.ז לשם ההדגמה
+            IdService.IdToolsSoapClient idToolsSoapClient = new IdService.IdToolsSoapClient();
+            error = idToolsSoapClient.CheckIsraelIdNum(txbId.Text);
+            creditCardService.creditServiceSoapClient credit = new creditCardService.creditServiceSoapClient();
 
             //קריאה לשירות רשת
-            //צריך בדיקה
-
-            creditCardService.creditServiceSoapClient credit = new creditCardService.creditServiceSoapClient();
             int result = credit.creditCardCheck(3, creditCardNumber, 100, expireDate, userID);
 
             //התייחסות לתוצאות ההעברה

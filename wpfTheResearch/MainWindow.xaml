@@ -19,6 +19,8 @@
             <HamburgerMenu:HamburgerMenuItem x:Name="Dummy" Text="Dummy"  Visibility="Collapsed" />
             <HamburgerMenu:HamburgerMenuItem Name="hmiHomePage" Icon="icons/homeIcon-modified.png"  Text="דף הבית" SelectionCommand="{Binding ElementName=this_}" Selected="hmiHomePage_Selected"  FontSize="10" FontFamily="Georgia Pro Cond Semibold"></HamburgerMenu:HamburgerMenuItem>
             <HamburgerMenu:HamburgerMenuItem Name="hmiShowUsers" Icon="icons/userIcon-modified.png" Text="משתמשים" SelectionCommand="{Binding ElementName=this_}" Selected="hmiShowUsers_Selected"></HamburgerMenu:HamburgerMenuItem>
+            <HamburgerMenu:HamburgerMenuItem Name="hmiShowAuths" Icon="icons/keyIcon-modified.png" Text="הרשאות" SelectionCommand="{Binding ElementName=this_}" Selected="hmiShowAuths_Selected"></HamburgerMenu:HamburgerMenuItem>
+            <HamburgerMenu:HamburgerMenuItem Name="hmiShowComments"  Text="תגובות" SelectionCommand="{Binding ElementName=this_}" Selected="hmiShowComments_Selected"></HamburgerMenu:HamburgerMenuItem>
             <HamburgerMenu:HamburgerMenuItem Name="hmiFormula1Game" Icon="icons/carIcon-modified.png" Text="פורמולה1" SelectionCommand="{Binding ElementName=this_}" Selected="hmiFormula1Game_Selected"></HamburgerMenu:HamburgerMenuItem>
             <HamburgerMenu:HamburgerMenuItem Name="hmilogOut" Icon="icons/logoutIcon-modified.png" Text="ניתוק" SelectionCommand="{Binding ElementName=this_}" Selected="hmilogOut_Selected"></HamburgerMenu:HamburgerMenuItem>
             <HamburgerMenu:HamburgerMenuItem Name="hmiabout" Icon="icons/aboutIcon-modified.png" Text="אודות" SelectionCommand="{Binding ElementName=this_}" Selected="hmiabout_Selected"></HamburgerMenu:HamburgerMenuItem>

@@ -24,16 +24,17 @@ namespace viewModelWpfTheResearch
     /// <summary>
     /// Interaction logic for showUsers.xaml
     /// </summary>
-    public delegate int UserActions(wpfTheResearch.HumanService.User user);
+    public delegate int UserActions(User user);
     public partial class showUsers : Page
     {
         static int i = 1;
         HumanClient HumanClient = new HumanClient();
         AuthClient authClient = new AuthClient();
-        wpfTheResearch.HumanService.UserList usersList = new wpfTheResearch.HumanService.UserList();
-        wpfTheResearch.HumanService.User user = new wpfTheResearch.HumanService.User();
-        wpfTheResearch.HumanService.User users = new wpfTheResearch.HumanService.User();
-        wpfTheResearch.AuthService.AuthLevelList auths;
+
+        UserList usersList = new UserList();
+        User user = new User();
+        //User users = new User();
+        AuthLevelList auths;
         public showUsers()
         {
             InitializeComponent();
@@ -45,13 +46,11 @@ namespace viewModelWpfTheResearch
         }
         public void populate(UserList usersNew)
         {
-
             this.lvUsers.ItemsSource = null;
             this.lvUsers.ItemsSource = usersNew;
         }
         public int insertUser(User user)
         {
-
             user.birthDate = DateTime.Now;
             int rowsEffected = HumanClient.Add(EnumshumanType.user, user);
             usersList.Add(user);
@@ -65,21 +64,12 @@ namespace viewModelWpfTheResearch
             populate(usersList);
             return rowsEffected;
         }
-        //public int deleteUser(User user)
-        //{
-        //    UserDB users = new UserDB();
-        //    users.Delete(user);
-        //    int rowsEffected = users.saveChanges();
-        //    usersList.Remove(user);
-        //    populate(usersList);
-        //    return rowsEffected;
-        //}
 
         private void Insert(object sender, RoutedEventArgs e)
         {
             UserActions insert = new UserActions(insertUser);
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new oneUser(insert, new wpfTheResearch.HumanService.User()));
+            nav.Navigate(new oneUser(insert, new User()));
         }
         private void Update(object sender, RoutedEventArgs e)
         {
@@ -87,14 +77,6 @@ namespace viewModelWpfTheResearch
             NavigationService nav = NavigationService.GetNavigationService(this);
             nav.Navigate(new oneUser(insert, user));
         }
-        //private void delete(object sender, RoutedEventArgs e)
-        //{
-        //    UserActions delete = new UserActions(deleteUser);
-        //    int rowsEffected = delete(user);
-
-        //    this.lvUsers.ItemsSource = null;
-        //    this.lvUsers.ItemsSource = usersList;
-        //}
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
             //if (AuthorizationControl.authAdmin == false)
@@ -105,60 +87,103 @@ namespace viewModelWpfTheResearch
         }
         private void lvUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            user = this.lvUsers.SelectedItem as wpfTheResearch.HumanService.User;
+            user = this.lvUsers.SelectedItem as User;
         }
-        public int GetDirection(int currentDirection)
+        public int GetDirection()
         {
-            return currentDirection * -1;
+            i = i * -1;
+            return i;
         }
         //-1: asc, 1:dsc
         private void lvUsers_Click(object sender, RoutedEventArgs e)
         {
-            int direction = GetDirection(i);
+            int direction = GetDirection();
             UserList usersNow = new UserList();
             string colum = ((GridViewColumnHeader)e.OriginalSource).Column.Header.ToString();
-            if(colum == "שם משתמש")
+
+            if(direction ==1)
             {
-               foreach(User user in usersList.OrderBy(x=>x.name))
-               {
-                    usersNow.Add(user);
-               }
-            }
-            if (colum == "מספר מזהה")
-            {
-                foreach (User user in usersList.OrderBy(x => x.Id))
+                if (colum == "שם משתמש")
                 {
-                    usersNow.Add(user);
+                    foreach (User user in usersList.OrderBy(x => x.name))
+                    {
+                        usersNow.Add(user);
+                    }
+                }
+                if (colum == "מספר מזהה")
+                {
+                    foreach (User user in usersList.OrderBy(x => x.Id))
+                    {
+                        usersNow.Add(user);
+                    }
+                }
+                if (colum == "ססמה")
+                {
+                    foreach (User user in usersList.OrderBy(x => x.password))
+                    {
+                        usersNow.Add(user);
+                    }
+                }
+                if (colum == "אימייל")
+                {
+                    foreach (User user in usersList.OrderBy(x => x.email))
+                    {
+                        usersNow.Add(user);
+                    }
+                }
+                if (colum == "רמת הרשאה")
+                {
+                    foreach (User user in usersList.OrderBy(x => x.authLevel.name))
+                    {
+                        usersNow.Add(user);
+                    }
                 }
             }
-            if (colum == "ססמה")
+
+            else if(direction == -1)
             {
-                foreach (User user in usersList.OrderBy(x => x.password))
+                if (colum == "שם משתמש")
                 {
-                    usersNow.Add(user);
+                    foreach (User user in usersList.OrderByDescending(x => x.name))
+                    {
+                        usersNow.Add(user);
+                    }
+                }
+                if (colum == "מספר מזהה")
+                {
+                    foreach (User user in usersList.OrderByDescending(x => x.Id))
+                    {
+                        usersNow.Add(user);
+                    }
+                }
+                if (colum == "ססמה")
+                {
+                    foreach (User user in usersList.OrderByDescending(x => x.password))
+                    {
+                        usersNow.Add(user);
+                    }
+                }
+                if (colum == "אימייל")
+                {
+                    foreach (User user in usersList.OrderByDescending(x => x.email))
+                    {
+                        usersNow.Add(user);
+                    }
+                }
+                if (colum == "רמת הרשאה")
+                {
+                    foreach (User user in usersList.OrderByDescending(x => x.authLevel.name))
+                    {
+                        usersNow.Add(user);
+                    }
                 }
             }
-            if (colum == "אימייל")
-            {
-                foreach (User user in usersList.OrderBy(x => x.email))
-                {
-                    usersNow.Add(user);
-                }
-            }
-            if (colum == "רמת הרשאה")
-            {
-                foreach (User user in usersList.OrderBy(x => x.authLevel.name))
-                {
-                    usersNow.Add(user);
-                }
-            }
-            this.lvUsers.ItemsSource = null;
-            this.lvUsers.ItemsSource = usersNow;
+            populate(usersNow);
         }
 
         private void btDemarcation_Click(object sender, RoutedEventArgs e)
         {
-            wpfTheResearch.HumanService.UserList newUsers = new wpfTheResearch.HumanService.UserList();
+            UserList newUsers = new UserList();
             newUsers = usersList;
 
             int.TryParse(txbIdUser.Text, out int Id);
@@ -167,7 +192,6 @@ namespace viewModelWpfTheResearch
 
             string email = txbEmail.Text;
 
-            // AuthLevel newAuth = new AuthLevel();
             wpfTheResearch.AuthService.AuthLevel newAuth = new wpfTheResearch.AuthService.AuthLevel();
             if (cmbDemarc.SelectedItem != null)
             {

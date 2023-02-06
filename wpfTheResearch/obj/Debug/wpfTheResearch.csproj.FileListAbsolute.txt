@@ -70,3 +70,9 @@ C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.csproj.CoreCom
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.csproj.CopyComplete
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.exe
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.pdb
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\showAuths.g.cs
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\showAuths.baml
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\oneAuth.g.cs
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\oneAuth.baml
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ShowComments.g.cs
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ShowComments.baml

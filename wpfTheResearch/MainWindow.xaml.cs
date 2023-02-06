@@ -54,6 +54,14 @@ namespace viewModelWpfTheResearch
             currentFrame.Navigate(new about());
         }
 
+        private void hmiShowAuths_Selected(object sender, RoutedEventArgs e)
+        {
+            currentFrame.Navigate(new showAuths());
+        }
 
+        private void hmiShowComments_Selected(object sender, RoutedEventArgs e)
+        {
+            currentFrame.Navigate(new ShowComments());
+        }
     }
 }

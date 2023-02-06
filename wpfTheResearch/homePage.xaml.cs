@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Security.Policy;
@@ -15,7 +16,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using viewModelWpfTheResearch;
+using wpfTheResearch;
 using wpfTheResearch.HumanService;
+using wpfTheResearch.ValidationService;
 using WpfViewModelTheResearch;
 
 namespace viewModelWpfTheResearch
@@ -40,10 +43,17 @@ namespace viewModelWpfTheResearch
             User user = new User() { email = email, password = password };
             UserList Allusers = humanClient.selectAllUsers();
             User TestUser = Allusers.Find(x=>(x.email == user.email) && (x.password == user.password));
+
+            //בדיקת מייל לפי רנד
+            ValidationSoapClient validationSoapClient = new ValidationSoapClient();
+            if (!validationSoapClient.isEmail(email))
+            {
+                emailError.Text = "אימייל לא תקין";
+            }
             if(TestUser == null)
             {
                 //משתמש לא קיים
-                return;
+                return; 
             }
 
             string result = TestUser.authLevel.name;

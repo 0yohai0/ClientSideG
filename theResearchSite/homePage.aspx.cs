@@ -61,13 +61,23 @@ namespace theResearchSite
             for(int i=1; i<=3; i++)
             {
                 lNews.Text += $"<table class=\"single-news\"><tr><td> <a href=\"singleNews.aspx?NewsId={news[i].Id}\"> <img class=\"Minor3Img\" src=\"{news[i].imagePath}\"/></a></td>";
-                lNews.Text += $"<td> <div class=\"infoWrap\"> <div class=\"headLineNews\">{news[i].headLine}</div>  <div class=\"second-title\">  <div> {news[i].secondaryTitle.Trim()}</div> <div class=\"date-stuff\"> <div class=\"stuff-names\"></div>   <div class=\"date\">תאריך פרסום:{news[i].dateTimePublished.Date.ToString().Substring(0, 11).Trim()}</div> <div> <input type=\"submit\" name=\"addToNewsCart{news[i].Id}\" value=\"הוספה למועדפים\" / > </div></td> </tr> </div> </div> </div> </td></tr></table>";
+                lNews.Text += $"<td> <div class=\"infoWrap\"> <div class=\"headLineNews\">{news[i].headLine}</div>  <div class=\"second-title\">  <div> {news[i].secondaryTitle.Trim()}</div> <div class=\"date-stuff\"> <div class=\"stuff-names\"></div>   <div class=\"date\">תאריך פרסום:{news[i].dateTimePublished.Date.ToString().Substring(0, 11).Trim()}</div> <div> <input type=\"submit\" class=\"add-to-favorite-bt\" name=\"addToNewsCart{news[i].Id}\" value=\"&#10084;\" / > </div></td> </tr> </div> </div> </div> </td></tr></table>";
             }
             lNews.Text += "</table></div>";
             lNews.Text += "</div>";
             lNews.Text += "<div class=\"seperetion-line\"></div>";
 
             lNews.Text += "</div>";
+
+            // חלק 2 - חדשות ברצף
+            //lNews.Text += "<div class=\"news-line-wrap\">";
+            //foreach (News item in news.Skip(4))
+            //{
+            //    lNews.Text += "<div>";
+            //    lNews.Text += "";
+            //    lNews.Text += "</div>";
+            //}        
+            //lNews.Text += "</div>";
         }
 
         public void addToCart(int newsId)

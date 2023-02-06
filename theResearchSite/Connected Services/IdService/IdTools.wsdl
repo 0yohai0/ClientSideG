@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tns="http://tempuri.org/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CheckIsraelIdNum">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="idNum" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckIsraelIdNumResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckIsraelIdNumResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckIsraelIdNumSoapIn">
+    <wsdl:part name="parameters" element="tns:CheckIsraelIdNum" />
+  </wsdl:message>
+  <wsdl:message name="CheckIsraelIdNumSoapOut">
+    <wsdl:part name="parameters" element="tns:CheckIsraelIdNumResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IdToolsSoap">
+    <wsdl:operation name="CheckIsraelIdNum">
+      <wsdl:input message="tns:CheckIsraelIdNumSoapIn" />
+      <wsdl:output message="tns:CheckIsraelIdNumSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="IdToolsSoap" type="tns:IdToolsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckIsraelIdNum">
+      <soap:operation soapAction="http://tempuri.org/CheckIsraelIdNum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="IdToolsSoap12" type="tns:IdToolsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CheckIsraelIdNum">
+      <soap12:operation soapAction="http://tempuri.org/CheckIsraelIdNum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IdTools">
+    <wsdl:port name="IdToolsSoap" binding="tns:IdToolsSoap">
+      <soap:address location="https://renad.org/WebServices/Services/IdTools.asmx" />
+    </wsdl:port>
+    <wsdl:port name="IdToolsSoap12" binding="tns:IdToolsSoap12">
+      <soap12:address location="https://renad.org/WebServices/Services/IdTools.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

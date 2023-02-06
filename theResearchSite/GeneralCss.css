@@ -410,82 +410,61 @@ nav.show {
 }
 /*--------------------------------------------------------------------------*/
 /*דף הוספת חדשות*/
-.add-news-table {
-    position: relative;
-    top: 25vh;
-    border-collapse:collapse;
-    right: 12vw;
-}
-.add-news-table tr {
-    border-bottom: #971d1d 2px solid;
-    text-align: right;
-    padding-top: 6vh;
-    padding-bottom: 6vh;
-}
-.contentNews{
-    width:30vw;
-    height:15vh;
-}
-.subject {
-    font-size: 30px;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding-left:2vw;
-}
+
 /*---------------------------------------------*/
 /*דף גריד משתמשים*/
-.grid-users{
-    margin:20vh 20vw;
-    font-size:20px;
+.grid{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 15px;
 }
-.demarcation-wrap{
-    position:relative;
-    top:10vh;
-    width:100vw;
-    height:10vh;
-    background-color:#b4b4b4;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-}
-.txb-demarcation {
-    font-size: 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
-    text-align:center;
+.grid-wrap {
+    position: absolute;
+    top: 250px;
+    right:100px;
 }
 /*------------------------------------------------------*/
 /*דף הבית- חדשות*/
-.top-News-Block-Wrap{
-    position:relative;
-    right:1vw;
-    top:5vh;
+.top-News-Block-Wrap {
+    position: relative;
+    right: 1vw;
+    top: 5vh;
 }
-.firstNewsWrap{
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.single-news{
+    height:115px;
+}
+.firstNewsWrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .bigNewsImg{
     border-radius:5px;
     width:600px;
-    height:400px;
+    height:420px;
     margin-left:30px;
 }
 .Minor3Img {
     border-radius: 2px;
-    width: 155px;
-    height: 126px;
+    width: 160px;
+    height: 120px;
 }
-.infoWrap{
-    margin-bottom:65px;
-    text-align:right;
-    display:flex;
-    justify-content:center;
-    align-items:start;
-    flex-direction:column;
-    width:400px;
-    height:inherit;
+.add-to-favorite-bt
+{
+    color:gray;
+    background:none;
+    font-size:18px;
+    border:none;
+}
+.infoWrap {
+    margin-bottom: 65px;
+    margin-right:12px;
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    width: 400px;
+    height: inherit;
 }
 .seperetion-line {
     height: 1vh;
@@ -514,13 +493,21 @@ nav.show {
 .date-stuff{
     font-size:12px!important;
     font-family:'Times New Roman', Times, serif;
+    margin-top:15px;
+}
+
+/*חלק 2-שורת חדשות*/
+.news-line-wrap{
+    display:flex;
+    align-items:center;
+    flex-direction:column;
+    justify-content:space-between;
 }
 /*---------------------------------------------------------------------*/
-
 /*דף חדשה יחידה*/
-.tb-single-item{
-    margin:auto; 
-    margin-top:5vh;
+.tb-single-item {
+    margin: auto;
+    margin-top: 5vh;
 }
 .tb-single-item td {
     width: 70vw;

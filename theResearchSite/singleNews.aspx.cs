@@ -14,7 +14,18 @@ namespace theResearchSite
         NewsService.NewsList news = new NewsService.NewsList();
         protected void Page_Load(object sender, EventArgs e)
         {
+            //applicationUse
+            if (Application[Request.Url.ToString()] == null)
+            {
+                Application[Request.Url.ToString()] = 0;
+            }
+            Application[Request.Url.ToString()] = (int)Application[Request.Url.ToString()]+1;
+
             //בדיקה שהגיע מדף חדשות רבות
+            if(Request["NewsId"]==null)
+            {
+                Response.Redirect("homePage.aspx");
+            }
             if(!IsPostBack)
             {
                 populate();
@@ -38,7 +49,7 @@ namespace theResearchSite
             //תמונה             
             lSingleNews.Text += $" <tr> <td><img src={singleNews.imagePath} class=\"img-news\" /></td> </tr>";
             //אינטראקצית משתמש  
-            lSingleNews.Text += $" <tr> <td class=\"\"><div> <divclass=\"single-item-date\">{singleNews.dateTimePublished.Date.ToString().Substring(0, 11).Trim()}</div> <div class=\"single-item-writers-and-editors\">כותבים כותבים עורכים עורכים</div>  </div></td> </tr>";
+            lSingleNews.Text += $" <tr> <td class=\"\"><div> <divclass=\"single-item-date\">{singleNews.dateTimePublished.Date.ToString().Substring(0, 11).Trim()}</div> <div class=\"single-item-writers-and-editors\">צפיות בכתבה:{Application[Request.Url.ToString()]}</div>  </div></td> </tr>";
             //תוכן            
             lSingleNews.Text += $" <tr> <td  class=\"single-item-content\"> <div class=\"first-letter\">  {singleNews.content[0]}</div> <div style=\"display:inline;\"> {singleNews.content.Substring(1)}</div> </td> </tr>";
 
