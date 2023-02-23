@@ -30,6 +30,9 @@ namespace theResearchSite.NewsService {
         private theResearchSite.NewsService.AuthLevel AuthLevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private theResearchSite.NewsService.Category categoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string contentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -44,9 +47,6 @@ namespace theResearchSite.NewsService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string secondaryTitleField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private theResearchSite.NewsService.UserList stuffField;
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public theResearchSite.NewsService.AuthLevel AuthLevel {
             get {
@@ -56,6 +56,19 @@ namespace theResearchSite.NewsService {
                 if ((object.ReferenceEquals(this.AuthLevelField, value) != true)) {
                     this.AuthLevelField = value;
                     this.RaisePropertyChanged("AuthLevel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public theResearchSite.NewsService.Category category {
+            get {
+                return this.categoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.categoryField, value) != true)) {
+                    this.categoryField = value;
+                    this.RaisePropertyChanged("category");
                 }
             }
         }
@@ -124,19 +137,6 @@ namespace theResearchSite.NewsService {
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public theResearchSite.NewsService.UserList stuff {
-            get {
-                return this.stuffField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.stuffField, value) != true)) {
-                    this.stuffField = value;
-                    this.RaisePropertyChanged("stuff");
-                }
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -144,8 +144,7 @@ namespace theResearchSite.NewsService {
     [System.Runtime.Serialization.DataContractAttribute(Name="BaseEntity", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(theResearchSite.NewsService.AuthLevel))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(theResearchSite.NewsService.Human))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(theResearchSite.NewsService.User))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(theResearchSite.NewsService.Category))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(theResearchSite.NewsService.News))]
     public partial class BaseEntity : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -213,64 +212,12 @@ namespace theResearchSite.NewsService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Human", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(theResearchSite.NewsService.User))]
-    public partial class Human : theResearchSite.NewsService.BaseEntity {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private theResearchSite.NewsService.AuthLevel authLevelField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime birthDateField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string emailField;
+    public partial class Category : theResearchSite.NewsService.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string nameField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string passwordField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public theResearchSite.NewsService.AuthLevel authLevel {
-            get {
-                return this.authLevelField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.authLevelField, value) != true)) {
-                    this.authLevelField = value;
-                    this.RaisePropertyChanged("authLevel");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime birthDate {
-            get {
-                return this.birthDateField;
-            }
-            set {
-                if ((this.birthDateField.Equals(value) != true)) {
-                    this.birthDateField = value;
-                    this.RaisePropertyChanged("birthDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string email {
-            get {
-                return this.emailField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.emailField, value) != true)) {
-                    this.emailField = value;
-                    this.RaisePropertyChanged("email");
-                }
-            }
-        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public string name {
@@ -284,65 +231,6 @@ namespace theResearchSite.NewsService {
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string password {
-            get {
-                return this.passwordField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.passwordField, value) != true)) {
-                    this.passwordField = value;
-                    this.RaisePropertyChanged("password");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
-    [System.SerializableAttribute()]
-    public partial class User : theResearchSite.NewsService.Human {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IdUserField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string userNameField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int IdUser {
-            get {
-                return this.IdUserField;
-            }
-            set {
-                if ((this.IdUserField.Equals(value) != true)) {
-                    this.IdUserField = value;
-                    this.RaisePropertyChanged("IdUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string userName {
-            get {
-                return this.userNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userNameField, value) != true)) {
-                    this.userNameField = value;
-                    this.RaisePropertyChanged("userName");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="UserList", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch", ItemName="User")]
-    [System.SerializableAttribute()]
-    public class UserList : System.Collections.Generic.List<theResearchSite.NewsService.User> {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]

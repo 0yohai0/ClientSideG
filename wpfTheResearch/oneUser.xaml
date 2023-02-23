@@ -94,7 +94,7 @@
             </TextBox>
             <!--<TextBox  Grid.Row="1" Name="txbEmail"  Text="{Binding email}" Grid.Column="0" Height="25" ></TextBox>-->
             <!--<TextBox  Grid.Row="2" Name="txbPassword" Text="{Binding password}" Grid.Column="0" Height="25" ></TextBox>-->
-            <ComboBox Grid.Row="3" Width="250" HorizontalAlignment="Center" SelectionChanged="cmbAuths_SelectionChanged" SelectedValuePath = "IdAuthLevel" DisplayMemberPath = "name" Height="20" Name="cmbAuths"></ComboBox>
+            <ComboBox Grid.Row="3" Width="250" HorizontalAlignment="Center" SelectionChanged="cmbAuths_SelectionChanged"  Height="20" Name="cmbAuths"></ComboBox>
         </Grid>
         <Image Grid.Column="2" Grid.Row="1" Source="/icons/personImg.png" />
 

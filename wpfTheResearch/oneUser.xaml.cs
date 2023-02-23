@@ -32,17 +32,18 @@ namespace viewModelWpfTheResearch
         {
             InitializeComponent();
         }
-        public oneUser(UserActions action, wpfTheResearch.HumanService.User user) : this()
+        public oneUser(UserActions action, User user, AuthLevelList authList) : this()
         {
             this.action = action;
             this.user = user;
+           this.auths = authList;
             txbUserName.DataContext = user;
             txbEmail.DataContext = user;
             txbPassword.DataContext = user;
             cmbAuths.ItemsSource = auths;
             cmbAuths.DataContext = user.authLevel;
-            if(user.authLevel != null)
-            cmbAuths.SelectedItem = user.authLevel;
+            cmbAuths.SelectedValuePath = "Id";
+            cmbAuths.DisplayMemberPath = "name";
 
         }
 
@@ -70,8 +71,13 @@ namespace viewModelWpfTheResearch
         {
             if(cmbAuths.SelectedItem != null)
             {
-                wpfTheResearch.HumanService.AuthLevel newAuth = cmbAuths.SelectedItem as wpfTheResearch.HumanService.AuthLevel;
-              user.authLevel = newAuth;
+                wpfTheResearch.HumanService.AuthLevel newAuth = new wpfTheResearch.HumanService.AuthLevel();
+                int.TryParse(cmbAuths.SelectedValue.ToString(), out int id);
+                newAuth.Id = id;
+                wpfTheResearch.AuthService.AuthLevel authT = new wpfTheResearch.AuthService.AuthLevel();
+                authT = (wpfTheResearch.AuthService.AuthLevel)cmbAuths.SelectedItem;
+                newAuth.name = authT.name;
+                user.authLevel = newAuth;
             }
         }
     }

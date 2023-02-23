@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\theResearch\clientSide\wpfTheResearch\App.xaml
-11-828874929
+12874696398
 
-29-1277371517
+301523364260
 16-1770631044
-about.xaml;Formula1Game.xaml;homePage.xaml;MainWindow.xaml;oneAuth.xaml;oneUser.xaml;RacePage.xaml;ResourceDictionary\StyleGeneral.xaml;showAuths.xaml;ShowComments.xaml;showUsers.xaml;
+about.xaml;Formula1Game.xaml;homePage.xaml;MainWindow.xaml;oneAuth.xaml;oneUser.xaml;RacePage.xaml;ResourceDictionary\StyleGeneral.xaml;showAuths.xaml;ShowComments.xaml;showUsers.xaml;textBox-farFromHome.xaml;
 
-False
+True
 

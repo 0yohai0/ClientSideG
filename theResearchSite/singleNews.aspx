@@ -4,6 +4,5 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
      <asp:Label ID="lSingleNews" runat="server" Text=""></asp:Label>
-<serch type="search" ></serch> 
-    <script src="GeneralJS.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 </asp:Content>

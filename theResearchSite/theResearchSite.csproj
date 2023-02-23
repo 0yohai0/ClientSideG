@@ -80,7 +80,21 @@
     <None Include="Connected Services\AuthService\item2.xsd">
       <SubType>Designer</SubType>
     </None>
+    <Content Include="addNews.aspx" />
     <Content Include="Connected Services\AuthService\theResearchSite.AuthService.AuthLevelList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\CategoryService\CategoryService.wsdl" />
+    <None Include="Connected Services\CategoryService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CategoryService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CategoryService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <Content Include="Connected Services\CategoryService\theResearchSite.CategoryService.CategoryList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Content>
     <None Include="Connected Services\creditCardService\creditService.disco" />
@@ -106,6 +120,13 @@
     </None>
     <None Include="Connected Services\HumanService\item2.xsd">
       <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CategoryService\item.disco" />
+    <None Include="Connected Services\CategoryService\configuration91.svcinfo" />
+    <None Include="Connected Services\CategoryService\configuration.svcinfo" />
+    <None Include="Connected Services\CategoryService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
     <Content Include="Connected Services\HumanService\theResearchSite.HumanService.UserList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -224,10 +245,14 @@
     <Content Include="GvNews.aspx" />
     <Content Include="homePage.aspx" />
     <Content Include="logIn.aspx" />
+    <Content Include="newsImages\atTheHorizonOfBlackHole.jpg" />
     <Content Include="newsImages\blackHoleCollision.jpg" />
     <Content Include="newsImages\galaxyFormation.jpg" />
+    <Content Include="newsImages\howManyStars.jpg" />
     <Content Include="newsImages\largestGalaxy.jpg" />
     <Content Include="newsImages\newProtonStructure.jpg" />
+    <Content Include="newsImages\theEarthIsElipsoid.jpg" />
+    <Content Include="newsImages\universeEnd.jpg" />
     <Content Include="register.aspx" />
     <Content Include="singleNews.aspx" />
     <Content Include="subscriptionPage.aspx" />
@@ -242,7 +267,19 @@
     <Compile Include="AboutSiteaspx.aspx.designer.cs">
       <DependentUpon>AboutSiteaspx.aspx</DependentUpon>
     </Compile>
+    <Compile Include="addNews.aspx.cs">
+      <DependentUpon>addNews.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="addNews.aspx.designer.cs">
+      <DependentUpon>addNews.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\AuthService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\CategoryService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -394,6 +431,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AuthService\" />
+    <WCFMetadataStorage Include="Connected Services\CategoryService\" />
     <WCFMetadataStorage Include="Connected Services\creditCardService\" />
     <WCFMetadataStorage Include="Connected Services\HumanService\" />
     <WCFMetadataStorage Include="Connected Services\IdService\" />

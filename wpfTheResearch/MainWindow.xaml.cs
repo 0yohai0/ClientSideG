@@ -63,5 +63,10 @@ namespace viewModelWpfTheResearch
         {
             currentFrame.Navigate(new ShowComments());
         }
+
+        private void hmiaExercise_Selected(object sender, RoutedEventArgs e)
+        {
+            currentFrame.Navigate(new textBox_farFromHome());
+        }
     }
 }

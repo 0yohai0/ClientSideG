@@ -9,22 +9,54 @@ a {
     margin:0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+
 body {
     direction: rtl;
     overflow-x:hidden;
+    overflow-y:hidden;
+}
+.body-wrap{
+    position:absolute;
+    overflow-y:scroll;
+    height:100%;
+    width:100%;
+}
+::-webkit-scrollbar{
+    width:0;
 }
 html {
     scroll-behavior: smooth;
 }
+.wrap-cener{
+    width:100%;
+    margin: 0 auto;
+}
+.inheritProp{
+    width:100%;
+    height:inherit;
+}
+.flex-culomn-center{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+.flex-line-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/*---------------------------------*/
 /*תפריט נפתח והמבורגר*/
-.l{
-  position: absolute;
-  right: 25%;
-  top: 50%;
-  width: 32px;
-  height: 3px;
-  background-color: black;
-  transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
+.l {
+    position: absolute;
+    right: 25%;
+    top: 50%;
+    width: 32px;
+    height: 3px;
+    background-color: black;
+    transition: all 400ms cubic-bezier(0.84, 0.06, 0.52, 1.8);
 }
 
 .top {
@@ -107,14 +139,22 @@ nav {
   transition: all 600ms cubic-bezier(0.62, 0.04, 0.3, 1.56);
   transition-delay: 100ms;
 }
-.line{
-    width:300px;
-    margin:auto;
-    height:2px;
-    border-radius:1px;
-    background:white;
-    position:relative;
-    top:90%;
+.side-nav-links{
+    font-family:'Freestyle Script';
+    font-size:26px;
+    color:whitesmoke;
+    text-shadow: 1px 0px red;
+    text-decoration:none;
+    letter-spacing:0.1px;
+}
+.line {
+    width: 300px;
+    margin: auto;
+    height: 2px;
+    border-radius: 1px;
+    background: white;
+    position: relative;
+    top: 90%;
 }
 nav ul {
   margin: 0;
@@ -202,10 +242,11 @@ nav.show {
 /*תפריט עליון*/
 .horizontal-nav {
     position:sticky;
+    top:0;
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 25px 0;
+    padding: 20px 0;
     z-index:100;
     background-color: #1d1d1d;
     width: 100%;
@@ -227,9 +268,9 @@ nav.show {
 }
 
 .logo-content {
-    font-size: 45px;
+    font-size: 35px;
     color: #ffffff;
-    font-family: Bahnschrift;
+    font-family: 'Bellefair', serif;
     transition: all 500ms cubic-bezier(0.62, 0.04, 0.3, 1.8);
 }
 .logo-black{
@@ -237,7 +278,7 @@ nav.show {
 }
 .logo-content-hebrew {
     color: white;
-    font-size: 25px
+    font-size: 20px
 }
 .logo-cont {
     position: absolute;
@@ -423,8 +464,8 @@ nav.show {
     right:100px;
 }
 /*------------------------------------------------------*/
-/*דף הבית- חדשות*/
-.top-News-Block-Wrap {
+/*-ישן דף הבית- חדשות-HOLD*/
+/*.top-News-Block-Wrap {
     position: relative;
     right: 1vw;
     top: 5vh;
@@ -452,7 +493,7 @@ nav.show {
 {
     color:gray;
     background:none;
-    font-size:18px;
+    font-size:22px;
     border:none;
 }
 .infoWrap {
@@ -494,62 +535,426 @@ nav.show {
     font-size:12px!important;
     font-family:'Times New Roman', Times, serif;
     margin-top:15px;
+}*/
+/*דף חדשות חדש*/
+.category-head-line-demarc{
+    width:100%;
+    position:relative;
+    height:35px;
+    margin-bottom:5px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.category-head-line-link{
+    color:black;
+    text-decoration:none;
+    cursor:pointer;
+}
+.single-category-demarc {
+    color: red;
+    font-size: 16px;
+    font-family: 'Guttman Hatzvi';
+    margin: 0 20px;
+}
+.try {
+    position: absolute;
+    bottom: 1px;
+    width: 100%;
+    transition: 550ms ease-in-out;
+    height: 0;
+    z-index: 2;
+    background-image: linear-gradient(0deg, #000, transparent);
+}
+.main-headLine {
+    color: white;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    position:absolute;
+    background-color:transparent;
+    text-align: center;
+    font-size: 28px;
+    height: 12%;
+    width: 100%;
+    z-index: 5;
+    position: absolute;
+    bottom: 0;
+}
+.first-single-news:hover .try {
+    height: 100%;
+}
+.first-single-news:hover .main-headLine {
+    display: block;
+}
+
+.first-news-block {
+    width: 100%;
+    height: 400px;
+    margin-top: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.first-single-news {
+    width: 50%;
+    position: relative;
+    height: inherit;
+    overflow: hidden;
+}
+.big-picture-news{
+    width:100%;
+    height:inherit;
+    background-color:red;
+}
+.trio-news {
+    width: 35%;
+    padding-right: 14px;
+    height: 103.45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+}
+
+.single-top-news-small {
+    width: 100%;
+    position: relative;
+    height: 33.333%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 5px;
+    transition:ease-in-out 0.1s;
+}
+.img-minor-wrap {
+    width: 40%;
+    position: relative;
+    height: 90%;
+}
+.img-full {
+    
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+.info-wrap {
+    padding-right: 10px;
+    position: relative;
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.single-top-news-small:hover {
+    background-color:#e1e1e1;
+}
+.header-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 35%;
+    width: 100%;
+}
+.single-top-news-headLine {
+    font-size: 18px;
+    font-family:'Guttman Haim';
+    width: 80%;
+    letter-spacing:0.3px;
+}
+.category {
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: right;
+    width: 20%;
+    color:#971d1d;
+    font-weight:bolder;
+}
+.single-top-news-secTitle {
+    width: 100%;
+    height: 35%;
+    font-size: 14px;
+    text-align: right;
+    word-break: break-word;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+.single-top-news-bottomLine {
+    height: 30%;
+    width: 100%;
+    text-align: right;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.bt-add-to-favorits{
+    font-size:20px;
+    background:none;
+    cursor:pointer;
+    border:none;
+    transition:ease-in 0.3s;
+}
+.bt-add-to-favorits:hover {
+    font-size:24px;
+    color:red;
+}
+
+.tease-wrap{
+    height: 100%;
+    width: 15%;
+    position: relative;
+    background-color:#ff3333;
+    margin-right:15px;
 }
 
 /*חלק 2-שורת חדשות*/
-.news-line-wrap{
+.second-block-news-wrap{
+    display:flex;
+    flex-direction:column;
+    position:relative;
+    height:auto;
+    width:96%;
+    top:30px;
+    margin-right:2%;
+    margin-bottom:200px;
+}
+.news-line-wrap {
+    position: relative;
+    flex-direction: column;
+    height: 370px;
+    width: 100%;
+    margin-bottom:10px;
+}
+.category-head {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    border-bottom: solid 2px red;
+}
+.news-in-category {
+    position: relative;
+    width: 100%;
+    height: 90%;
     display:flex;
     align-items:center;
-    flex-direction:column;
     justify-content:space-between;
+}
+.more-category-link {
+    position: relative;
+    width: 30%;
+    height:100%;
+    color: black;
+    text-decoration: none;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+    text-align:center;
+    transition:ease-in-out 0.3s;
+}
+.more-category-link:hover{
+    color:white;
+    background-color:#fc3d3d;
+}
+.more-category-link:hover .category-link-design {
+    color: white;  
+}
+.category-head-name {
+    position: relative;
+    width: 70%;
+    bottom: 0%;
+    text-align:right;
+    padding: 10px 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 22px;
+    color: #ff3131;
+}
+.category-link-design {
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    color: black;
+    text-decoration: none;
+    transition: ease-in-out 0.3s;
+}
+.single-horizontal-news{
+    position:relative;
+    width:23.7%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+}
+.single-news-img-medium-wrap{
+    height:60%;
+    width:100%;
+    position:relative;
+}
+.single-news-img-medium{
+    width:100%;
+    height: 100%;
+    border-radius:3px;
+    cursor:pointer;
+}
+.single-news-headLine {
+    height: 16%;
+    width: 100%;
+    text-align:center;
+    font-size:20px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top:5px;
+    margin-bottom:5px;
+}
+.single-news-more-info {
+    height: 20%;
+    width: 100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.single-news-category {
+    font-size: 12px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: right;
+    color: #971d1d;
+    font-weight: bolder;
 }
 /*---------------------------------------------------------------------*/
 /*דף חדשה יחידה*/
-.tb-single-item {
+.page-wrap {
+    position: relative;
     margin: auto;
-    margin-top: 5vh;
+    top:5%;
+    width: 100%;
+    height:150vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 100px;
 }
-.tb-single-item td {
-    width: 70vw;
+.single-news-wrap {
+    position: relative;
+    width: 64%;
+    height: 100%;
 }
-.img-news {
-    width: 70vw;
-    height:45vh;
-    border:solid red 1px;
+.more-news-wrap {
+    position: relative;
+    width: 18%;
+    height: 100%;
 }
-.single-item-headLine {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 45px;
-    text-align:center;
+.comments-wrap {
+    position: relative;
+    width: 18%;
+    height: 100%;
 }
-.single-item-secondary-title {
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+.news-head-wrap{
+    position:relative;
+    width:100%;
+    height:23%;
+}
+.news-text-wrap {
+    position: relative;
+    width: 100%;
+    height: 70%;
+    top:5%;
+}
+.img-wrap{
+    width:55%;
+    height:100%;
+    position:relative;
+}
+.single-news-img {
+    width: 100%;
+    height: 100%;
+}
+.single-news-headers-wrap {
+    width: 45%;
+    height: 100%;
+}
+.single-news-head-line{
+    width:100%;
+    height:35%;
+    text-align:right;
+    font-size:35px;
+    font-weight:500;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;      
+}
+.single-news-sec-title {
+    position:relative;
+    top:10%;
+    width: 100%;
+    height: 65%;
+    text-align: right;
     font-size: 25px;
-    text-align: right;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.single-item-content {
-    line-height:2;
+.more-info-wrap{
+    position:relative;
+    width:100%;
+    height:5%;
+    margin-top:1%;
+    border-top:2px solid red;
+    border-bottom:2px solid red;
+    justify-content:space-between!important;
+}
+.news-info {
+    position: relative;
+    width: 100%;
+    width: 68%;
+   
+}
+.user-news-interaction {
+    position: relative;
+    width: 100%;
+    width: 28%;
     font-size: 20px;
-    text-align: right;
+    border-right: 1px solid #ff3636;
 }
-.first-letter {
-    font-size: 40px;
+.news-authers{
+    width:40%;
+    text-align:right;
+    font-size:20px;
+}
+.news-date {
+    width: 30%;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 18px;
+}
+.news-comments{
+    width:30%;
+    font-size:22px;
+    font-family:'Segoe UI Emoji';
+    color:blue;
+    text-align:center!important;
+}
+.add-heart {
+    width: 30%;
+    font-size:30px;
+    transition:ease-in-out 0.3s;
+    text-align:center!important;
+}
+.add-heart:hover{
     color:red;
-    display:inline;
 }
-.single-item-date {
-    float: right;
-    display: inline;
-}
-.single-item-writers-and-editors {
-    float: left;
-    display: inline;
+.text-design {
+    font-size: 25px;
+    font-family: 'Gill Sans Nova';
+    text-align: right;
+    word-spacing: 0.1px;
 }
 /*-----------------------------------------*/
-
 /*מועדפים*/
-.favorite-table{
- margin-top:10vh!important;
+.favorite-table {
+    margin-top: 10vh !important;
 }
 .headLine-favorites{
     margin:auto;
@@ -585,3 +990,70 @@ nav.show {
     font-size:20px;
     color:darkslateblue;
 }
+/*--------------------------------------*/
+
+/*דף הוספת מוצר*/
+.editor-wrap {
+    position: relative;
+    width: 34%;
+    height: 100%;
+    border: 2px black solid;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.page-head-line{
+    position:relative;
+    font-size:35px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color:white;
+    text-shadow: 1px 2px 2px black;
+    margin:auto 0;
+    background-image: linear-gradient(90deg, #f87f7f, red);
+    height:5%;
+    width:100%;
+    text-align:center;
+}
+.special-wrap-news {
+    margin: 0 auto;
+}
+.head-topics-edit, .content-wrap, .more-info-to-add {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 10%;
+}
+.more-info-to-add {
+    position: relative;
+    height: 20% !important;
+}
+.content-wrap {
+    position: relative;
+    height: 30% !important;
+}
+.content-box{
+    width:90%;
+    height:100%;
+    border:groove 2px black;
+}
+.head-text {
+    font-size:18px;
+    border:none;
+    border-bottom: 1.5px solid #971d1d;
+    width: 100%;
+    height: 100%;
+}
+.ddl-categories {
+    width: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 16px;
+}
+.file-img{
+    width:100%;
+    font-family:'Segoe UI';
+    font-size:16px;
+}
+/*--------------------------------------*/

@@ -39,21 +39,46 @@ namespace theResearchSite
             news = newsClient.selectAll();
             NewsService.News singleNews = news.Find(x => (x.Id == newsId));
 
-            //הצגה
+            lSingleNews.Text += "<div class=\"body-wrap\">";
+            lSingleNews.Text += "<div class=\"page-wrap \">";
 
-            lSingleNews.Text += "<table class=\"tb-single-item\"> ";
-            //כותרת ראשית
-            lSingleNews.Text += $" <tr> <td class=\"single-item-headLine\">{singleNews.headLine}</td> </tr>";
-           //כותרת משנית        
-            lSingleNews.Text += $" <tr> <td class=\"single-item-secondary-title\" >{singleNews.secondaryTitle}</td> </tr>";
-            //תמונה             
-            lSingleNews.Text += $" <tr> <td><img src={singleNews.imagePath} class=\"img-news\" /></td> </tr>";
-            //אינטראקצית משתמש  
-            lSingleNews.Text += $" <tr> <td class=\"\"><div> <divclass=\"single-item-date\">{singleNews.dateTimePublished.Date.ToString().Substring(0, 11).Trim()}</div> <div class=\"single-item-writers-and-editors\">צפיות בכתבה:{Application[Request.Url.ToString()]}</div>  </div></td> </tr>";
-            //תוכן            
-            lSingleNews.Text += $" <tr> <td  class=\"single-item-content\"> <div class=\"first-letter\">  {singleNews.content[0]}</div> <div style=\"display:inline;\"> {singleNews.content.Substring(1)}</div> </td> </tr>";
+            lSingleNews.Text += "<div class=\"comments-wrap\">";
+            lSingleNews.Text += "</div>";
+                             
+            lSingleNews.Text += "<div class=\"single-news-wrap flex-culomn-center\">";
 
-            lSingleNews.Text += "</table> ";
+
+            lSingleNews.Text += "<div class=\"news-head-wrap flex-line-center\">";
+
+            lSingleNews.Text += "<div class=\"single-news-headers-wrap flex-culomn-center\">";
+            lSingleNews.Text += $"<div class=\"single-news-head-line\">{singleNews.headLine}</div>";
+            lSingleNews.Text += $"<div class=\"single-news-sec-title\">{singleNews.secondaryTitle}</div>";
+            lSingleNews.Text += "</div>";
+
+            lSingleNews.Text += "<div class=\"img-wrap\">";
+            lSingleNews.Text += $"<img class=\"single-news-img\" src=\"{singleNews.imagePath}\"/>";
+            lSingleNews.Text += "</div>";
+
+            lSingleNews.Text += "</div>";
+
+            lSingleNews.Text += "<div class=\"more-info-wrap flex-line-center\">";
+            lSingleNews.Text += $"<div class=\"news-info flex-line-center\"> <div class=\"news-authers\">כותבים כותבים</div>  <div class=\"news-date\">{singleNews.dateTimePublished.Date.ToString().Substring(0,11).Trim()}</div> </div>";
+            lSingleNews.Text += "<div class=\"user-news-interaction flex-line-center\"><div class=\"news-comments\"><i class='fas fa-comment-alt'></i></div> <div class=\"add-heart\">&#9829;</div></div>";
+            lSingleNews.Text += "</div>";
+
+            lSingleNews.Text += "<div class=\"news-text-wrap\">";
+            lSingleNews.Text += $"<div class=\"text-design\">{singleNews.content}</div>";
+            lSingleNews.Text += "</div>";
+
+            lSingleNews.Text += "</div>";
+                             
+            lSingleNews.Text += "<div class=\"more-news-wrap flex-culomn-center\">";
+            lSingleNews.Text += "</div>";
+                             
+            lSingleNews.Text += "</div>";
+            lSingleNews.Text += "</div>";
+
+ 
 
         }
     }

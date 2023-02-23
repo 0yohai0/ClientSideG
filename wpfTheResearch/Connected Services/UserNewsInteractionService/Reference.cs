@@ -34,6 +34,7 @@ namespace wpfTheResearch.UserNewsInteractionService {
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.News))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.AuthLevel))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Human))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Worker))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.User))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.UserNewsInteraction))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Comment))]
@@ -225,6 +226,7 @@ namespace wpfTheResearch.UserNewsInteractionService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Human", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
     [System.SerializableAttribute()]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Worker))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.User))]
     public partial class Human : wpfTheResearch.UserNewsInteractionService.BaseEntity {
         
@@ -304,6 +306,29 @@ namespace wpfTheResearch.UserNewsInteractionService {
                 if ((object.ReferenceEquals(this.passwordField, value) != true)) {
                     this.passwordField = value;
                     this.RaisePropertyChanged("password");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Worker", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
+    [System.SerializableAttribute()]
+    public partial class Worker : wpfTheResearch.UserNewsInteractionService.Human {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double salaryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double salary {
+            get {
+                return this.salaryField;
+            }
+            set {
+                if ((this.salaryField.Equals(value) != true)) {
+                    this.salaryField = value;
+                    this.RaisePropertyChanged("salary");
                 }
             }
         }

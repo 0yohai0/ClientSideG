@@ -90,12 +90,16 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Human" nillable="true" type="tns:Human" />
-  <xs:complexType name="CommentList">
-    <xs:sequence>
-      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comment" nillable="true" type="tns:Comment" />
-    </xs:sequence>
+  <xs:complexType name="Worker">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Human">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="salary" type="xs:double" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
   </xs:complexType>
-  <xs:element name="CommentList" nillable="true" type="tns:CommentList" />
+  <xs:element name="Worker" nillable="true" type="tns:Worker" />
   <xs:complexType name="Comment">
     <xs:complexContent mixed="false">
       <xs:extension base="tns:UserNewsInteraction">
@@ -106,6 +110,12 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Comment" nillable="true" type="tns:Comment" />
+  <xs:complexType name="CommentList">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Comment" nillable="true" type="tns:Comment" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CommentList" nillable="true" type="tns:CommentList" />
   <xs:simpleType name="Enums.userNewsInteracrionType">
     <xs:restriction base="xs:string">
       <xs:enumeration value="favorite">

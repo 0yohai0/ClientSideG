@@ -24,6 +24,7 @@
             <HamburgerMenu:HamburgerMenuItem Name="hmiFormula1Game" Icon="icons/carIcon-modified.png" Text="פורמולה1" SelectionCommand="{Binding ElementName=this_}" Selected="hmiFormula1Game_Selected"></HamburgerMenu:HamburgerMenuItem>
             <HamburgerMenu:HamburgerMenuItem Name="hmilogOut" Icon="icons/logoutIcon-modified.png" Text="ניתוק" SelectionCommand="{Binding ElementName=this_}" Selected="hmilogOut_Selected"></HamburgerMenu:HamburgerMenuItem>
             <HamburgerMenu:HamburgerMenuItem Name="hmiabout" Icon="icons/aboutIcon-modified.png" Text="אודות" SelectionCommand="{Binding ElementName=this_}" Selected="hmiabout_Selected"></HamburgerMenu:HamburgerMenuItem>
+            <HamburgerMenu:HamburgerMenuItem Name="hmiaExercise" Text="תרגיל" SelectionCommand="{Binding ElementName=this_}" Selected="hmiaExercise_Selected"></HamburgerMenu:HamburgerMenuItem>
 
         </HamburgerMenu:HamburgerMenu>
 

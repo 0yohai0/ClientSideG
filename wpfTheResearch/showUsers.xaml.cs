@@ -51,6 +51,7 @@ namespace viewModelWpfTheResearch
         }
         public int insertUser(User user)
         {
+            user.userName = "rkjgtr";
             user.birthDate = DateTime.Now;
             int rowsEffected = HumanClient.Add(EnumshumanType.user, user);
             usersList.Add(user);
@@ -69,13 +70,13 @@ namespace viewModelWpfTheResearch
         {
             UserActions insert = new UserActions(insertUser);
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new oneUser(insert, new User()));
+            nav.Navigate(new oneUser(insert, new User(), authClient.selectAll()));
         }
         private void Update(object sender, RoutedEventArgs e)
         {
             UserActions insert = new UserActions(updateUser);
             NavigationService nav = NavigationService.GetNavigationService(this);
-            nav.Navigate(new oneUser(insert, user));
+            nav.Navigate(new oneUser(insert, user, authClient.selectAll()));
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {

@@ -36,7 +36,7 @@ namespace theResearchSite
 
             //?
             int.TryParse(Session["userId"].ToString(), out int userId);
-            foreach(Favorite favorite in Allfavorites.FindAll(x=>(x.user.Id != userId)))
+            foreach(Favorite favorite in Allfavorites.FindAll(x=>(x.user.IdUser != userId)))
             {
                 Allfavorites.Remove(favorite);
             }
@@ -54,7 +54,7 @@ namespace theResearchSite
             lFavorites.Text += "</tr>/<table>";
 
         }
-
+        //צריך לבדוק
         public void addCartFavorites()
         {
             bool ExistAllready = false;
@@ -65,7 +65,7 @@ namespace theResearchSite
             foreach (int newsId in newsCart)
             {
                 ExistAllready = false;
-                foreach (Favorite favoriteTest in AllFavorites.FindAll(x=>x.user.Id==userId))
+                foreach (Favorite favoriteTest in AllFavorites.FindAll(x=>x.user.IdUser==userId))
                 {
                     if (favoriteTest.news.Id == newsId)
                         ExistAllready = true;

@@ -26,8 +26,12 @@
                                 {%>
                             <asp:Button ID="btLogOut" CausesValidation="false" CssClass="bt-log-out" OnClick="btLogOut_Click" runat="server" Text="התנתקות" />
                             <%} %>
+                              <%if (!(Session["user"] != null || Session["journalist"] != null || Session["editor"] != null || Session["admin"] != null))
+                                {%>
                             <asp:Button ID="btLogIn" CausesValidation="false" CssClass="bt-log-in" OnClick="btLogIn_Click" runat="server" Text="כניסה" />
                             <asp:Button ID="btRegister" CausesValidation="false" CssClass="bt-register" OnClick="btRegister_Click" runat="server" Text="רישום" />
+                            <%} %>
+                          
                         </div>
                     </div>
                     <div class="hamburger-icon" id="icon">
@@ -45,10 +49,10 @@
                     <li>
                         <asp:TextBox ID="search" CssClass="tbSearch" placeholder="חיפוש" runat="server"></asp:TextBox>
                     </li>
-                    <li class="li"><a href="homePage.aspx">דף בית</a></li>
-                    <li class="li"><a href="aboutSiteaspx.aspx">אודות</a></li>
-                    <li class="li"><a href="favorites.aspx">מועדפים</a></li>
-                    <li class="li"><a href="subscriptionPage.aspx">קניית מנוי</a></li>
+                    <li class="li"><a class="side-nav-links" href="homePage.aspx">דף בית</a></li>
+                    <li class="li"><a class="side-nav-links" href="aboutSiteaspx.aspx">אודות</a></li>
+                    <li class="li"><a class="side-nav-links" href="favorites.aspx">מועדפים</a></li>
+                    <li class="li"><a class="side-nav-links" href="subscriptionPage.aspx">קניית מנוי</a></li>
                 </ul>
                 <div class="line"></div>
             </nav>

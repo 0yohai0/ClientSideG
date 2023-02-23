@@ -121,6 +121,9 @@
     <Compile Include="showUsers.xaml.cs">
       <DependentUpon>showUsers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="textBox-farFromHome.xaml.cs">
+      <DependentUpon>textBox-farFromHome.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ValidationRuleEmail.cs" />
     <Compile Include="validationRulePassword.cs" />
   </ItemGroup>
@@ -291,6 +294,10 @@
     <Page Include="showUsers.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="textBox-farFromHome.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
