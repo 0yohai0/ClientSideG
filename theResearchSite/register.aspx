@@ -39,6 +39,7 @@
             <asp:Button ID="btReset" OnClick="btReset_Click" CssClass="action-button" runat="server" Text="איפוס" />
         </div>
         <div class="validatePos">
+            <asp:Label ID="LgeneralError" runat="server" CssClass="innerValidator" Text=""></asp:Label>
             <div>
                 <asp:RequiredFieldValidator 
                     CssClass="innerValidator"

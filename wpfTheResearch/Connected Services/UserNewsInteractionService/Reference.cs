@@ -33,9 +33,10 @@ namespace wpfTheResearch.UserNewsInteractionService {
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.News))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.AuthLevel))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Category))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Human))]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Worker))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.User))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Worker))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.UserNewsInteraction))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Comment))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Favorite))]
@@ -90,6 +91,9 @@ namespace wpfTheResearch.UserNewsInteractionService {
         private wpfTheResearch.UserNewsInteractionService.AuthLevel AuthLevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private wpfTheResearch.UserNewsInteractionService.Category categoryField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string contentField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -104,9 +108,6 @@ namespace wpfTheResearch.UserNewsInteractionService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string secondaryTitleField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private wpfTheResearch.UserNewsInteractionService.UserList stuffField;
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public wpfTheResearch.UserNewsInteractionService.AuthLevel AuthLevel {
             get {
@@ -116,6 +117,19 @@ namespace wpfTheResearch.UserNewsInteractionService {
                 if ((object.ReferenceEquals(this.AuthLevelField, value) != true)) {
                     this.AuthLevelField = value;
                     this.RaisePropertyChanged("AuthLevel");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public wpfTheResearch.UserNewsInteractionService.Category category {
+            get {
+                return this.categoryField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.categoryField, value) != true)) {
+                    this.categoryField = value;
+                    this.RaisePropertyChanged("category");
                 }
             }
         }
@@ -184,19 +198,6 @@ namespace wpfTheResearch.UserNewsInteractionService {
                 }
             }
         }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public wpfTheResearch.UserNewsInteractionService.UserList stuff {
-            get {
-                return this.stuffField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.stuffField, value) != true)) {
-                    this.stuffField = value;
-                    this.RaisePropertyChanged("stuff");
-                }
-            }
-        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -224,10 +225,33 @@ namespace wpfTheResearch.UserNewsInteractionService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Category", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
+    [System.SerializableAttribute()]
+    public partial class Category : wpfTheResearch.UserNewsInteractionService.BaseEntity {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string nameField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string name {
+            get {
+                return this.nameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.nameField, value) != true)) {
+                    this.nameField = value;
+                    this.RaisePropertyChanged("name");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="Human", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Worker))]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.User))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(wpfTheResearch.UserNewsInteractionService.Worker))]
     public partial class Human : wpfTheResearch.UserNewsInteractionService.BaseEntity {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -313,29 +337,6 @@ namespace wpfTheResearch.UserNewsInteractionService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="Worker", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
-    [System.SerializableAttribute()]
-    public partial class Worker : wpfTheResearch.UserNewsInteractionService.Human {
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double salaryField;
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double salary {
-            get {
-                return this.salaryField;
-            }
-            set {
-                if ((this.salaryField.Equals(value) != true)) {
-                    this.salaryField = value;
-                    this.RaisePropertyChanged("salary");
-                }
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="User", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
     [System.SerializableAttribute()]
     public partial class User : wpfTheResearch.UserNewsInteractionService.Human {
@@ -368,6 +369,29 @@ namespace wpfTheResearch.UserNewsInteractionService {
                 if ((object.ReferenceEquals(this.userNameField, value) != true)) {
                     this.userNameField = value;
                     this.RaisePropertyChanged("userName");
+                }
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Worker", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
+    [System.SerializableAttribute()]
+    public partial class Worker : wpfTheResearch.UserNewsInteractionService.Human {
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double salaryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double salary {
+            get {
+                return this.salaryField;
+            }
+            set {
+                if ((this.salaryField.Equals(value) != true)) {
+                    this.salaryField = value;
+                    this.RaisePropertyChanged("salary");
                 }
             }
         }
@@ -451,13 +475,6 @@ namespace wpfTheResearch.UserNewsInteractionService {
                 }
             }
         }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.CollectionDataContractAttribute(Name="UserList", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch", ItemName="User")]
-    [System.SerializableAttribute()]
-    public class UserList : System.Collections.Generic.List<wpfTheResearch.UserNewsInteractionService.User> {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]

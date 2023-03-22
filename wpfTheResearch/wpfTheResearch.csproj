@@ -69,6 +69,11 @@
     </Compile>
     <Compile Include="AuthorizationControl.cs" />
     <Compile Include="CarInRace.cs" />
+    <Compile Include="Connected Services\CategoryService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\ValidationService\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -105,6 +110,9 @@
     <Compile Include="oneAuth.xaml.cs">
       <DependentUpon>oneAuth.xaml</DependentUpon>
     </Compile>
+    <Compile Include="oneCategory.xaml.cs">
+      <DependentUpon>oneCategory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="oneUser.xaml.cs">
       <DependentUpon>oneUser.xaml</DependentUpon>
     </Compile>
@@ -114,6 +122,9 @@
     </Compile>
     <Compile Include="showAuths.xaml.cs">
       <DependentUpon>showAuths.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="showCategories.xaml.cs">
+      <DependentUpon>showCategories.xaml</DependentUpon>
     </Compile>
     <Compile Include="ShowComments.xaml.cs">
       <DependentUpon>ShowComments.xaml</DependentUpon>
@@ -165,6 +176,19 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\AuthService\wpfTheResearch.AuthService.AuthLevelList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CategoryService\CategoryService.wsdl" />
+    <None Include="Connected Services\CategoryService\item.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CategoryService\item1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CategoryService\item2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CategoryService\wpfTheResearch.CategoryService.CategoryList.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\creditService\creditService.wsdl" />
@@ -271,6 +295,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="oneCategory.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="oneUser.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -284,6 +312,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="showAuths.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="showCategories.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -340,6 +372,7 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadataStorage Include="Connected Services\AuthService\" />
+    <WCFMetadataStorage Include="Connected Services\CategoryService\" />
     <WCFMetadataStorage Include="Connected Services\creditService\" />
     <WCFMetadataStorage Include="Connected Services\HumanService\" />
     <WCFMetadataStorage Include="Connected Services\NewsService\" />
@@ -421,7 +454,9 @@
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Connected Services\CategoryService\item.disco" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ValidationService\Validation.disco" />
   </ItemGroup>
@@ -433,6 +468,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Connected Services\ValidationService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CategoryService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CategoryService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\CategoryService\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>

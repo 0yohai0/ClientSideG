@@ -27,9 +27,13 @@
                     <asp:DropDownList ID="ddlCategories" CssClass="ddl-categories" runat="server"></asp:DropDownList>
                 </div>
 
-                 <div>
+                 <div class="flex-line-center">
                      <asp:FileUpload ID="fuNewsImg" CssClass="file-img" runat="server" />
+                     <asp:Button ID="BtsaveImg" runat="server" OnClick="BtsaveImg_Click" Text="שמירת תמונה" />
                 </div>
+            </div>
+            <div class="bt-send-wrap flex-line-center" >
+               <asp:Button ID="btSendNews" CssClass="bt-send" runat="server" OnClick="btSendNews_Click" Text="שליחה" />
             </div>
         </div>
 

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ID="2b3523b6-8b62-42e3-b897-0639a5dc39b6" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/CategoryService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="ec8c1153-77b9-436a-9f07-64355cdd3871" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/CategoryService/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="511a7f3e-82ad-46ed-bdc9-bef56ef43f5a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/CategoryService/?xsd=xsd0" />
+    <MetadataFile FileName="CategoryService.wsdl" MetadataType="Wsdl" ID="cc2887fc-82c7-4205-a4e8-69f3bcfb34c5" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/CategoryService/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="848ed46a-9ad2-4525-a80c-bf265801e693" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/CategoryService/?xsd=xsd1" />
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="45abe073-3970-4d50-b411-920a8dbe580a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/WcfTheResearch/CategoryService/?disco" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

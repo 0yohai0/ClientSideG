@@ -60,6 +60,24 @@ namespace theResearchSite
         protected global::System.Web.UI.WebControls.FileUpload fuNewsImg;
 
         /// <summary>
+        /// BtsaveImg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtsaveImg;
+
+        /// <summary>
+        /// btSendNews control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btSendNews;
+
+        /// <summary>
         /// headLine control.
         /// </summary>
         /// <remarks>

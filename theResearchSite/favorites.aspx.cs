@@ -43,15 +43,11 @@ namespace theResearchSite
 
 
             //הצגת המועדפים
-            lFavorites.Text += "<table class=\"favorite-table\"><tr>";
-
             foreach(Favorite favorite in Allfavorites)
             {
-                lFavorites.Text += $"<table class=\"single-news\"><tr><td> <a href=\"singleNews.aspx?NewsId={favorite.news.Id}\"> <img class=\"Minor3Img\" src=\"{favorite.news.imagePath}\"/></a></td>";
-                lFavorites.Text += $"<td> <div class=\"infoWrap\"> <div class=\"headLineNews\">{favorite.news.headLine}</div>  <div class=\"second-title\">  <div> {favorite.news.secondaryTitle.Trim()}</div> <div class=\"date-stuff\"> <div class=\"stuff-names\"></div>   <div class=\"date\">תאריך פרסום:{favorite.news.dateTimePublished.Date.ToString().Substring(0, 11).Trim()}</div> </div> </div> </div> </td></tr></table>";
+
 
             }
-            lFavorites.Text += "</tr>/<table>";
 
         }
         //צריך לבדוק

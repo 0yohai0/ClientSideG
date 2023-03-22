@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using theResearchSite.NewsService;
 using theResearchSite.UserNewsInteractionService;
 
 namespace theResearchSite
@@ -12,6 +13,8 @@ namespace theResearchSite
     public partial class singleNews : System.Web.UI.Page
     {
         NewsService.NewsList news = new NewsService.NewsList();
+      //  UserNewsInteractionService.UserNewsInteractionClient userNewsInteractionClient = new UserNewsInteractionService.UserNewsInteractionClient();
+        static int i = 0;
         protected void Page_Load(object sender, EventArgs e)
         {
             //applicationUse
@@ -33,18 +36,24 @@ namespace theResearchSite
         }
         public void populate()
         {
+     
+
             //-קבלת מזהה מURL
             int.TryParse(Request["NewsId"].ToString(), out int newsId);
-            NewsService.NewsClient newsClient = new NewsService.NewsClient();
+            NewsClient newsClient = new NewsClient();
             news = newsClient.selectAll();
             NewsService.News singleNews = news.Find(x => (x.Id == newsId));
+
+            //קבלת כל החדשות בנושא
+            NewsList AllnewsInCategory = newsClient.selectAll();
+            NewsList newsInCategory = new NewsList();
+
+            //קבלת רשימת תגובות
+            //CommentList commentList = userNewsInteractionClient.selectAllComments();
 
             lSingleNews.Text += "<div class=\"body-wrap\">";
             lSingleNews.Text += "<div class=\"page-wrap \">";
 
-            lSingleNews.Text += "<div class=\"comments-wrap\">";
-            lSingleNews.Text += "</div>";
-                             
             lSingleNews.Text += "<div class=\"single-news-wrap flex-culomn-center\">";
 
 
@@ -61,20 +70,54 @@ namespace theResearchSite
 
             lSingleNews.Text += "</div>";
 
-            lSingleNews.Text += "<div class=\"more-info-wrap flex-line-center\">";
+            lSingleNews.Text += "<div  class=\"more-info-wrap flex-line-center\">";
             lSingleNews.Text += $"<div class=\"news-info flex-line-center\"> <div class=\"news-authers\">כותבים כותבים</div>  <div class=\"news-date\">{singleNews.dateTimePublished.Date.ToString().Substring(0,11).Trim()}</div> </div>";
-            lSingleNews.Text += "<div class=\"user-news-interaction flex-line-center\"><div class=\"news-comments\"><i class='fas fa-comment-alt'></i></div> <div class=\"add-heart\">&#9829;</div></div>";
+            lSingleNews.Text += "<div  class=\"user-news-interaction flex-line-center\"><div class=\"news-comments\"><i class='fas fa-comment-alt'></i></div> <div class=\"add-heart\">&#9829;</div></div>";
             lSingleNews.Text += "</div>";
 
             lSingleNews.Text += "<div class=\"news-text-wrap\">";
             lSingleNews.Text += $"<div class=\"text-design\">{singleNews.content}</div>";
             lSingleNews.Text += "</div>";
 
+
+            //תגובות
+            lSingleNews.Text += "<div class=\"comments-wrap flex-culomn-center\">";
+            lSingleNews.Text += "<div class=\"comments-headLine\">תגובות</div>";
+            lSingleNews.Text += "<div class=\"create-comment-wrap flex-line-center\"> <div class=\"tbx-content-wrap\"><textarea placeholder=\"הקלד/י תגובה...\" name=\"comment-content-input\" class=\"txb-comment\"></textarea></div> <div class=\"bt-post-comment-wrap\"><input type=\"submit\" name=\"btPostComment\" class=\"bt-post-comment\" value=\"&#8617;\"/></div> </div>";
+
+            //תגובה בודדת
+      
+            
+                lSingleNews.Text += "<div class=\"flex-culomn-center comment-wrap\">";
+                lSingleNews.Text += $"<div class=\"comment-head-info flex-line-center\"> <div class=\"writer-name\">סתם מישהו</div>  <div class=\"date-published\">1/1/2022</div> </div>";
+                lSingleNews.Text += "";
+                lSingleNews.Text += "</div>";
+            
+         
+
+            lSingleNews.Text += "</div>";
             lSingleNews.Text += "</div>";
                              
+            //חדשות בנושא
             lSingleNews.Text += "<div class=\"more-news-wrap flex-culomn-center\">";
+            lSingleNews.Text += "<div class=\"more-news-headLine\">";
+            lSingleNews.Text += "חדשות בנושא";
             lSingleNews.Text += "</div>";
-                             
+            
+
+            lSingleNews.Text += "<div class=\"scroll-me\">";
+            foreach (NewsService.News news in AllnewsInCategory.FindAll(x => x.category.name == singleNews.category.name))
+            {
+                 lSingleNews.Text += "<div class=\"single-side-news-wrap flex-culomn-center\">";
+                 lSingleNews.Text += $"<a href=\"singleNews.aspx?NewsId={news.Id}\"><img src=\"{news.imagePath}\" class=\"news-side-img\" /></a>";
+                 lSingleNews.Text += $"<div class=\"side-news-headLine\">{news.headLine}</div>";
+                 lSingleNews.Text += "</div>";
+                 i++;
+            }
+            lSingleNews.Text += "</div>";
+
+
+            lSingleNews.Text += "</div>";                
             lSingleNews.Text += "</div>";
             lSingleNews.Text += "</div>";
 

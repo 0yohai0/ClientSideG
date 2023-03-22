@@ -86,7 +86,7 @@ namespace theResearchSite
             {
                 lNews.Text += "<div class=\"single-top-news-small\">";
 
-                lNews.Text += $"<div class=\"img-minor-wrap\"><img class=\"img-full\" src=\"{singleNews.imagePath}\" /></div>";
+                lNews.Text += $"<div class=\"img-minor-wrap\"><a href=\"singleNews.aspx?NewsId={singleNews.Id}\"><img class=\"img-full\" src=\"{singleNews.imagePath}\" /></a></div>";
 
                 lNews.Text += "<div class=\"info-wrap\">";
 
@@ -127,7 +127,7 @@ namespace theResearchSite
                         lNews.Text += "<div class=\"single-horizontal-news\">";
 
                         lNews.Text += "<div class=\"single-news-img-medium-wrap\">";
-                        lNews.Text += $"<abbr title=\"{newsList[i].headLine}\"><img class=\"single-news-img-medium\" src=\"{newsList[i].imagePath}\"/> </abbr>";
+                        lNews.Text += $"<abbr title=\"{newsList[i].headLine}\"><a href=\"singleNews.aspx?NewsId={newsList[i].Id}\"><img class=\"single-news-img-medium\" src=\"{newsList[i].imagePath}\"/></a> </abbr>";
                         lNews.Text += "</div>";
 
                         lNews.Text += "<div class=\"single-news-headLine\">";

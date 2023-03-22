@@ -49,11 +49,14 @@ C:\theResearch\clientSide\wpfTheResearch\obj\Debug\Formula1Game.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\homePage.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\MainWindow.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\oneAuth.g.cs
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\oneCategory.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\oneUser.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\RacePage.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\showAuths.g.cs
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\showCategories.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ShowComments.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\showUsers.g.cs
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\textBox-farFromHome.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\App.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch_MarkupCompile.cache
@@ -64,11 +67,14 @@ C:\theResearch\clientSide\wpfTheResearch\obj\Debug\Formula1Game.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\homePage.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\MainWindow.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\oneAuth.baml
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\oneCategory.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\oneUser.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\RacePage.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\showAuths.baml
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\showCategories.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ShowComments.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\showUsers.baml
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\textBox-farFromHome.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.g.resources
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.Properties.Resources.resources
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.csproj.GenerateResource.cache
@@ -76,5 +82,3 @@ C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.csproj.CoreCom
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.csproj.CopyComplete
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.exe
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.pdb
-C:\theResearch\clientSide\wpfTheResearch\obj\Debug\textBox-farFromHome.g.cs
-C:\theResearch\clientSide\wpfTheResearch\obj\Debug\textBox-farFromHome.baml

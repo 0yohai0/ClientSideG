@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.ServiceModel;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -29,7 +30,7 @@ namespace theResearchSite
             //בדיקות
 
             //בדיקת אורך
-            if (password.Length < 8)
+            if (password.Length < 8) 
             {
                 error = true;
             }
@@ -59,26 +60,35 @@ namespace theResearchSite
 
             if (userTest != null)
             {
-                //הןדעת שגיאה משתמש כבר קיים
+                //הודעת שגיאה משתמש כבר קיים
                 return;
             }
-            int rowEffected = humanClient.Add(HumanService.EnumshumanType.user, user);
-
-
-            //בדיקות לאחר אינסרט
-            if (rowEffected == 0)
+            try
             {
+                 int rowEffected = humanClient.Add(HumanService.EnumshumanType.user, user);
+                //בדיקות לאחר אינסרט
+                if (rowEffected == 0)
+                {
 
+                }
+                if (rowEffected == 2)
+                {
+                    Response.Redirect("homePage.aspx");
+                }
+                if (rowEffected > 2)
+                {
+                    //שגיאה חמורה
+                }
             }
-            if (rowEffected == 2)
+            //catch(FaultException ex)
+            //{
+            //    int i = 1;
+            //}
+            catch(FaultException<HumanService.ServiceFaultHumans> ex)
             {
-                Response.Redirect("homePage.aspx");
+                LgeneralError.Text = ex.Detail.Message;
+               return;
             }
-            if (rowEffected > 2)
-            {
-                //שגיאה חמורה
-            }
-
         }
 
         protected void btReset_Click(object sender, EventArgs e)

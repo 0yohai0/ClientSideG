@@ -3,10 +3,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="grid-wrap">
-            <asp:GridView runat="server" ID="gvNews" AutoGenerateColumns="False" DataKeyNames="Id"
+    <div class="body-wrap">
+
+             <asp:GridView runat="server" ID="gvNews" AutoGenerateColumns="False" DataKeyNames="Id"
         OnRowEditing="gvNews_RowEditing" OnRowCancelingEdit="gvNews_RowCancelingEdit" OnRowDataBound="gvNews_RowDataBound"
-        OnRowCommand="gvNews_RowCommand" OnRowUpdating="gvNews_RowUpdating" ShowFooter="true" CssClass="grid" BorderColor="#336666" BorderStyle="Double">
+        OnRowCommand="gvNews_RowCommand" OnRowUpdating="gvNews_RowUpdating" ShowFooter="true"  BorderColor="#336666">
 
         <Columns>
             <asp:TemplateField HeaderText="מספר מזהה" InsertVisible="False" SortExpression="IdNews">
@@ -59,14 +60,6 @@
                 </FooterTemplate>
             </asp:TemplateField>
 
-            <asp:TemplateField HeaderText="תוכן" SortExpression="content">
-                <EditItemTemplate>
-                    <asp:TextBox runat="server" Text='<%# Bind("content") %>' ID="txbContent"></asp:TextBox>
-                </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label runat="server" Text='<%# Bind("content") %>' ID="Label5"></asp:Label>
-                </ItemTemplate>
-            </asp:TemplateField>
             <asp:TemplateField HeaderText="הרשאה נחוצה" SortExpression="IdAuthLevelNeeded">
                 <EditItemTemplate>
                     <asp:DropDownList ID="ddlAuths" runat="server"></asp:DropDownList>
@@ -102,23 +95,8 @@
             </asp:TemplateField>
 
         </Columns>
-        <FooterStyle BackColor="White" ForeColor="#333333"></FooterStyle>
-
-        <HeaderStyle BackColor="#336666" Font-Bold="True" ForeColor="White"></HeaderStyle>
-
-        <PagerStyle HorizontalAlign="Center" BackColor="#336666" ForeColor="White"></PagerStyle>
-
-        <RowStyle BackColor="White" ForeColor="#333333"></RowStyle>
-
-        <SelectedRowStyle BackColor="#339966" Font-Bold="True" ForeColor="White"></SelectedRowStyle>
-
-        <SortedAscendingCellStyle BackColor="#F7F7F7"></SortedAscendingCellStyle>
-
-        <SortedAscendingHeaderStyle BackColor="#487575"></SortedAscendingHeaderStyle>
-
-        <SortedDescendingCellStyle BackColor="#E5E5E5"></SortedDescendingCellStyle>
-
-        <SortedDescendingHeaderStyle BackColor="#275353"></SortedDescendingHeaderStyle>
     </asp:GridView>
     </div>
+       
+
 </asp:Content>
