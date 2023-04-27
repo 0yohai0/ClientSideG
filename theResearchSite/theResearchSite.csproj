@@ -253,10 +253,10 @@
     <Content Include="newsImages\newProtonStructure.jpg" />
     <Content Include="newsImages\theEarthIsElipsoid.jpg" />
     <Content Include="newsImages\universeEnd.jpg" />
+    <Content Include="paymentComplete.aspx" />
     <Content Include="register.aspx" />
     <Content Include="singleNews.aspx" />
     <Content Include="subscriptionPage.aspx" />
-    <Content Include="successTransferPage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -347,6 +347,13 @@
     <Compile Include="logIn.aspx.designer.cs">
       <DependentUpon>logIn.aspx</DependentUpon>
     </Compile>
+    <Compile Include="paymentComplete.aspx.cs">
+      <DependentUpon>paymentComplete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="paymentComplete.aspx.designer.cs">
+      <DependentUpon>paymentComplete.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="register.aspx.cs">
       <DependentUpon>register.aspx</DependentUpon>
@@ -368,13 +375,6 @@
     </Compile>
     <Compile Include="subscriptionPage.aspx.designer.cs">
       <DependentUpon>subscriptionPage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="successTransferPage.aspx.cs">
-      <DependentUpon>successTransferPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="successTransferPage.aspx.designer.cs">
-      <DependentUpon>successTransferPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TheResearchMasterPage.Master.cs">
       <DependentUpon>TheResearchMasterPage.Master</DependentUpon>

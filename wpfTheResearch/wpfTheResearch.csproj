@@ -116,6 +116,9 @@
     <Compile Include="oneUser.xaml.cs">
       <DependentUpon>oneUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="oneWorker.xaml.cs">
+      <DependentUpon>oneWorker.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RaceGameUser.cs" />
     <Compile Include="RacePage.xaml.cs">
       <DependentUpon>RacePage.xaml</DependentUpon>
@@ -129,9 +132,22 @@
     <Compile Include="ShowComments.xaml.cs">
       <DependentUpon>ShowComments.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShowFavorites.xaml.cs">
+      <DependentUpon>ShowFavorites.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ShowNews.xaml.cs">
+      <DependentUpon>ShowNews.xaml</DependentUpon>
+    </Compile>
     <Compile Include="showUsers.xaml.cs">
       <DependentUpon>showUsers.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ShowWorkers.xaml.cs">
+      <DependentUpon>ShowWorkers.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="singleNews.xaml.cs">
+      <DependentUpon>singleNews.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="sortHelper.cs" />
     <Compile Include="textBox-farFromHome.xaml.cs">
       <DependentUpon>textBox-farFromHome.xaml</DependentUpon>
     </Compile>
@@ -303,6 +319,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="oneWorker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RacePage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -323,9 +343,25 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ShowFavorites.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ShowNews.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="showUsers.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ShowWorkers.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="singleNews.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="textBox-farFromHome.xaml">
       <SubType>Designer</SubType>
@@ -483,6 +519,31 @@
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\iconComment-modified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\worker-icon-modified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\category-icon-modified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\favorite-icon-modified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="newsImages\atTheHorizonOfBlackHole.jpg" />
+    <Resource Include="newsImages\blackHoleCollision.jpg" />
+    <Resource Include="newsImages\galaxyFormation.jpg" />
+    <Resource Include="newsImages\howManyStars.jpg" />
+    <Resource Include="newsImages\largestGalaxy.jpg" />
+    <Resource Include="newsImages\newProtonStructure.jpg" />
+    <Resource Include="newsImages\theEarthIsElipsoid.jpg" />
+    <Resource Include="newsImages\universeEnd.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="icons\news-icon-modified.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

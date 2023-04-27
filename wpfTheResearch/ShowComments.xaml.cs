@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using wpfTheResearch.HumanService;
 using wpfTheResearch.NewsService;
 using wpfTheResearch.UserNewsInteractionService;
+using WpfViewModelTheResearch;
 
 namespace wpfTheResearch
 {
@@ -37,7 +38,7 @@ namespace wpfTheResearch
         {
             client.Remove(EnumsuserNewsInteracrionType.comment, comment);
             comments.Remove(comment);
-            populate();
+            populate(comments);
         }
         public ShowComments()
         {
@@ -48,52 +49,36 @@ namespace wpfTheResearch
             cmbDemarcUser.ItemsSource = HumanClient.selectAllUsers();
             cmbDemarcNews.ItemsSource = newsClient.selectAll();
 
-            populate();
+            populate(comments);
         }
-        public void populate()
+        public void populate(CommentList list)
         {
             lvComments.ItemsSource = null;
-            lvComments.ItemsSource = comments;
+            lvComments.ItemsSource = list;
         }
 
         private void btReset_Click(object sender, RoutedEventArgs e)
         {
-            populate();
+            populate(comments);
         }
         private void btDemarcation_Click_1(object sender, RoutedEventArgs e)
         {
             CommentList newComments = new CommentList();
-            newComments = comments;
+            foreach(Comment comment in comments)
+            {
+                newComments.Add(comment);
+            }
              //קבלת נתונים
             int.TryParse(txbIdComment.Text, out int id);
             string content = txbCommentTextName.Text;
             DateTime.TryParse(txbCommentDate.Text, out DateTime date);
 
-            string userIdStr = cmbDemarcUser.SelectedValue.ToString();
-            string newsIdStr = cmbDemarcNews.SelectedValue.ToString();
-
-            int.TryParse(userIdStr, out int userId);
-            int.TryParse(newsIdStr, out int newsId);
             //צריך לבדוק שתיחום עובד
             if(id>0)
             {
                 foreach(Comment comment in newComments.FindAll(x => x.Id != id))
                 {
                     newComments.Remove(comment);                    
-                }
-            }
-            if (userId > 0)
-            {
-                foreach (Comment comment in newComments.FindAll(x => x.user.Id != userId))
-                {
-                    newComments.Remove(comment);
-                }
-            }
-            if(newsId > 0)
-            {
-                foreach (Comment comment in newComments.FindAll(x => x.news.Id != newsId))
-                {
-                    newComments.Remove(comment);
                 }
             }
             if(content.Length > 0)
@@ -103,6 +88,23 @@ namespace wpfTheResearch
                     newComments.Remove(comment);
                 }
             }
+            if (cmbDemarcNews.SelectedValue != null)
+            {
+                string newsIdStr = cmbDemarcNews.SelectedValue.ToString();
+                foreach (Comment comment in newComments.FindAll(x => x.news.Id.ToString() != newsIdStr))
+                {
+                    newComments.Remove(comment);
+                }
+            }
+            if (cmbDemarcUser.SelectedValue != null)
+            {
+                string userIdStr = cmbDemarcUser.SelectedValue.ToString();
+                foreach (Comment comment in newComments.FindAll(x => x.user.Id.ToString() != userIdStr))
+                {
+                    newComments.Remove(comment);
+                }
+            }
+            populate(newComments);
         }
         public int GetDirection()
         {
@@ -113,43 +115,42 @@ namespace wpfTheResearch
         {
             int direction = GetDirection();
             CommentList newComments = new CommentList();
+
             string colum = ((GridViewColumnHeader)e.OriginalSource).Column.Header.ToString();
-            newComments = comments;
 
             if (direction == 1)
             {
                 if (colum == "מספר מזהה")
                 {
-                    foreach (Comment commentTry in newComments.OrderBy(x => x.Id))
+                    foreach (Comment commentTry in comments.OrderBy(x => x.Id))
                     {
                         newComments.Add(commentTry);
                     }
                 }
                 if (colum == "תוכן תגובה")
                 {
-                    foreach (Comment commentTry in newComments.OrderBy(x => x.content))
+                    foreach (Comment commentTry in comments.OrderBy(x => x.content))
                     {
                         newComments.Add(commentTry);
                     }
                 }
-
                 if (colum == "שם משתמש")
                 {
-                    foreach (Comment commentTry in newComments.OrderBy(x => x.user.userName))
+                    foreach (Comment commentTry in comments.OrderBy(x => x.user.userName))
                     {
                         newComments.Add(commentTry);
                     }
                 }
                 if (colum == "שם חדשה")
                 {
-                    foreach (Comment commentTry in newComments.OrderBy(x => x.news.headLine))
+                    foreach (Comment commentTry in comments.OrderBy(x => x.news.headLine))
                     {
                         newComments.Add(commentTry);
                     }
                 }
                 if (colum == "זמן הוספת תגובה")
                 {
-                    foreach (Comment commentTry in newComments.OrderBy(x => x.dateTimeAdded))
+                    foreach (Comment commentTry in comments.OrderBy(x => x.dateTimeAdded))
                     {
                         newComments.Add(commentTry);
                     }
@@ -160,14 +161,14 @@ namespace wpfTheResearch
             {
                 if (colum == "מספר מזהה")
                 {
-                    foreach (Comment commentTry in newComments.OrderByDescending(x => x.Id))
+                    foreach (Comment commentTry in comments.OrderByDescending(x => x.Id))
                     {
                         newComments.Add(commentTry);
                     }
                 }
                 if (colum == "תוכן תגובה")
                 {
-                    foreach (Comment commentTry in newComments.OrderByDescending(x => x.content))
+                    foreach (Comment commentTry in comments.OrderByDescending(x => x.content))
                     {
                         newComments.Add(commentTry);
                     }
@@ -175,31 +176,41 @@ namespace wpfTheResearch
 
                 if (colum == "שם משתמש")
                 {
-                    foreach (Comment commentTry in newComments.OrderByDescending(x => x.user.userName))
+                    foreach (Comment commentTry in comments.OrderByDescending(x => x.user.userName))
                     {
                         newComments.Add(commentTry);
                     }
                 }
                 if (colum == "שם חדשה")
                 {
-                    foreach (Comment commentTry in newComments.OrderByDescending(x => x.news.headLine))
+                    foreach (Comment commentTry in comments.OrderByDescending(x => x.news.headLine))
                     {
                         newComments.Add(commentTry);
                     }
                 }
                 if (colum == "זמן הוספת תגובה")
                 {
-                    foreach (Comment commentTry in newComments.OrderByDescending(x => x.dateTimeAdded))
+                    foreach (Comment commentTry in comments.OrderByDescending(x => x.dateTimeAdded))
                     {
                         newComments.Add(commentTry);
                     }
                 }
             }
+            populate(newComments);
         }
 
         private void lvComments_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             comment = lvComments.SelectedItem as Comment;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (AuthorizationControl.authAdmin == false)
+            {
+                NavigationService nav = NavigationService.GetNavigationService(this);
+                nav.Navigate(new homePage());
+            }
         }
     }
 }

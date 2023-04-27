@@ -143,10 +143,10 @@ namespace theResearchSite.HumanService {
         private theResearchSite.HumanService.AuthLevel authLevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime birthDateField;
+        private string emailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string emailField;
+        private System.DateTime joinDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string nameField;
@@ -168,19 +168,6 @@ namespace theResearchSite.HumanService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime birthDate {
-            get {
-                return this.birthDateField;
-            }
-            set {
-                if ((this.birthDateField.Equals(value) != true)) {
-                    this.birthDateField = value;
-                    this.RaisePropertyChanged("birthDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string email {
             get {
                 return this.emailField;
@@ -189,6 +176,19 @@ namespace theResearchSite.HumanService {
                 if ((object.ReferenceEquals(this.emailField, value) != true)) {
                     this.emailField = value;
                     this.RaisePropertyChanged("email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime joinDate {
+            get {
+                return this.joinDateField;
+            }
+            set {
+                if ((this.joinDateField.Equals(value) != true)) {
+                    this.joinDateField = value;
+                    this.RaisePropertyChanged("joinDate");
                 }
             }
         }
@@ -340,6 +340,13 @@ namespace theResearchSite.HumanService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/Update", ReplyAction="http://tempuri.org/IHuman/UpdateResponse")]
         System.Threading.Tasks.Task<int> UpdateAsync(theResearchSite.HumanService.EnumshumanType humanType, theResearchSite.HumanService.Human human);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/Remove", ReplyAction="http://tempuri.org/IHuman/RemoveResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(theResearchSite.HumanService.ServiceFaultHumans), Action="http://tempuri.org/IHuman/RemoveServiceFaultHumansFault", Name="ServiceFaultHumans", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
+        int Remove(theResearchSite.HumanService.EnumshumanType humanType, theResearchSite.HumanService.Human human);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/Remove", ReplyAction="http://tempuri.org/IHuman/RemoveResponse")]
+        System.Threading.Tasks.Task<int> RemoveAsync(theResearchSite.HumanService.EnumshumanType humanType, theResearchSite.HumanService.Human human);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -399,6 +406,14 @@ namespace theResearchSite.HumanService {
         
         public System.Threading.Tasks.Task<int> UpdateAsync(theResearchSite.HumanService.EnumshumanType humanType, theResearchSite.HumanService.Human human) {
             return base.Channel.UpdateAsync(humanType, human);
+        }
+        
+        public int Remove(theResearchSite.HumanService.EnumshumanType humanType, theResearchSite.HumanService.Human human) {
+            return base.Channel.Remove(humanType, human);
+        }
+        
+        public System.Threading.Tasks.Task<int> RemoveAsync(theResearchSite.HumanService.EnumshumanType humanType, theResearchSite.HumanService.Human human) {
+            return base.Channel.RemoveAsync(humanType, human);
         }
     }
 }

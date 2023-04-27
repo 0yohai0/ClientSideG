@@ -34,12 +34,15 @@
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Column="1" FontSize="15px" TextAlignment="Center"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd">שם משתמש</TextBlock>
+            <TextBlock Grid.Column="1" FontSize="15px" TextAlignment="Center"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd">שם</TextBlock>
             <TextBlock Grid.Row="1"   FontSize="15px"  TextAlignment="Center"  Grid.Column="1" HorizontalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd" VerticalAlignment="Center">אימייל</TextBlock>
             <TextBlock Grid.Row="2"   FontSize="15px"  TextAlignment="Center"   Grid.Column="1" HorizontalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd" VerticalAlignment="Center"  RenderTransformOrigin="0.661,0.468">ססמה</TextBlock>
-            <TextBox  Grid.Row="0" Name="txbUserName"  Text="{Binding name}" Grid.Column="0" Height="25"  ></TextBox>
+            <TextBlock Grid.Row="3"   FontSize="15px"  TextAlignment="Center"   Grid.Column="1" HorizontalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd" VerticalAlignment="Center"  RenderTransformOrigin="0.661,0.468">שם משתמש</TextBlock>
+            <TextBox  Grid.Row="0" Name="txbName"  Text="{Binding name}" Grid.Column="0" Height="25"  ></TextBox>
+            <TextBox  Grid.Row="3" Name="txbUserName"  Text="{Binding userName}" Grid.Column="0" Height="25"  ></TextBox>
 
             <TextBox Grid.Row="1" Grid.Column="0" Height="25" Name="txbEmail">
                 <TextBox.Text>
@@ -94,7 +97,7 @@
             </TextBox>
             <!--<TextBox  Grid.Row="1" Name="txbEmail"  Text="{Binding email}" Grid.Column="0" Height="25" ></TextBox>-->
             <!--<TextBox  Grid.Row="2" Name="txbPassword" Text="{Binding password}" Grid.Column="0" Height="25" ></TextBox>-->
-            <ComboBox Grid.Row="3" Width="250" HorizontalAlignment="Center" SelectionChanged="cmbAuths_SelectionChanged"  Height="20" Name="cmbAuths"></ComboBox>
+            <ComboBox Grid.Row="4" Width="250" HorizontalAlignment="Center" SelectionChanged="cmbAuths_SelectionChanged"  Height="20" Name="cmbAuths"></ComboBox>
         </Grid>
         <Image Grid.Column="2" Grid.Row="1" Source="/icons/personImg.png" />
 

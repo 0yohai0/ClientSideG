@@ -40,6 +40,7 @@
 
 
         </Grid>
-        <Image Grid.Column="2" Grid.Row="1" Source="/icons/keyIcon.jpg" />
+        <Image Grid.Column="2" Grid.Row="1" Source="/icons/category-icon-modified.png" />
+ 
     </Grid>
 </Page>

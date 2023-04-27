@@ -43,6 +43,15 @@
   <wsdl:message name="IHuman_Update_ServiceFaultHumansFault_FaultMessage">
     <wsdl:part xmlns:q4="http://schemas.datacontract.org/2004/07/ModelTheResearch" name="detail" element="q4:ServiceFaultHumans" />
   </wsdl:message>
+  <wsdl:message name="IHuman_Remove_InputMessage">
+    <wsdl:part name="parameters" element="tns:Remove" />
+  </wsdl:message>
+  <wsdl:message name="IHuman_Remove_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveResponse" />
+  </wsdl:message>
+  <wsdl:message name="IHuman_Remove_ServiceFaultHumansFault_FaultMessage">
+    <wsdl:part xmlns:q5="http://schemas.datacontract.org/2004/07/ModelTheResearch" name="detail" element="q5:ServiceFaultHumans" />
+  </wsdl:message>
   <wsdl:portType name="IHuman">
     <wsdl:operation name="selectAllUsers">
       <wsdl:input wsaw:Action="http://tempuri.org/IHuman/selectAllUsers" message="tns:IHuman_selectAllUsers_InputMessage" />
@@ -63,6 +72,11 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IHuman/Update" message="tns:IHuman_Update_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IHuman/UpdateResponse" message="tns:IHuman_Update_OutputMessage" />
       <wsdl:fault wsaw:Action="http://tempuri.org/IHuman/UpdateServiceFaultHumansFault" name="ServiceFaultHumansFault" message="tns:IHuman_Update_ServiceFaultHumansFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <wsdl:input wsaw:Action="http://tempuri.org/IHuman/Remove" message="tns:IHuman_Remove_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IHuman/RemoveResponse" message="tns:IHuman_Remove_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/IHuman/RemoveServiceFaultHumansFault" name="ServiceFaultHumansFault" message="tns:IHuman_Remove_ServiceFaultHumansFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IHuman" type="tns:IHuman">
@@ -105,6 +119,18 @@
     </wsdl:operation>
     <wsdl:operation name="Update">
       <soap:operation soapAction="http://tempuri.org/IHuman/Update" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="ServiceFaultHumansFault">
+        <soap:fault use="literal" name="ServiceFaultHumansFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="Remove">
+      <soap:operation soapAction="http://tempuri.org/IHuman/Remove" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>

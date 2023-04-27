@@ -1,0 +1,70 @@
+﻿<Page x:Class="wpfTheResearch.ShowWorkers"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wpfTheResearch"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ShowWorkers" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid>
+            <Grid.RowDefinitions  >
+                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>
+
+            <ListView Name="lvWorkers" Grid.Row="0" GridViewColumnHeader.Click="lvWorkers_Click"   SelectionChanged="lvWorkers_SelectionChanged"   HorizontalAlignment="Center" VerticalAlignment="Top"  Height="auto"  Background="MintCream" Margin="4,10,0,-11" Grid.RowSpan="2" >
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="הוסף עובד" Click="Insert"></MenuItem>
+                        <MenuItem Header="עדכון פרטי עובד" Click="Update"></MenuItem>
+                        <MenuItem Header="מחיקת עובד" Click="Delete"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView  x:Name="gpoeple" >
+                        <GridViewColumn  Header="רמת הרשאה " Width="125" DisplayMemberBinding="{Binding authLevel.name}"></GridViewColumn>
+                        <GridViewColumn  Header="משכורת" Width="125" DisplayMemberBinding="{Binding salary}"></GridViewColumn>
+                        <GridViewColumn Header="ססמה"  Width="125" DisplayMemberBinding="{Binding password}"></GridViewColumn>
+                        <GridViewColumn Header="אימייל" Width="125" DisplayMemberBinding="{Binding email}"></GridViewColumn>
+                        <GridViewColumn Header="שם עובד" Width="125" DisplayMemberBinding="{Binding name}"></GridViewColumn>
+                        <GridViewColumn Header="מספר מזהה" Width="125" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition ></RowDefinition>
+                    <RowDefinition Height="2*"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <TextBox  Grid.Row="0" Width="120" Name="txbIdWorker" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="5"></TextBox>
+                <TextBox  Grid.Row="0" Width="120" Name="txbWorkerName" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="4"></TextBox>
+                <TextBox  Grid.Row="0" Width="120" Name="txbEmail" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="3"></TextBox>
+                <TextBox  Grid.Row="0" Width="120" Name="txbPassword" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="2"></TextBox>
+                <TextBox  Grid.Row="0" Width="120" Name="txbSalary" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="1"></TextBox>
+                <ComboBox Grid.Row="0" Width="120" Name="cmbDemarc" HorizontalAlignment="center"  SelectedValuePath = "IdAuthLevel" DisplayMemberPath = "name" VerticalAlignment="Center" Grid.Column="0"></ComboBox>
+
+                <Button Name="btDemarcation" Grid.Column="3" Grid.Row="1" Height="40"  Click="btDemarcation_Click">תיחום</Button>
+                <Button Name="btReset" Grid.Column="2" Grid.Row="1"  Height="40"  Click="btReset_Click">איפוס</Button>
+
+            </Grid>
+        </Grid>
+    </Grid>
+</Page>

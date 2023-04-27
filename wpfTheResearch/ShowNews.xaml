@@ -1,0 +1,72 @@
+﻿<Page x:Class="wpfTheResearch.ShowNews"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:wpfTheResearch"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ShowNews" Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition Height="2.4*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  Width="2*"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+
+            </Grid.ColumnDefinitions>
+            <TextBlock FontSize="30" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center">מאגר חדשות</TextBlock>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions >
+                    <RowDefinition Height="22" ></RowDefinition>
+                    <RowDefinition Height="22"></RowDefinition>
+                    <RowDefinition Height="22"></RowDefinition>
+                    <RowDefinition Height="26"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="0">חיפוש לפי שם</TextBlock>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1">חיפוש לפי קטגוריה</TextBlock>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2">חיפוש לפי רמת הרשאה</TextBlock>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3">מיונים</TextBlock>
+
+                <TextBox Name="txbNewsNameDemarc" HorizontalAlignment="Right" Height="18" Width="300" Grid.Column="0" Grid.Row="0" TextAlignment="Right" FontSize="15"></TextBox>
+                <ComboBox Name="cmbNewsCategoryDemarc"  HorizontalAlignment="Right" Width="300"  Height="18"  Grid.Column="0" Grid.Row="1"></ComboBox>
+                <ComboBox Name="cmbNewsAuthDemarc"  HorizontalAlignment="Right" Width="300"  Height="18"  Grid.Column="0" Grid.Row="2"></ComboBox>
+
+                <WrapPanel Grid.Row="3"  FlowDirection="RightToLeft" HorizontalAlignment="Right" Grid.RowSpan="2">
+
+                    <CheckBox Name="cbViews" Content="אורך החדשה" Width="91"/>
+                    <CheckBox Name="cbComments" Content="מספר תגובות" Width="92" />
+                    <CheckBox x:Name="cbDate" Content="תאריך העלאה"/>
+                    <RadioButton Name="rbAsc" Content="עולה" Width="50" />
+                    <RadioButton  Name="rbDesc" Content="יורד" Width="50"/>
+                </WrapPanel>
+
+                <Grid Grid.Row="4" Grid.Column="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <Button Name="btSend" Click="btSend_Click" Grid.Column="1">חיפוש</Button>
+                    <Button Name="btReset" Click="btReset_Click" Grid.Column="0">איפוס</Button>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        <ScrollViewer HorizontalAlignment="Center"  Name="svList" VerticalScrollBarVisibility="Auto" Grid.Row="1" CanContentScroll="True">
+            <WrapPanel HorizontalAlignment="Center" Name="wpNews"></WrapPanel>
+        </ScrollViewer>
+
+    </Grid>
+</Page>

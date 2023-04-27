@@ -69,11 +69,11 @@ namespace wpfTheResearch
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //if (AuthorizationControl.authAdmin == false)
-            //{
-            //    NavigationService nav = NavigationService.GetNavigationService(this);
-            //    nav.Navigate(new homePage());
-            //}
+            if (AuthorizationControl.authAdmin == false)
+            {
+                NavigationService nav = NavigationService.GetNavigationService(this);
+                nav.Navigate(new homePage());
+            }
         }
 
         private void btDemarcation_Click(object sender, RoutedEventArgs e)

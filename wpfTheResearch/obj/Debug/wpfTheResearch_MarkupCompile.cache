@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\theResearch\clientSide\wpfTheResearch\App.xaml
-14-786430149
+19-1713775688
 
-32-1189821274
+38-1993331837
 16-1770631044
-about.xaml;Formula1Game.xaml;homePage.xaml;MainWindow.xaml;oneAuth.xaml;oneCategory.xaml;oneUser.xaml;RacePage.xaml;ResourceDictionary\StyleGeneral.xaml;showAuths.xaml;showCategories.xaml;ShowComments.xaml;showUsers.xaml;textBox-farFromHome.xaml;
+about.xaml;Formula1Game.xaml;homePage.xaml;MainWindow.xaml;oneAuth.xaml;oneCategory.xaml;oneUser.xaml;oneWorker.xaml;RacePage.xaml;ResourceDictionary\StyleGeneral.xaml;showAuths.xaml;showCategories.xaml;ShowComments.xaml;ShowFavorites.xaml;ShowNews.xaml;showUsers.xaml;ShowWorkers.xaml;singleNews.xaml;textBox-farFromHome.xaml;
 
 False
 

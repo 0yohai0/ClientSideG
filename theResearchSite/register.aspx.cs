@@ -17,14 +17,17 @@ namespace theResearchSite
         }
         protected void btRegister_Click(object sender, EventArgs e)
         {
+            lCheckPasswordError.Text = "";
+            lErrorEmail.Text = "";
+            lErrorName.Text = "";
+            lErrorPassword.Text = "";
+            lErrorUserName.Text = "";
             //הגדרת משתנים
             string name = txbUserName.Text;
             string userName = txbUserName.Text;
             string email = txbEmail.Text;
             string password = txbPasswore.Text;
-            string birthDateStr = Request.Form["dBirthDate"];
 
-            DateTime.TryParse(birthDateStr, out DateTime birthDate);
 
             bool error = false;
             //בדיקות
@@ -51,7 +54,7 @@ namespace theResearchSite
             }
 
             //יצירת אובייקט
-            HumanService.User user = new HumanService.User() { name = name, email = email, password = password,birthDate=birthDate, authLevel = new HumanService.AuthLevel() { Id = 12 }, userName=userName };
+            HumanService.User user = new HumanService.User() { name = name, email = email, password = password,joinDate=DateTime.Now, authLevel = new HumanService.AuthLevel() { Id = 12 }, userName=userName };
 
             //בדיקה האם משתמש קיים כבר
             HumanService.HumanClient humanClient = new HumanService.HumanClient();
@@ -69,22 +72,18 @@ namespace theResearchSite
                 //בדיקות לאחר אינסרט
                 if (rowEffected == 0)
                 {
-
+                    LgeneralError.Text = "הליך הרישום לא צלח";
                 }
                 if (rowEffected == 2)
                 {
-                    Response.Redirect("homePage.aspx");
+                    Response.Redirect("logIn.aspx");
                 }
                 if (rowEffected > 2)
                 {
-                    //שגיאה חמורה
+                    LgeneralError.Text = "שגיאה חמורה יש לפנות לעזרה";
                 }
             }
-            //catch(FaultException ex)
-            //{
-            //    int i = 1;
-            //}
-            catch(FaultException<HumanService.ServiceFaultHumans> ex)
+            catch (FaultException<HumanService.ServiceFaultHumans> ex)
             {
                 LgeneralError.Text = ex.Detail.Message;
                return;
@@ -96,6 +95,13 @@ namespace theResearchSite
             txbUserName.Text = "";
             txbPasswore.Text = "";
             txbEmail.Text = "";
+
+            lCheckPasswordError.Text = "";
+            lErrorEmail.Text = "";
+            lErrorName.Text = "";
+            lErrorPassword.Text = "";
+            lErrorUserName.Text = "";
+
             RequiredFieldValidatorUserName.ErrorMessage = "";
             RequiredFieldValidatorEmail.ErrorMessage = "";
             regExEmail.ErrorMessage = "";

@@ -23,8 +23,8 @@
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="authLevel" nillable="true" type="tns:AuthLevel" />
-          <xs:element minOccurs="0" name="birthDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="joinDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
         </xs:sequence>

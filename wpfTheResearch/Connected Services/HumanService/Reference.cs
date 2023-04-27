@@ -143,10 +143,10 @@ namespace wpfTheResearch.HumanService {
         private wpfTheResearch.HumanService.AuthLevel authLevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime birthDateField;
+        private string emailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string emailField;
+        private System.DateTime joinDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string nameField;
@@ -168,19 +168,6 @@ namespace wpfTheResearch.HumanService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime birthDate {
-            get {
-                return this.birthDateField;
-            }
-            set {
-                if ((this.birthDateField.Equals(value) != true)) {
-                    this.birthDateField = value;
-                    this.RaisePropertyChanged("birthDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string email {
             get {
                 return this.emailField;
@@ -189,6 +176,19 @@ namespace wpfTheResearch.HumanService {
                 if ((object.ReferenceEquals(this.emailField, value) != true)) {
                     this.emailField = value;
                     this.RaisePropertyChanged("email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime joinDate {
+            get {
+                return this.joinDateField;
+            }
+            set {
+                if ((this.joinDateField.Equals(value) != true)) {
+                    this.joinDateField = value;
+                    this.RaisePropertyChanged("joinDate");
                 }
             }
         }
@@ -245,6 +245,51 @@ namespace wpfTheResearch.HumanService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ServiceFaultHumans", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
+    [System.SerializableAttribute()]
+    public partial class ServiceFaultHumans : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string MessageField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Message {
+            get {
+                return this.MessageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.MessageField, value) != true)) {
+                    this.MessageField = value;
+                    this.RaisePropertyChanged("Message");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.CollectionDataContractAttribute(Name="WorkerList", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch", ItemName="Human")]
     [System.SerializableAttribute()]
     public class WorkerList : System.Collections.Generic.List<wpfTheResearch.HumanService.Human> {
@@ -269,28 +314,39 @@ namespace wpfTheResearch.HumanService {
     public interface IHuman {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/selectAllUsers", ReplyAction="http://tempuri.org/IHuman/selectAllUsersResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(wpfTheResearch.HumanService.ServiceFaultHumans), Action="http://tempuri.org/IHuman/selectAllUsersServiceFaultHumansFault", Name="ServiceFaultHumans", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
         wpfTheResearch.HumanService.UserList selectAllUsers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/selectAllUsers", ReplyAction="http://tempuri.org/IHuman/selectAllUsersResponse")]
         System.Threading.Tasks.Task<wpfTheResearch.HumanService.UserList> selectAllUsersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/selectAllWorkers", ReplyAction="http://tempuri.org/IHuman/selectAllWorkersResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(wpfTheResearch.HumanService.ServiceFaultHumans), Action="http://tempuri.org/IHuman/selectAllWorkersServiceFaultHumansFault", Name="ServiceFaultHumans", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
         wpfTheResearch.HumanService.WorkerList selectAllWorkers();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/selectAllWorkers", ReplyAction="http://tempuri.org/IHuman/selectAllWorkersResponse")]
         System.Threading.Tasks.Task<wpfTheResearch.HumanService.WorkerList> selectAllWorkersAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/Add", ReplyAction="http://tempuri.org/IHuman/AddResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(wpfTheResearch.HumanService.ServiceFaultHumans), Action="http://tempuri.org/IHuman/AddServiceFaultHumansFault", Name="ServiceFaultHumans", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
         int Add(wpfTheResearch.HumanService.EnumshumanType humanType, wpfTheResearch.HumanService.Human human);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/Add", ReplyAction="http://tempuri.org/IHuman/AddResponse")]
         System.Threading.Tasks.Task<int> AddAsync(wpfTheResearch.HumanService.EnumshumanType humanType, wpfTheResearch.HumanService.Human human);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/Update", ReplyAction="http://tempuri.org/IHuman/UpdateResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(wpfTheResearch.HumanService.ServiceFaultHumans), Action="http://tempuri.org/IHuman/UpdateServiceFaultHumansFault", Name="ServiceFaultHumans", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
         int Update(wpfTheResearch.HumanService.EnumshumanType humanType, wpfTheResearch.HumanService.Human human);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/Update", ReplyAction="http://tempuri.org/IHuman/UpdateResponse")]
         System.Threading.Tasks.Task<int> UpdateAsync(wpfTheResearch.HumanService.EnumshumanType humanType, wpfTheResearch.HumanService.Human human);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/Remove", ReplyAction="http://tempuri.org/IHuman/RemoveResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(wpfTheResearch.HumanService.ServiceFaultHumans), Action="http://tempuri.org/IHuman/RemoveServiceFaultHumansFault", Name="ServiceFaultHumans", Namespace="http://schemas.datacontract.org/2004/07/ModelTheResearch")]
+        int Remove(wpfTheResearch.HumanService.EnumshumanType humanType, wpfTheResearch.HumanService.Human human);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IHuman/Remove", ReplyAction="http://tempuri.org/IHuman/RemoveResponse")]
+        System.Threading.Tasks.Task<int> RemoveAsync(wpfTheResearch.HumanService.EnumshumanType humanType, wpfTheResearch.HumanService.Human human);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -350,6 +406,14 @@ namespace wpfTheResearch.HumanService {
         
         public System.Threading.Tasks.Task<int> UpdateAsync(wpfTheResearch.HumanService.EnumshumanType humanType, wpfTheResearch.HumanService.Human human) {
             return base.Channel.UpdateAsync(humanType, human);
+        }
+        
+        public int Remove(wpfTheResearch.HumanService.EnumshumanType humanType, wpfTheResearch.HumanService.Human human) {
+            return base.Channel.Remove(humanType, human);
+        }
+        
+        public System.Threading.Tasks.Task<int> RemoveAsync(wpfTheResearch.HumanService.EnumshumanType humanType, wpfTheResearch.HumanService.Human human) {
+            return base.Channel.RemoveAsync(humanType, human);
         }
     }
 }

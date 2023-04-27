@@ -26,11 +26,12 @@
                                 {%>
                             <asp:Button ID="btLogOut" CausesValidation="false" CssClass="bt-log-out" OnClick="btLogOut_Click" runat="server" Text="התנתקות" />
                             <%} %>
-                              <%if (!(Session["user"] != null || Session["journalist"] != null || Session["editor"] != null || Session["admin"] != null))
+                              <%if (Session["user"] == null && Session["journalist"] == null && Session["editor"] == null && Session["admin"] == null)
                                 {%>
                             <asp:Button ID="btLogIn" CausesValidation="false" CssClass="bt-log-in" OnClick="btLogIn_Click" runat="server" Text="כניסה" />
                             <asp:Button ID="btRegister" CausesValidation="false" CssClass="bt-register" OnClick="btRegister_Click" runat="server" Text="רישום" />
-                            <%} %>
+                            <%}
+%>
                           
                         </div>
                     </div>
@@ -53,8 +54,11 @@
                     <li class="li"><a class="side-nav-links" href="aboutSiteaspx.aspx">אודות</a></li>
                     <li class="li"><a class="side-nav-links" href="favorites.aspx">מועדפים</a></li>
                     <li class="li"><a class="side-nav-links" href="addNews.aspx">הוספת חדשה</a></li>
-                    <li class="li"><a class="side-nav-links" href="addNews.aspx">ניהול חדשות</a></li>
+                    <li class="li"><a class="side-nav-links" href="GvNews.aspx">ניהול חדשות</a></li>
+                    <%if (Session["subscribed"] == null)
+                        {  %>
                     <li class="li"><a class="side-nav-links" href="subscriptionPage.aspx">קניית מנוי</a></li>
+                    <%} %>
                 </ul>
                 <div class="line"></div>
             </nav>

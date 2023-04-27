@@ -7,7 +7,8 @@
 
              <asp:GridView runat="server" ID="gvNews" AutoGenerateColumns="False" DataKeyNames="Id"
         OnRowEditing="gvNews_RowEditing" OnRowCancelingEdit="gvNews_RowCancelingEdit" OnRowDataBound="gvNews_RowDataBound"
-        OnRowCommand="gvNews_RowCommand" OnRowUpdating="gvNews_RowUpdating" ShowFooter="true"  BorderColor="#336666">
+        OnRowCommand="gvNews_RowCommand" OnRowUpdating="gvNews_RowUpdating" ShowFooter="true" 
+                 OnSorting="gvNews_Sorting" AllowSorting="true" BorderColor="#336666">
 
         <Columns>
             <asp:TemplateField HeaderText="מספר מזהה" InsertVisible="False" SortExpression="IdNews">

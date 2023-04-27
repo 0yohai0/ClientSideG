@@ -40,6 +40,7 @@ namespace viewModelWpfTheResearch
             txbUserName.DataContext = user;
             txbEmail.DataContext = user;
             txbPassword.DataContext = user;
+            txbUserName.DataContext = user;
             cmbAuths.ItemsSource = auths;
             cmbAuths.DataContext = user.authLevel;
             cmbAuths.SelectedValuePath = "Id";

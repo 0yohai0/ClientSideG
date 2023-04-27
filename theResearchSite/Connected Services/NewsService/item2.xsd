@@ -17,6 +17,7 @@
           <xs:element minOccurs="0" name="headLine" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="imagePath" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="secondaryTitle" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="viewsCount" type="xs:int" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

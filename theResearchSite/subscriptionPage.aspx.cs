@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using theResearchSite.HumanService;
 
 namespace theResearchSite
 {
@@ -32,7 +33,7 @@ namespace theResearchSite
             creditCardService.creditServiceSoapClient credit = new creditCardService.creditServiceSoapClient();
 
             //קריאה לשירות רשת
-            int result = credit.creditCardCheck(3, creditCardNumber, 100, expireDate, userID);
+            int result = credit.creditCardCheck(4, creditCardNumber, 100, expireDate, userID);
 
             //התייחסות לתוצאות ההעברה
             if(result< 0)
@@ -41,7 +42,23 @@ namespace theResearchSite
             }
             if(result > 0)
             {
-                Response.Redirect($"successTransferPage.aspx?transferID={result}");
+                Session["subscribed"] = true;
+                //עדכון רמת הרשאה
+                HumanClient humanClient = new HumanClient();
+                User userToUpdate = new User();
+                UserList users = humanClient.selectAllUsers();
+                userToUpdate = users.Find(x => x.IdUser == userID);
+                userToUpdate.authLevel.Id = 16;
+                userToUpdate.authLevel.name = "מנוי";
+                int rows = humanClient.Update(EnumshumanType.user, userToUpdate);
+
+                if(rows == 2)
+                {
+                    //שליחה לדף הצלחה
+                    Response.Redirect($"paymentComplete.aspx?transferID={result}");
+                }
+                //צריך טיפול בשגיאות
+             
             }
         }
     }

@@ -22,17 +22,13 @@
 
 
             <div>
-                <asp:TextBox ID="txbPasswore" CssClass="input" placeholder="ססמה" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbPasswore" TextMode="Password" CssClass="input" placeholder="ססמה" runat="server"></asp:TextBox>
                 <asp:Label ID="lErrorPassword" runat="server" CssClass="error" Text=""></asp:Label>
             </div>
 
               <div>
-                <asp:TextBox ID="txbCheckPassword" CssClass="input" placeholder="אימות ססמה" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbCheckPassword" TextMode="Password" CssClass="input" placeholder="אימות ססמה" runat="server"></asp:TextBox>
                 <asp:Label ID="lCheckPasswordError" runat="server" CssClass="error" Text=""></asp:Label>
-            </div>
-                <div>
-                   <input type="date" id="dBirthDate" name="dBirthDate" class="input" />
-                <asp:Label ID="Label1" runat="server" CssClass="error" Text=""></asp:Label>
             </div>
 
             <asp:Button ID="btRegister" OnClick="btRegister_Click" CssClass="action-button" runat="server" Text="רישום" />

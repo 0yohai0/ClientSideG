@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using viewModelWpfTheResearch;
 using wpfTheResearch.CategoryService;
+using WpfViewModelTheResearch;
 
 namespace wpfTheResearch
 {
@@ -86,5 +87,13 @@ namespace wpfTheResearch
             category = lvCategories.SelectedItem as Category;
         }
 
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (AuthorizationControl.authAdmin == false)
+            {
+                NavigationService nav = NavigationService.GetNavigationService(this);
+                nav.Navigate(new homePage());
+            }
+        }
     }
 }

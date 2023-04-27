@@ -74,7 +74,6 @@ namespace theResearchSite
 
             TextBox txbHeadLine = (TextBox)gvNews.Rows[e.RowIndex].FindControl("txbHeadLine");
             TextBox txbSecTitle = (TextBox)gvNews.Rows[e.RowIndex].FindControl("txbSecTitle");
-            TextBox txbContent = (TextBox)gvNews.Rows[e.RowIndex].FindControl("txbContent");
             TextBox txbImgPath = (TextBox)gvNews.Rows[e.RowIndex].FindControl("txbImgPath");
             TextBox txbDatePublished = (TextBox)gvNews.Rows[e.RowIndex].FindControl("txbDatePublished");
             DropDownList Auths = (DropDownList)gvNews.Rows[e.RowIndex].FindControl("ddlAuths");
@@ -93,12 +92,12 @@ namespace theResearchSite
             currentNews.headLine = txbHeadLine.Text;
             currentNews.secondaryTitle = txbSecTitle.Text;
             currentNews.AuthLevel = currentAuth;
-            currentNews.content = txbContent.Text;
             currentNews.dateTimePublished = dateTimePublished;
             currentNews.imagePath = txbImgPath.Text;
 
             foreach(News news in CurrentNewsList.FindAll(x =>x.Id == idNews))
             {
+                currentNews.content = news.content;
                 CurrentNewsList.Remove(news);
             }
             CurrentNewsList.Add(currentNews);
@@ -181,10 +180,105 @@ namespace theResearchSite
                 Session["news"] = (NewsList)Session["copy"];
                 populate();
             }
+        }
+        public string getDirection(string sortExpression)
+        {
+            if (ViewState[sortExpression] == null)
+            {
+                ViewState[sortExpression] = "Desc";
+            }
+            ViewState[sortExpression] = ViewState[sortExpression].ToString() == "Desc" ? "Asc" : "Desc";
 
-        
-
+            return ViewState[sortExpression].ToString();
         }
 
+        protected void gvNews_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            NewsList CurrentNews = new NewsList();
+            CurrentNews = (NewsList)Session["news"];
+
+            string sortExpression = e.SortExpression;
+            string dirc = getDirection(sortExpression);
+            NewsList sortedNews = new NewsList();
+            if(dirc == "Asc")
+            {
+                if (sortExpression == "IdNews")
+                {
+                    foreach (News news in CurrentNews.OrderBy(x => x.Id))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+                if (sortExpression == "HeadLine")
+                {
+                    foreach (News news in CurrentNews.OrderBy(x => x.headLine))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+                if (sortExpression == "seconderyTitle")
+                {
+                    foreach (News news in CurrentNews.OrderBy(x => x.secondaryTitle))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+                if (sortExpression == "dateTimePublished")
+                {
+                    foreach (News news in CurrentNews.OrderBy(x => x.headLine))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+                if (sortExpression == "IdAuthLevelNeeded")
+                {
+                    foreach (News news in CurrentNews.OrderBy(x => x.AuthLevel.name))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+            }
+            if(dirc== "Desc")
+            {
+                if (sortExpression == "IdNews")
+                {
+                    foreach (News news in CurrentNews.OrderByDescending(x => x.Id))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+                if (sortExpression == "HeadLine")
+                {
+                    foreach (News news in CurrentNews.OrderByDescending(x => x.headLine))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+                if (sortExpression == "seconderyTitle")
+                {
+                    foreach (News news in CurrentNews.OrderByDescending(x => x.secondaryTitle))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+                if (sortExpression == "dateTimePublished")
+                {
+                    foreach (News news in CurrentNews.OrderByDescending(x => x.headLine))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+                if (sortExpression == "IdAuthLevelNeeded")
+                {
+                    foreach (News news in CurrentNews.OrderByDescending(x => x.AuthLevel.name))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+            }
+            Session["news"] = sortedNews;
+            populate();
+
+        }
     }
 }

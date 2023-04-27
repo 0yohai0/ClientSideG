@@ -105,6 +105,7 @@ namespace theResearchSite
             if (result == 1)
             {
                 //עובד
+                Response.Redirect("homePage.aspx");
             }
             if (result > 1)
             {

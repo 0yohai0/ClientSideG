@@ -33,6 +33,16 @@ namespace viewModelWpfTheResearch
         public homePage()
         {
             InitializeComponent();
+            if (Application.GetCookie(new Uri(@"C:\Junk\PersMC")) != null)
+            {
+                string cookieContent = Application.GetCookie(new Uri(@"C:\Junk\PersMC"));
+                string[] towParts = cookieContent.Split(';');
+                string[] email = towParts[0].Split('=');
+                string[] password = towParts[1].Split('=');
+
+                txbEmail.Text = email[1];
+                txbPassword.Text = password[1];
+            }
         }
         private void btLogIn_Click(object sender, RoutedEventArgs e)
         {
@@ -59,7 +69,19 @@ namespace viewModelWpfTheResearch
             string result = TestUser.authLevel.name;
             if (result == "מנהל")
             {
+
+
                 AuthorizationControl.authAdmin = true;
+
+                string cookieEmail = $"email={txbEmail.Text};expires=Sat, 12-Oct-2024 00:00:00 GMT";
+                string cookiePassword = $"password={txbPassword.Text};expires=Sat, 12-Oct-2024 00:00:00 GMT";
+
+                Uri cookieUrui1 = new Uri(@"C:\Junk\PersMC");
+                Uri cookieUrui2 = new Uri(@"C:\Junk\PersMC");
+
+                Application.SetCookie(cookieUrui1, cookieEmail);
+                Application.SetCookie(cookieUrui2 , cookiePassword);
+
                 NavigationService nav = NavigationService.GetNavigationService(this);
                 nav.Navigate(new showUsers());
             }

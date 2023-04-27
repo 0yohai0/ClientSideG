@@ -50,12 +50,6 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <!--<TextBlock Grid.Row="0"  HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="4">מספר מזהה</TextBlock>
-            <TextBlock Grid.Row="0"  HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="3">שם משתמש</TextBlock>
-            <TextBlock Grid.Row="0"  HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="2">אימייל</TextBlock>
-            <TextBlock Grid.Row="0"  HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="1">ססמה</TextBlock>
-            <TextBlock Grid.Row="0"  HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="0">הרשאה</TextBlock>-->
-
             <TextBox  Grid.Row="0" Width="140" Name="txbIdUser" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="4"></TextBox>
             <TextBox  Grid.Row="0" Width="140" Name="txbUserName" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="3"></TextBox>
             <TextBox  Grid.Row="0" Width="140" Name="txbEmail" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="2"></TextBox>

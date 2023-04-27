@@ -108,6 +108,9 @@ namespace theResearchSite.UserNewsInteractionService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string secondaryTitleField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int viewsCountField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public theResearchSite.UserNewsInteractionService.AuthLevel AuthLevel {
             get {
@@ -198,6 +201,19 @@ namespace theResearchSite.UserNewsInteractionService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int viewsCount {
+            get {
+                return this.viewsCountField;
+            }
+            set {
+                if ((this.viewsCountField.Equals(value) != true)) {
+                    this.viewsCountField = value;
+                    this.RaisePropertyChanged("viewsCount");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -258,10 +274,10 @@ namespace theResearchSite.UserNewsInteractionService {
         private theResearchSite.UserNewsInteractionService.AuthLevel authLevelField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private System.DateTime birthDateField;
+        private string emailField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string emailField;
+        private System.DateTime joinDateField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string nameField;
@@ -283,19 +299,6 @@ namespace theResearchSite.UserNewsInteractionService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public System.DateTime birthDate {
-            get {
-                return this.birthDateField;
-            }
-            set {
-                if ((this.birthDateField.Equals(value) != true)) {
-                    this.birthDateField = value;
-                    this.RaisePropertyChanged("birthDate");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
         public string email {
             get {
                 return this.emailField;
@@ -304,6 +307,19 @@ namespace theResearchSite.UserNewsInteractionService {
                 if ((object.ReferenceEquals(this.emailField, value) != true)) {
                     this.emailField = value;
                     this.RaisePropertyChanged("email");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public System.DateTime joinDate {
+            get {
+                return this.joinDateField;
+            }
+            set {
+                if ((this.joinDateField.Equals(value) != true)) {
+                    this.joinDateField = value;
+                    this.RaisePropertyChanged("joinDate");
                 }
             }
         }

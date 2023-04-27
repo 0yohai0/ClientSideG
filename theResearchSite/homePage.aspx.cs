@@ -8,15 +8,13 @@ using System.Web.UI.WebControls;
 using System.Web.UI.WebControls.WebParts;
 using theResearchSite.NewsService;
 using theResearchSite.CategoryService;
+using theResearchSite.UserNewsInteractionService;
 
 namespace theResearchSite
 {
     public partial class homePage : System.Web.UI.Page
     {
         ArrayList newsCart;
-        static NewsService.NewsClient NewsClient = new NewsService.NewsClient();
-        NewsService.NewsList newsStart = NewsClient.selectAll();
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["newscart"] == null)
@@ -29,13 +27,26 @@ namespace theResearchSite
             }
             foreach (string key in Request.Form.AllKeys)
             {
-
+             
                 if (key.Length > 13)
                 {
                     if (key.Substring(0,13) == "addToNewsCart")
                     {
                         int.TryParse(key.Substring(13), out int newsId);
                         addToCart(newsId);
+                    }
+                }
+
+            }   
+            foreach (string key in Request.Form.AllKeys)
+            {
+             
+                if (key.Length > 18)
+                {
+                    if (key.Substring(0,18) == "removeFromNewsCart")
+                    {
+                        int.TryParse(key.Substring(18), out int newsId);
+                        removeFromFevorites(newsId);
                     }
                 }
 
@@ -47,13 +58,24 @@ namespace theResearchSite
         }
         public void populate()
         {
+            //איפוס
+            lNews.Text = "";
+
+          //רשימת מועדפים
+          UserNewsInteractionClient interactionService = new UserNewsInteractionClient();
+            FavoriteList favorites = new FavoriteList();
+            favorites = interactionService.selectAllFavorits();
+
+
             //רשימת קטגוריות
             CategoryList categoryList = new CategoryList();
             CategoriesClient categoriesClient = new CategoriesClient();
             categoryList = categoriesClient.selectAll();
 
             // הגדרת רשימת חדשות וסידור לפי תאריך
-            List<News> news = newsStart.OrderByDescending(x => x.dateTimePublished).ToList();
+            NewsService.NewsClient NewsClient = new NewsService.NewsClient();
+            NewsService.NewsList newsStart = NewsClient.selectAll();
+            List<NewsService.News> news = newsStart.OrderByDescending(x => x.dateTimePublished).ToList();
 
             lNews.Text += "<div class=\"category-head-line-demarc\">";
             foreach(CategoryService.Category category in categoryList)
@@ -82,7 +104,7 @@ namespace theResearchSite
 
             lNews.Text += "<div class=\"trio-news\">";
 
-            foreach(News singleNews in news.Skip(1).Take(3))
+            foreach(NewsService.News singleNews in news.Skip(1).Take(3))
             {
                 lNews.Text += "<div class=\"single-top-news-small\">";
 
@@ -92,15 +114,35 @@ namespace theResearchSite
 
                 lNews.Text += $"<div class=\"header-wrap\"> <div class=\"single-top-news-headLine\">{singleNews.headLine}</div> <div class=\"category\">|{singleNews.category.name}</div> </div>";
                 lNews.Text += $"<div class=\"single-top-news-secTitle\">{singleNews.secondaryTitle}</div>";
-                lNews.Text += $"<div class=\"single-top-news-bottomLine\"> <div><input type=\"submit\" id=\"addToNewsCart\" name=\"addToNewsCart{singleNews.Id}\" value=\"&#9829;\" class=\"bt-add-to-favorits\"/> </div>   <div class=\"\">{singleNews.dateTimePublished.Date.ToString().Substring(0,10)}</div> </div>";
 
+                //בדיקה האם החדשה מועדפת ולפי כך סימונה
+                bool isFavorited = false;
+
+                //לא עובד- צריך לבדוק
+
+                //בדיקה האם משתמש מחובר
+                if (Session["user"] != null && Session["userId"] != null)
+                {
+                    //לולאה שמוצאת האם חדשה ספציפית מסומנת כמועדפת על המשתמש
+                    int.TryParse(Session["userId"].ToString(), out int userId);
+                    foreach (Favorite favorite in favorites.FindAll(x => (x.user.IdUser == userId && x.news.Id == singleNews.Id)))
+                    {
+                        isFavorited = true;
+                    }
+                }
+                if (isFavorited)
+                {
+                    lNews.Text += $"<div class=\"single-top-news-bottomLine\"> <div><input type=\"submit\" id=\"addToNewsCart\"  name=\"removeFromNewsCart{singleNews.Id}\"  style=\"color:red;\" value=\"&#9829;\" class=\"bt-add-to-favorits\"/> </div>   <div class=\"\">{singleNews.dateTimePublished.Date.ToString().Substring(0, 10)}</div> </div>";
+                }
+                else
+                {
+                    lNews.Text += $"<div class=\"single-top-news-bottomLine\"> <div><input type=\"submit\" id=\"removeFromNewsCart\" name=\"addToNewsCart{singleNews.Id}\" value=\"&#9829;\" class=\"bt-add-to-favorits\"/> </div>   <div class=\"\">{singleNews.dateTimePublished.Date.ToString().Substring(0, 10)}</div> </div>";
+                }
                 lNews.Text += "</div>";
 
                 lNews.Text += "</div>";
 
-            } 
-
-       
+            }     
             lNews.Text += "</div>";
             lNews.Text += "</div>";
             lNews.Text += "</div>";
@@ -135,7 +177,27 @@ namespace theResearchSite
                         lNews.Text += "</div>";
 
                         lNews.Text += "<div class=\"single-news-more-info\">";
-                        lNews.Text += $"<div class=\"bt-add-to-favorits\"><input type=\"submit\" id=\"addToNewsCart\" name=\"addToNewsCart{newsList[i].Id}\" value=\"&#9829;\" class=\"bt-add-to-favorits\"/></div><div class=\"single-news-category\">|{newsList[i].category.name}</div>";
+
+                        //בדיקה האם החדשה מועדפת ולפי כך סימונה
+                        bool isFavorited = false;
+                        //בדיקה האם משתמש מחובר
+                        if (Session["user"] != null && Session["userId"] != null)
+                        {
+                            //לולאה שמוצאת האם חדשה ספציפית מסומנת כמועדפת על המשתמש
+                            int.TryParse(Session["userId"].ToString(), out int userId);
+                            foreach (Favorite favorite in favorites.FindAll(x => (x.user.IdUser == userId && x.news.Id == newsList[i].Id)))
+                            {
+                                isFavorited = true;
+                            }
+                        }
+                        if(isFavorited)
+                        {
+                          lNews.Text += $"<div class=\"bt-add-to-favorits\"><input type=\"submit\" id=\"addToNewsCart\" name=\"removeFromNewsCart{newsList[i].Id}\"  style=\"color:red;\" value=\"&#9829;\" class=\"bt-add-to-favorits\"/></div><div class=\"single-news-category\">|{newsList[i].category.name}</div>";
+                        }
+                        else
+                        {
+                          lNews.Text += $"<div class=\"bt-add-to-favorits\"><input type=\"submit\" id=\"addToNewsCart\" name=\"addToNewsCart{newsList[i].Id}\"  value=\"&#9829;\" class=\"bt-add-to-favorits\"/></div><div class=\"single-news-category\">|{newsList[i].category.name}</div>";
+                        }
                         lNews.Text += "</div>";
 
                         lNews.Text += "</div>";
@@ -151,7 +213,7 @@ namespace theResearchSite
           lNews.Text += "</div>";
 
         }
-        public List<NewsList> newsByCategory(List<News> news)
+        public List<NewsList> newsByCategory(List<NewsService.News> news)
         {
             CategoryList categoryList = new CategoryList();
             CategoriesClient categoriesClient = new CategoriesClient();
@@ -162,7 +224,7 @@ namespace theResearchSite
             foreach (CategoryService.Category c in categoryList)
             {
                 NewsList newsToAdd = new NewsList();
-                foreach(News singleNews in news.FindAll(x=>x.category.Id == c.Id))
+                foreach(NewsService.News singleNews in news.FindAll(x=>x.category.Id == c.Id))
                 {
                     newsToAdd.Add(singleNews);
                 }
@@ -176,7 +238,7 @@ namespace theResearchSite
         {
             if (Session["user"] == null)
                 return;
-            //בדיקה באם קיים
+            //בדיקה האם קיים
             if (newsCart.Count>0)
             {
                foreach(int Id in newsCart)
@@ -188,6 +250,49 @@ namespace theResearchSite
 
             newsCart.Add(newsId);
             Session["newscart"] = newsCart;
+            addCartFavorites();
+        }
+        //צריך לבדוק
+        public void addCartFavorites()
+        {
+            UserNewsInteractionClient userNewsInteractionClient = new UserNewsInteractionClient();
+
+            bool ExistAllready = false;
+            int.TryParse(Session["userId"].ToString(), out int userId);
+            FavoriteList AllFavorites = userNewsInteractionClient.selectAllFavorits();
+            ArrayList newsCart = (ArrayList)Session["newscart"];
+            //בדיקה האם כבר קיים אז לא להוסיף
+            foreach (int newsId in newsCart)
+            {
+                ExistAllready = false;
+                foreach (Favorite favoriteTest in AllFavorites.FindAll(x => x.user.IdUser == userId))
+                {
+                    if (favoriteTest.news.Id == newsId)
+                        ExistAllready = true;
+                }
+                if (!ExistAllready)
+                {
+                    //מילוי המועדף במידע נחוץ
+                    Favorite favorite = new Favorite();
+                    favorite.news = new UserNewsInteractionService.News();
+                    favorite.news.Id = newsId;
+                    favorite.user = new User();
+                    favorite.user.Id = userId;
+                    favorite.dateTimeAdded = DateTime.Now.Date;
+                    userNewsInteractionClient.Add(EnumsuserNewsInteracrionType.favorite, favorite);
+                }
+
+            }
+            populate();
+        }
+        public void removeFromFevorites(int newsId)
+        {
+            int.TryParse(Session["userId"].ToString(), out int userId);
+            UserNewsInteractionClient userNewsInteractionClient = new UserNewsInteractionClient();
+            FavoriteList favorites = userNewsInteractionClient.selectAllFavorits();
+            Favorite favorite = favorites.Find(x => x.user.IdUser == userId && x.news.Id == newsId);
+            userNewsInteractionClient.Remove(EnumsuserNewsInteracrionType.favorite, favorite);
+            populate();
         }
     }
 }

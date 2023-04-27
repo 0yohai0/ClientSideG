@@ -1,4 +1,4 @@
-﻿C:\theResearch\clientSide\wpfTheResearch\obj\Debug\GeneratedInternalTypeHelper.g.cs
+﻿
 FC:\theResearch\clientSide\wpfTheResearch\App.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\about.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\Formula1Game.xaml;;
@@ -7,10 +7,15 @@ FC:\theResearch\clientSide\wpfTheResearch\MainWindow.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\oneAuth.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\oneCategory.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\oneUser.xaml;;
+FC:\theResearch\clientSide\wpfTheResearch\oneWorker.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\RacePage.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\showAuths.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\showCategories.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\ShowComments.xaml;;
+FC:\theResearch\clientSide\wpfTheResearch\ShowFavorites.xaml;;
+FC:\theResearch\clientSide\wpfTheResearch\ShowNews.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\showUsers.xaml;;
+FC:\theResearch\clientSide\wpfTheResearch\ShowWorkers.xaml;;
 FC:\theResearch\clientSide\wpfTheResearch\textBox-farFromHome.xaml;;
+FC:\theResearch\clientSide\wpfTheResearch\singleNews.xaml;;
 

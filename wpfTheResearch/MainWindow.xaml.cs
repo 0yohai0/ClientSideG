@@ -67,5 +67,20 @@ namespace viewModelWpfTheResearch
         {
             currentFrame.Navigate(new showCategories());
         }
+
+        private void hmiShowWorkers_Selected(object sender, RoutedEventArgs e)
+        {
+            currentFrame.Navigate(new ShowWorkers());
+        }
+
+        private void hmiShowFavorites_Selected(object sender, RoutedEventArgs e)
+        {
+            currentFrame.Navigate(new ShowFavorites());
+        }
+
+        private void hmiShowNews_Selected(object sender, RoutedEventArgs e)
+        {
+            currentFrame.Navigate(new ShowNews());
+        }
     }
 }

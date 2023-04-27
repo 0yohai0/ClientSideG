@@ -47,6 +47,9 @@ namespace theResearchSite.NewsService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string secondaryTitleField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int viewsCountField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public theResearchSite.NewsService.AuthLevel AuthLevel {
             get {
@@ -134,6 +137,19 @@ namespace theResearchSite.NewsService {
                 if ((object.ReferenceEquals(this.secondaryTitleField, value) != true)) {
                     this.secondaryTitleField = value;
                     this.RaisePropertyChanged("secondaryTitle");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int viewsCount {
+            get {
+                return this.viewsCountField;
+            }
+            set {
+                if ((this.viewsCountField.Equals(value) != true)) {
+                    this.viewsCountField = value;
+                    this.RaisePropertyChanged("viewsCount");
                 }
             }
         }

@@ -14,7 +14,7 @@ namespace theResearchSite
         public string password = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //אם עוגייה קיימת מיחוי אוטומטי
             HttpCookie userInfo = Request.Cookies["userInfo"];
             if (userInfo!=null)
             {
@@ -117,6 +117,13 @@ namespace theResearchSite
                 if (authLevel == "משתמש")
                 {
                     Session["user"] = true;
+                    Session["userId"] = userTest.IdUser;
+                    Response.Redirect("favorites.aspx");
+                }
+                if (authLevel == "מנוי")
+                {
+                    Session["user"] = true;
+                    Session["subscribed"] = true;
                     Session["userId"] = userTest.IdUser;
                     Response.Redirect("favorites.aspx");
                 }

@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:wpfTheResearch"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="showCategories">
+      Title="showCategories" Loaded="Page_Loaded">
 
     <Grid>
         <Grid.RowDefinitions  >
@@ -26,7 +26,7 @@
             </ListView.ContextMenu>
             <ListView.View>
                 <GridView  x:Name="gpoeple" >
-                    <GridViewColumn Header="שם הרשאה" Width="140" DisplayMemberBinding="{Binding name}"></GridViewColumn>
+                    <GridViewColumn Header="שם קטגוריה" Width="140" DisplayMemberBinding="{Binding name}"></GridViewColumn>
                     <GridViewColumn Header="מספר מזהה" Width="150" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
                 </GridView>
             </ListView.View>

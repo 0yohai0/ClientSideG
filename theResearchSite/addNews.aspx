@@ -20,7 +20,7 @@
                 </div>
             </div>
             <div class="content-wrap">
-                <asp:TextBox ID="txbContent"  AutoPostBack="true" OnTextChanged="txbContent_TextChanged" placeholder="תוכן כתבה" CssClass="content-box" TextMode="MultiLine" MaxLength="1200" runat="server"></asp:TextBox>
+                <asp:TextBox ID="txbContent"  AutoPostBack="true"  OnTextChanged="txbContent_TextChanged" placeholder="תוכן כתבה" CssClass="content-box" TextMode="MultiLine" MaxLength="1200" runat="server"></asp:TextBox>
             </div>
             <div class="more-info-to-add">
                 <div>

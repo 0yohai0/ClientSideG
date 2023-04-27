@@ -51,8 +51,7 @@ namespace viewModelWpfTheResearch
         }
         public int insertUser(User user)
         {
-            user.userName = "rkjgtr";
-            user.birthDate = DateTime.Now;
+            user.joinDate = DateTime.Now;
             int rowsEffected = HumanClient.Add(EnumshumanType.user, user);
             usersList.Add(user);
             populate(usersList);
@@ -60,7 +59,6 @@ namespace viewModelWpfTheResearch
         }
         public int updateUser(User user)
         {
-            user.birthDate=DateTime.Now;
             int rowsEffected = HumanClient.Update(EnumshumanType.user, user);
             populate(usersList);
             return rowsEffected;
@@ -80,11 +78,11 @@ namespace viewModelWpfTheResearch
         }
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            //if (AuthorizationControl.authAdmin == false)
-            //{
-            //    NavigationService nav = NavigationService.GetNavigationService(this);
-            //    nav.Navigate(new homePage());
-            //}
+            if (AuthorizationControl.authAdmin == false)
+            {
+                NavigationService nav = NavigationService.GetNavigationService(this);
+                nav.Navigate(new homePage());
+            }
         }
         private void lvUsers_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -185,7 +183,11 @@ namespace viewModelWpfTheResearch
         private void btDemarcation_Click(object sender, RoutedEventArgs e)
         {
             UserList newUsers = new UserList();
-            newUsers = usersList;
+            foreach (User user in usersList)
+            {
+                newUsers.Add(user);
+            }
+
 
             int.TryParse(txbIdUser.Text, out int Id);
 

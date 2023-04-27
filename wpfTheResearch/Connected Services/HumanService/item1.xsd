@@ -23,8 +23,8 @@
       <xs:extension base="tns:BaseEntity">
         <xs:sequence>
           <xs:element minOccurs="0" name="authLevel" nillable="true" type="tns:AuthLevel" />
-          <xs:element minOccurs="0" name="birthDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="joinDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
         </xs:sequence>
@@ -58,6 +58,12 @@
     </xs:complexContent>
   </xs:complexType>
   <xs:element name="Worker" nillable="true" type="tns:Worker" />
+  <xs:complexType name="ServiceFaultHumans">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ServiceFaultHumans" nillable="true" type="tns:ServiceFaultHumans" />
   <xs:complexType name="WorkerList">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Human" nillable="true" type="tns:Human" />

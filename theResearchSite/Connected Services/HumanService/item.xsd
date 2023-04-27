@@ -55,4 +55,19 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="Remove">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/ModelTheResearch" minOccurs="0" name="humanType" type="q7:Enums.humanType" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/ModelTheResearch" minOccurs="0" name="human" nillable="true" type="q8:Human" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RemoveResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RemoveResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
 </xs:schema>
