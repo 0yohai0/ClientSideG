@@ -247,7 +247,6 @@ namespace theResearchSite
                        return;
                }
             }
-
             newsCart.Add(newsId);
             Session["newscart"] = newsCart;
             addCartFavorites();

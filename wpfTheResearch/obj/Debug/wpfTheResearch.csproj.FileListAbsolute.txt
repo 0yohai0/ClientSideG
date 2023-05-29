@@ -37,6 +37,10 @@ C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Debug\wpfTheResearc
 C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Debug\wpfTheResearch.exe
 C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Debug\wpfTheResearch.pdb
 C:\projects\Project2022-2023\FinalProject\wpfTheResearch\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\theResearch\clientSide\wpfTheResearch\bin\Debug\wpfTheResearch.exe.config
+C:\theResearch\clientSide\wpfTheResearch\bin\Debug\wpfTheResearch.exe
+C:\theResearch\clientSide\wpfTheResearch\bin\Debug\wpfTheResearch.pdb
+C:\theResearch\clientSide\wpfTheResearch\bin\Debug\HamburgerMenu.dll
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.csproj.AssemblyReference.cache
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.csproj.SuggestedBindingRedirects.cache
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ResourceDictionary\StyleGeneral.baml
@@ -56,15 +60,11 @@ C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ShowFavorites.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ShowNews.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\showUsers.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ShowWorkers.g.cs
-C:\theResearch\clientSide\wpfTheResearch\obj\Debug\textBox-farFromHome.g.cs
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\singleNews.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\App.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch_MarkupCompile.cache
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch_MarkupCompile.lref
-C:\theResearch\clientSide\wpfTheResearch\bin\Debug\wpfTheResearch.exe.config
-C:\theResearch\clientSide\wpfTheResearch\bin\Debug\wpfTheResearch.exe
-C:\theResearch\clientSide\wpfTheResearch\bin\Debug\wpfTheResearch.pdb
-C:\theResearch\clientSide\wpfTheResearch\bin\Debug\HamburgerMenu.dll
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\App.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\about.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\Formula1Game.baml
@@ -82,7 +82,7 @@ C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ShowFavorites.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ShowNews.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\showUsers.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\ShowWorkers.baml
-C:\theResearch\clientSide\wpfTheResearch\obj\Debug\textBox-farFromHome.baml
+C:\theResearch\clientSide\wpfTheResearch\obj\Debug\singleNews.baml
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.g.resources
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.Properties.Resources.resources
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.csproj.GenerateResource.cache
@@ -90,5 +90,3 @@ C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.csproj.CoreCom
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.csproj.CopyComplete
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.exe
 C:\theResearch\clientSide\wpfTheResearch\obj\Debug\wpfTheResearch.pdb
-C:\theResearch\clientSide\wpfTheResearch\obj\Debug\singleNews.g.cs
-C:\theResearch\clientSide\wpfTheResearch\obj\Debug\singleNews.baml

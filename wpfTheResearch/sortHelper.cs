@@ -31,13 +31,10 @@ namespace wpfTheResearch
             int i = 0;
             foreach(NewsService.News news in newsList)
             {
-                foreach(Comment comment in comments)
+                sorters.Add(new sortHelper(news, 0));
+                foreach(Comment comment in comments.FindAll(x=>x.news.Id == news.Id))
                 {
-                    sorters.Add(new sortHelper(news, 0));
-                    if(comment.news.Id == news.Id)
-                    {
-                        sorters[i].quantity++;
-                    }
+                    sorters[i].quantity++;            
                 }
                 i++;
             }

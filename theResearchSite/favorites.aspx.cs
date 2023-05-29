@@ -30,8 +30,10 @@ namespace theResearchSite
         }
         public void populate(FavoriteList favorites)
         {
-            //מילוי שורת חיפוש
-            CategoriesClient categoriesClient = new CategoriesClient();
+           //איפוס
+           ddlCategory.Items.Clear();
+           //מילוי שורת חיפוש
+           CategoriesClient categoriesClient = new CategoriesClient();
             ddlCategory.Items.Add(new ListItem("בחר/י קטגוריה", "choose"));
             ddlCategory.DataValueField = "Id";
             ddlCategory.DataTextField = "name";
@@ -40,10 +42,7 @@ namespace theResearchSite
                 ddlCategory.Items.Add(new ListItem(category.name, category.Id.ToString()));
             }
 
-
             lFavorites.Text = "";
- 
-
 
             //סינון רשימה למועדפים של משתמש מסוים
             int.TryParse(Session["userId"].ToString(), out int userId);
@@ -60,7 +59,7 @@ namespace theResearchSite
             }
             else
             {
-                lFavorites.Text += "<div class=\"body-wrap\"> <div class=\"outer-favorites\"><table class=\"tb-favorites\">";
+                lFavorites.Text += "<div class=\"body-wrap\"> <table class=\"tb-favorites\">";
                 lFavorites.Text += "<tr>";
                 int i = 0;
                 foreach (Favorite favorite in favorites)
@@ -75,11 +74,8 @@ namespace theResearchSite
                         lFavorites.Text += "</tr><tr>";
                     }
                 }
-                lFavorites.Text += "</tr></table></div></div>";
+                lFavorites.Text += "</tr></table></div>";
             }
-        
-
-
         }
 
         protected void btSendDemarc_Click(object sender, EventArgs e)
@@ -100,26 +96,60 @@ namespace theResearchSite
            
             //מידע לתיחום
             string name = txbHeadLine.Text;
-            int commentCount = 0;
-
-            if(ddlHasComment.SelectedIndex != -1 && ddlHasComment.SelectedIndex != 0)
+            if(name.Length>0)
             {
-                commentCount = 0;
-                foreach(Favorite favorite in ((FavoriteList)Session["favorites"]).FindAll(x=>x.user.IdUser== (int)Session["userId"]))
+                foreach(Favorite favorite in ((FavoriteList)Session["favorites"]).FindAll(x=>!(x.news.headLine.Contains(name))))
                 {
-                    foreach(Comment comment in comments.FindAll(x=>x.news.Id == favorite.news.Id && x.user.IdUser == (int)Session["userId"]))
-                    {
-                        commentCount++;
-                    }
-                    if(commentCount == 0)
-                    {
-                        favorites.Remove(favorite);
-                    }
+                    favorites.Remove(favorite);
                 }
             }
+
+            int commentCount = 0;
             if(ddlHasComment.SelectedIndex != -1 && ddlHasComment.SelectedIndex != 0)
             {
+                if (ddlHasComment.SelectedValue.ToString() == "no")
+                {
+                    commentCount = 0;
+                    foreach (Favorite favorite in ((FavoriteList)Session["favorites"]).FindAll(x => x.user.IdUser == (int)Session["userId"]))
+                    {
+                        commentCount = 0;
+                        foreach (Comment comment in comments.FindAll(x => x.news.Id == favorite.news.Id && x.user.IdUser == (int)Session["userId"]))
+                        {
+                            commentCount++;
+                        }
+                        if (commentCount == 0)
+                        {
+                            favorites.Remove(favorite);
+                        }
+                    }
+                }
 
+                if (ddlHasComment.SelectedValue.ToString() == "yes")
+                {
+                    commentCount = 0;
+                    foreach (Favorite favorite in ((FavoriteList)Session["favorites"]).FindAll(x => x.user.IdUser == (int)Session["userId"]))
+                    {
+                        commentCount = 0;
+                        foreach (Comment comment in comments.FindAll(x => x.news.Id == favorite.news.Id && x.user.IdUser == (int)Session["userId"]))
+                        {
+                            commentCount++;
+                        }
+                        if (commentCount > 0)
+                        {
+                            favorites.Remove(favorite);
+                        }
+                    }
+                }
+
+
+            }
+            //חיתוך לפי קטגוריה
+            if(ddlCategory.SelectedIndex!=0 && ddlCategory.SelectedIndex!=-1)
+            {
+                foreach (Favorite favorite in ((FavoriteList)Session["favorites"]).FindAll(x => x.news.category.Id.ToString() != ddlCategory.SelectedValue.ToString()))
+                {
+                    favorites.Remove(favorite);
+                }
             }
             Session["changedFavorites"] = favorites;
             populate(favorites);
@@ -200,6 +230,7 @@ namespace theResearchSite
 
         protected void btResetFavorites_Click(object sender, EventArgs e)
         {
+            Session["changedFavorites"] = null;
             populate((FavoriteList)Session["favorites"]);
         }
     }

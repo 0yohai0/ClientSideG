@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="glassWrap login-page-wrap">
-    <div class="head headLine">הצטרפות למנוי</div>
+    <div class="head headLine">הצטרפות למנוי לכל החיים</div>
         <table>
             <tr>
                 <td>
@@ -24,7 +24,7 @@
             </tr>
             <tr>
                 <td>                   
-                  <asp:Button ID="btBuy" OnClick="btBuy_Click" CssClass="action-button" runat="server" Text="קניית מנוי" />
+                  <asp:Button ID="btBuy" OnClick="btBuy_Click" CssClass="action-button" runat="server" Text="מעבר לקניית מנוי" />
                   <asp:Button ID="btReset" CssClass="action-button" runat="server" Text="איפוס" />
                 </td>
             </tr>

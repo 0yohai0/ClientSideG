@@ -9,7 +9,7 @@
 
         <table>
             <tr>
-                <td class="head">
+                <td class="head about-head">
                    אודות האתר
                 </td>
             </tr>

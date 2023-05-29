@@ -36,16 +36,20 @@ namespace viewModelWpfTheResearch
         {
             this.action = action;
             this.user = user;
-           this.auths = authList;
-            txbUserName.DataContext = user;
+            this.auths = authList;
+            txbName.DataContext = user;
+            txbUserName.DataContext = user.userName;
             txbEmail.DataContext = user;
             txbPassword.DataContext = user;
             txbUserName.DataContext = user;
             cmbAuths.ItemsSource = auths;
             cmbAuths.DataContext = user.authLevel;
+
             cmbAuths.SelectedValuePath = "Id";
             cmbAuths.DisplayMemberPath = "name";
 
+            if (user.authLevel != null)
+                cmbAuths.SelectedValue = user.authLevel.Id;
         }
 
         private void Send_Click(object sender, RoutedEventArgs e)
@@ -55,7 +59,7 @@ namespace viewModelWpfTheResearch
             {
                 //שגיאה 
             }
-            if (result == 2)
+            if (result == 1 || result == 2)
             {
                 NavigationService nav = NavigationService.GetNavigationService(this);
 

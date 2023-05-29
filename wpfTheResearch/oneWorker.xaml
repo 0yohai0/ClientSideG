@@ -36,16 +36,18 @@
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
+                    <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
-                <TextBlock Grid.Column="1" FontSize="15px" TextAlignment="Center"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd">שם עובד</TextBlock>
+                <TextBlock Grid.Column="1" Grid.Row="4" FontSize="15px" TextAlignment="Center"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd">שם עובד</TextBlock>
+                <TextBlock Grid.Column="1" FontSize="15px" TextAlignment="Center"  HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd">שם משתמש </TextBlock>
                 <TextBlock Grid.Row="1"   FontSize="15px"  TextAlignment="Center"  Grid.Column="1" HorizontalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd" VerticalAlignment="Center">אימייל</TextBlock>
                 <TextBlock Grid.Row="2"   FontSize="15px"  TextAlignment="Center"   Grid.Column="1" HorizontalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd" VerticalAlignment="Center"  RenderTransformOrigin="0.661,0.468">ססמה</TextBlock>
                 <TextBlock Grid.Row="3"   FontSize="15px"  TextAlignment="Center"   Grid.Column="1" HorizontalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd" VerticalAlignment="Center"  RenderTransformOrigin="0.661,0.468">משכורת</TextBlock>
 
                 <TextBox  Grid.Row="0" Name="txbWWorkerName"  Text="{Binding name}" Grid.Column="0" Height="25"  ></TextBox>
                 <TextBox  Grid.Row="3" Name="txbSalary"  Text="{Binding salary}" Grid.Column="0" Height="25"  ></TextBox>
-
+                <TextBox Grid.Column="0" Text="{Binding userName}" Grid.Row="4" Height="25"></TextBox>
                 <TextBox Grid.Row="1" Grid.Column="0" Height="25" Name="txbEmail">
                     <TextBox.Text>
                         <Binding Path="email" UpdateSourceTrigger="PropertyChanged">

@@ -18,11 +18,11 @@ namespace theResearchSite
         NewsList news;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //if (Session["admin"]==null)
-            //{
-            //    Response.Redirect("homePage.aspx");
-            //}
-            if(!IsPostBack)
+            if (Session["admin"] == null)
+            {
+                Response.Redirect("homePage.aspx");
+            }
+            if (!IsPostBack)
             {
                 //שמירה בסשיון
                 if (Session["news"] == null)
@@ -66,6 +66,7 @@ namespace theResearchSite
 
         protected void gvNews_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
+            //קבלת נתונים
             NewsList CurrentNewsList = new NewsList();
             CurrentNewsList = (NewsList)Session["news"];
 
@@ -82,7 +83,7 @@ namespace theResearchSite
 
             int.TryParse(Auths.SelectedValue, out int authId);
             string authName = Auths.SelectedItem.ToString();
-
+            //קריאה לשירות חדשות
             NewsService.AuthLevel currentAuth = new NewsService.AuthLevel();
             currentAuth.Id = authId;
             currentAuth.name = authName;
@@ -94,13 +95,14 @@ namespace theResearchSite
             currentNews.AuthLevel = currentAuth;
             currentNews.dateTimePublished = dateTimePublished;
             currentNews.imagePath = txbImgPath.Text;
-
+            //מציאת החדשה עליה עושים עדכון על ידי למבדה
             foreach(News news in CurrentNewsList.FindAll(x =>x.Id == idNews))
             {
                 currentNews.content = news.content;
                 CurrentNewsList.Remove(news);
             }
             CurrentNewsList.Add(currentNews);
+            //עדכון
             newsClient.Update(currentNews);
             gvNews.EditIndex = -1;
 

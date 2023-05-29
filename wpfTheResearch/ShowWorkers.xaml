@@ -11,32 +11,34 @@
     <Grid>
         <Grid>
             <Grid.RowDefinitions  >
-                <RowDefinition Height="3*"></RowDefinition>
+                <RowDefinition></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
 
             <Grid.ColumnDefinitions>
             </Grid.ColumnDefinitions>
+            <WrapPanel>
+                <ListView Name="lvWorkers" Grid.Row="0" ScrollViewer.CanContentScroll="True" GridViewColumnHeader.Click="lvWorkers_Click"   SelectionChanged="lvWorkers_SelectionChanged"   HorizontalAlignment="Center" VerticalAlignment="Top"  Height="auto"  Background="MintCream" Margin="4,10,0,-11" Grid.RowSpan="2" >
+                    <ListView.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="הוסף עובד" Click="Insert"></MenuItem>
+                            <MenuItem Header="עדכון פרטי עובד" Click="Update"></MenuItem>
+                            <MenuItem Header="מחיקת עובד" Click="Delete"></MenuItem>
+                        </ContextMenu>
+                    </ListView.ContextMenu>
+                    <ListView.View>
+                        <GridView  x:Name="gpoeple" >
+                            <GridViewColumn  Header="רמת הרשאה" Width="125" DisplayMemberBinding="{Binding authLevel.name}"></GridViewColumn>
+                            <GridViewColumn  Header="משכורת" Width="125" DisplayMemberBinding="{Binding salary}"></GridViewColumn>
+                            <GridViewColumn Header="ססמה"  Width="125" DisplayMemberBinding="{Binding password}"></GridViewColumn>
+                            <GridViewColumn Header="אימייל" Width="125" DisplayMemberBinding="{Binding email}"></GridViewColumn>
+                            <GridViewColumn Header="שם" Width="125" DisplayMemberBinding="{Binding name}"></GridViewColumn>
+                            <GridViewColumn Header="מספר מזהה" Width="125" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </WrapPanel>
 
-            <ListView Name="lvWorkers" Grid.Row="0" GridViewColumnHeader.Click="lvWorkers_Click"   SelectionChanged="lvWorkers_SelectionChanged"   HorizontalAlignment="Center" VerticalAlignment="Top"  Height="auto"  Background="MintCream" Margin="4,10,0,-11" Grid.RowSpan="2" >
-                <ListView.ContextMenu>
-                    <ContextMenu>
-                        <MenuItem Header="הוסף עובד" Click="Insert"></MenuItem>
-                        <MenuItem Header="עדכון פרטי עובד" Click="Update"></MenuItem>
-                        <MenuItem Header="מחיקת עובד" Click="Delete"></MenuItem>
-                    </ContextMenu>
-                </ListView.ContextMenu>
-                <ListView.View>
-                    <GridView  x:Name="gpoeple" >
-                        <GridViewColumn  Header="רמת הרשאה " Width="125" DisplayMemberBinding="{Binding authLevel.name}"></GridViewColumn>
-                        <GridViewColumn  Header="משכורת" Width="125" DisplayMemberBinding="{Binding salary}"></GridViewColumn>
-                        <GridViewColumn Header="ססמה"  Width="125" DisplayMemberBinding="{Binding password}"></GridViewColumn>
-                        <GridViewColumn Header="אימייל" Width="125" DisplayMemberBinding="{Binding email}"></GridViewColumn>
-                        <GridViewColumn Header="שם עובד" Width="125" DisplayMemberBinding="{Binding name}"></GridViewColumn>
-                        <GridViewColumn Header="מספר מזהה" Width="125" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                    </GridView>
-                </ListView.View>
-            </ListView>
 
             <Grid Grid.Row="1">
                 <Grid.RowDefinitions>
@@ -61,8 +63,8 @@
                 <TextBox  Grid.Row="0" Width="120" Name="txbSalary" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="1"></TextBox>
                 <ComboBox Grid.Row="0" Width="120" Name="cmbDemarc" HorizontalAlignment="center"  SelectedValuePath = "IdAuthLevel" DisplayMemberPath = "name" VerticalAlignment="Center" Grid.Column="0"></ComboBox>
 
-                <Button Name="btDemarcation" Grid.Column="3" Grid.Row="1" Height="40"  Click="btDemarcation_Click">תיחום</Button>
-                <Button Name="btReset" Grid.Column="2" Grid.Row="1"  Height="40"  Click="btReset_Click">איפוס</Button>
+                <Button Name="btDemarcation"  Width="120" Grid.Column="3" Grid.Row="1" Height="40"  Click="btDemarcation_Click">תיחום</Button>
+                <Button Name="btReset" Grid.Column="2"  Width="120" Grid.Row="1"  Height="40"  Click="btReset_Click">איפוס</Button>
 
             </Grid>
         </Grid>

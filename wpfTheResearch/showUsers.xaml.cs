@@ -54,6 +54,10 @@ namespace viewModelWpfTheResearch
             user.joinDate = DateTime.Now;
             int rowsEffected = HumanClient.Add(EnumshumanType.user, user);
             usersList.Add(user);
+
+            usersList = HumanClient.selectAllUsers();
+            auths = authClient.selectAll();
+            cmbDemarc.ItemsSource = auths;
             populate(usersList);
             return rowsEffected;
         }
@@ -102,7 +106,7 @@ namespace viewModelWpfTheResearch
 
             if(direction ==1)
             {
-                if (colum == "שם משתמש")
+                if (colum == "שם")
                 {
                     foreach (User user in usersList.OrderBy(x => x.name))
                     {
@@ -130,6 +134,13 @@ namespace viewModelWpfTheResearch
                         usersNow.Add(user);
                     }
                 }
+                if (colum == "שם משתמש")
+                {
+                    foreach (User user in usersList.OrderBy(x => x.userName))
+                    {
+                        usersNow.Add(user);
+                    }
+                }
                 if (colum == "רמת הרשאה")
                 {
                     foreach (User user in usersList.OrderBy(x => x.authLevel.name))
@@ -141,7 +152,7 @@ namespace viewModelWpfTheResearch
 
             else if(direction == -1)
             {
-                if (colum == "שם משתמש")
+                if (colum == "שם")
                 {
                     foreach (User user in usersList.OrderByDescending(x => x.name))
                     {
@@ -165,6 +176,13 @@ namespace viewModelWpfTheResearch
                 if (colum == "אימייל")
                 {
                     foreach (User user in usersList.OrderByDescending(x => x.email))
+                    {
+                        usersNow.Add(user);
+                    }
+                }
+                if (colum == "שם משתמש")
+                {
+                    foreach (User user in usersList.OrderByDescending(x => x.userName))
                     {
                         usersNow.Add(user);
                     }
@@ -193,7 +211,11 @@ namespace viewModelWpfTheResearch
 
             string userName = txbUserName.Text;
 
+            string name = txbName.Text;
+
             string email = txbEmail.Text;
+
+            string password = txbPassword.Text;
 
             wpfTheResearch.AuthService.AuthLevel newAuth = new wpfTheResearch.AuthService.AuthLevel();
             if (cmbDemarc.SelectedItem != null)
@@ -202,7 +224,14 @@ namespace viewModelWpfTheResearch
             }
             if (userName.Length>0)
             {
-                foreach (User user in newUsers.FindAll(x => (x.name != userName)))
+                foreach (User user in newUsers.FindAll(x => (x.userName != userName)))
+                {
+                    newUsers.Remove(user);
+                }
+            }
+            if (name.Length > 0)
+            {
+                foreach (User user in newUsers.FindAll(x => (x.name != name)))
                 {
                     newUsers.Remove(user);
                 }
@@ -221,7 +250,14 @@ namespace viewModelWpfTheResearch
                     newUsers.Remove(user);
                 }
             }
-            if(newAuth != null && newAuth.name!=null && newAuth.name.Length>0)
+            if (password.Length > 0)
+            {
+                foreach (User user in newUsers.FindAll(x => (x.password != password)))
+                {
+                    newUsers.Remove(user);
+                }
+            }
+            if (newAuth != null && newAuth.name!=null && newAuth.name.Length>0)
             {
                 foreach (User user in newUsers.FindAll(x => (x.authLevel.name != newAuth.name)))
                 { 
@@ -234,7 +270,17 @@ namespace viewModelWpfTheResearch
         private void btReset_Click(object sender, RoutedEventArgs e)
         {
             cmbDemarc.SelectedIndex = -1;
+            txbPassword.Text = "";
+            txbIdUser.Text = "";
+            txbUserName.Text = "";
+            txbEmail.Text = "";
+            txbName.Text = "";
             populate(usersList);
+        }
+
+        private void txbUserName_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

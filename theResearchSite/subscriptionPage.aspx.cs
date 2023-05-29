@@ -52,7 +52,7 @@ namespace theResearchSite
                 userToUpdate.authLevel.name = "מנוי";
                 int rows = humanClient.Update(EnumshumanType.user, userToUpdate);
 
-                if(rows == 2)
+                if(rows == 1)
                 {
                     //שליחה לדף הצלחה
                     Response.Redirect($"paymentComplete.aspx?transferID={result}");

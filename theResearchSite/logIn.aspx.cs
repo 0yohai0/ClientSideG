@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-
+using theResearchSite.HumanService;
 
 namespace theResearchSite
 {
@@ -92,8 +92,12 @@ namespace theResearchSite
 
             HumanService.HumanClient humanClient = new HumanService.HumanClient();
             HumanService.UserList users= humanClient.selectAllUsers();
+            HumanService.WorkerList workers = humanClient.selectAllWorkers();
             //חיתוך לפי שם וססמה
             HumanService.User userTest = users.Find(x => (x.userName == userName && x.password == password));
+            //בסימן שאלה
+            HumanService.Worker workerTest = (Worker)workers.Find(x => (x.userName == userName && x.password == password));
+
 
             //אם אין משתמש כזה הוא לא קיים- הוצאת שגיאה
             if (userTest == null)
@@ -130,11 +134,6 @@ namespace theResearchSite
                 if (authLevel == "עיתונאי")
                 {
                     Session["journalist"] = true;
-                    Response.Redirect("homePage.aspx");
-                }
-                if (authLevel =="עורך")
-                {
-                    Session["editor"] = true;
                     Response.Redirect("homePage.aspx");
                 }
                 if (authLevel == "מנהל")

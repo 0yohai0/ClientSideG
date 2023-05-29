@@ -67,7 +67,23 @@ namespace wpfTheResearch
         {
             //איפוס
             wpNews.Children.Clear();
+            if(list.Count == 0)
+            {
+                StackPanel spNews = new StackPanel();
+                spNews.Width = 400;
+                spNews.Height = 200;
 
+                //כותרת
+                Label lheadLine = new Label();
+                lheadLine.Content = "אין חדשות בעלות נתונים אלו...";
+                lheadLine.HorizontalAlignment = HorizontalAlignment.Center;
+                lheadLine.FontSize = 30;
+
+                //הוספת הכותרת לדיב
+                spNews.Children.Add(lheadLine);
+
+                wpNews.Children.Add(spNews);
+            }
             foreach (NewsService.News news in list)
             {                   
                 //stack-panel
@@ -117,26 +133,120 @@ namespace wpfTheResearch
             nav.Navigate(new singleNews(currentNews));
 
 
+        }           
+          
+        
+        private void btReset_Click(object sender, RoutedEventArgs e)
+        {
+            txbNewsNameDemarc.Text = "";
+            cmbNewsAuthDemarc.SelectedIndex = -1;
+            cmbNewsCategoryDemarc.SelectedIndex = -1;
+            rbComments.IsChecked = false;
+            rbDate.IsChecked = false;
+            rbViews.IsChecked = false;
+            rbAsc.IsChecked = false;
+            rbDesc.IsChecked = false;
+
+
+            populate(newsList);
         }
 
-        private void btSend_Click(object sender, RoutedEventArgs e)
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (AuthorizationControl.authAdmin == false)
+            {
+                NavigationService nav = NavigationService.GetNavigationService(this);
+                nav.Navigate(new homePage());
+            }
+        }
+
+        private void btSort_Click(object sender, RoutedEventArgs e)
+        {
+            NewsList sortedNews = new NewsList();
+            comments = UserNewsInteractionClient.selectAllComments();
+            List<sortHelper> sortNewsByComments = sortHelper.sortByCommentsList(newsList, comments);
+
+
+            if(rbAsc.IsChecked  == true)
+            {
+                if(rbViews.IsChecked == true)
+                {
+                    foreach(NewsService.News news in newsList.OrderBy(x=>x.viewsCount))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+                if (rbComments.IsChecked == true)
+                {
+                    foreach (sortHelper sortHelper in sortNewsByComments.OrderBy(x => x.getQuantity()))
+                    {
+                        foreach (NewsService.News news in newsList.FindAll(x => x.Id == sortHelper.getNews().Id))
+                        {
+                            sortedNews.Add(news);
+                        }
+                    }                   
+                }
+                if (rbDate.IsChecked == true)
+                {
+                    foreach (NewsService.News news in newsList.OrderBy(x => x.dateTimePublished))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+            }
+
+
+
+
+            if (rbDesc.IsChecked == true)
+            {
+                if (rbViews.IsChecked == true)
+                {
+                    foreach (NewsService.News news in newsList.OrderByDescending(x => x.viewsCount))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+                if (rbComments.IsChecked == true)
+                {
+                    foreach (sortHelper sortHelper in sortNewsByComments.OrderByDescending(x => x.getQuantity()))
+                    {
+                        foreach (NewsService.News news in newsList.FindAll(x => x.Id == sortHelper.getNews().Id))
+                        {
+                            sortedNews.Add(news);
+                        }
+                    }
+                }
+                if (rbDate.IsChecked == true)
+                {
+                    foreach (NewsService.News news in newsList.OrderByDescending(x => x.dateTimePublished))
+                    {
+                        sortedNews.Add(news);
+                    }
+                }
+            }
+
+            populate(sortedNews);
+        }
+
+        private void btDemarc_Click(object sender, RoutedEventArgs e)
         {
             NewsList newsDemarc = new NewsList();
-            foreach(NewsService.News news in newsList)
+            foreach (NewsService.News news in newsList)
             {
                 newsDemarc.Add(news);
             }
 
 
             //תיחומים
-            if(txbNewsNameDemarc.Text != "")
+            if (txbNewsNameDemarc.Text != "")
             {
-                foreach(NewsService.News news in newsDemarc.FindAll(x=>x.headLine != txbNewsNameDemarc.Text))
+                foreach (NewsService.News news in newsDemarc.FindAll(x => x.headLine != txbNewsNameDemarc.Text))
                 {
                     newsDemarc.Remove(news);
                 }
             }
-            if(cmbNewsAuthDemarc.SelectedIndex != -1)
+            if (cmbNewsAuthDemarc.SelectedIndex != -1)
             {
                 foreach (NewsService.News news in newsDemarc.FindAll(x => x.AuthLevel.Id.ToString() != cmbNewsAuthDemarc.SelectedValue.ToString()))
                 {
@@ -150,92 +260,7 @@ namespace wpfTheResearch
                     newsDemarc.Remove(news);
                 }
             }
-            //לבדוק מיונים אחרי מילוי מידע
-            //מיונים
-            NewsService.NewsList sortedNews = new NewsList();
-            if(rbAsc.IsChecked == true)
-            {
-                if (cbComments.IsChecked == true)
-                {
-                    List<sortHelper> newsByComments = sortHelper.sortByCommentsList(newsList, comments);
-                    newsByComments = newsByComments.OrderBy(x=>x.getQuantity()).ToList();   
-                    foreach(sortHelper newsByComment in newsByComments)
-                    {
-                        sortedNews.Add(newsDemarc.Find(x => x.Id == newsByComment.getNews().Id));
-                    }
-
-                }
-                if(cbDate.IsChecked == true)
-                {
-                    foreach(NewsService.News news in sortedNews.OrderBy(x=>x.dateTimePublished))
-                    {
-                        sortedNews.Add(news);
-                    }
-                }
-                if(cbViews.IsChecked == true)
-                {
-                    foreach (NewsService.News news in sortedNews.OrderBy(x => x.viewsCount))
-                    {
-                        sortedNews.Add(news);
-                    }
-                }
-                populate(sortedNews);
-                    return;
-            }
-
-            if(rbDesc.IsChecked == true)
-            {
-                if (cbComments.IsChecked == true)
-                {
-                    List<sortHelper> newsByComments = sortHelper.sortByCommentsList(newsList, comments);
-                    newsByComments = newsByComments.OrderByDescending(x => x.getQuantity()).ToList();
-
-                    foreach (sortHelper newsByComment in newsByComments)
-                    {
-                        sortedNews.Add(newsDemarc.Find(x => x.Id == newsByComment.getNews().Id));
-                    }
-                }
-              
-
-                if (cbDate.IsChecked == true)
-                {
-                    foreach (NewsService.News news in sortedNews.OrderByDescending(x => x.dateTimePublished))
-                    {
-                        sortedNews.Add(news);
-                    }
-                }
-                if (cbViews.IsChecked == true)
-                {
-                    foreach (NewsService.News news in sortedNews.OrderByDescending(x => x.viewsCount))
-                    {
-                        sortedNews.Add(news);
-                    }
-                }
-                populate(sortedNews);
-                return;
-            }
-           
-
             populate(newsDemarc);
-        }
-        private void btReset_Click(object sender, RoutedEventArgs e)
-        {
-            cmbNewsAuthDemarc.SelectedIndex = -1;
-            cmbNewsCategoryDemarc.SelectedIndex = -1;
-            cbComments.IsChecked = false;
-            cbDate.IsChecked = false;
-            cbViews.IsChecked = false;
-
-            populate(newsList);
-        }
-
-        private void Page_Loaded(object sender, RoutedEventArgs e)
-        {
-            if (AuthorizationControl.authAdmin == false)
-            {
-                NavigationService nav = NavigationService.GetNavigationService(this);
-                nav.Navigate(new homePage());
-            }
         }
     }
 }

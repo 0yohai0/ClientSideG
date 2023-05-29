@@ -16,23 +16,25 @@
 
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
+        <WrapPanel>
+            <ListView Name="lvComments" Grid.Row="0" GridViewColumnHeader.Click="lvComments_Click" ScrollViewer.CanContentScroll="True"   SelectionChanged="lvComments_SelectionChanged"   HorizontalAlignment="Center" VerticalAlignment="Top"  Height="auto"  Background="MintCream" Margin="4,10,0,-11" Grid.RowSpan="2" >
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="מחיקת תגובה" Click="Delete"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView  x:Name="gpoeple" >
+                        <GridViewColumn  Header="זמן הוספת תגובה" Width="140" DisplayMemberBinding="{Binding dateTimeAdded}"></GridViewColumn>
+                        <GridViewColumn Header="שם חדשה" Width="140" DisplayMemberBinding="{Binding news.headLine}"></GridViewColumn>
+                        <GridViewColumn Header="שם משתמש" Width="140" DisplayMemberBinding="{Binding user.userName}"></GridViewColumn>
+                        <GridViewColumn Header="תוכן תגובה" Width="140" DisplayMemberBinding="{Binding content}"></GridViewColumn>
+                        <GridViewColumn Header="מספר מזהה" Width="140" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </WrapPanel>
 
-        <ListView Name="lvComments" Grid.Row="0" GridViewColumnHeader.Click="lvComments_Click"   SelectionChanged="lvComments_SelectionChanged"   HorizontalAlignment="Center" VerticalAlignment="Top"  Height="auto"  Background="MintCream" Margin="4,10,0,-11" Grid.RowSpan="2" >
-            <ListView.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="מחיקת תגובה" Click="Delete"></MenuItem>
-                </ContextMenu>
-            </ListView.ContextMenu>
-            <ListView.View>
-                <GridView  x:Name="gpoeple" >
-                    <GridViewColumn  Header="זמן הוספת תגובה" Width="140" DisplayMemberBinding="{Binding dateTimeAdded}"></GridViewColumn>
-                    <GridViewColumn Header="שם חדשה" Width="140" DisplayMemberBinding="{Binding news.headLine}"></GridViewColumn>
-                    <GridViewColumn Header="שם משתמש" Width="140" DisplayMemberBinding="{Binding user.userName}"></GridViewColumn>
-                    <GridViewColumn Header="תוכן תגובה" Width="140" DisplayMemberBinding="{Binding content}"></GridViewColumn>
-                    <GridViewColumn Header="מספר מזהה" Width="140" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>

@@ -75,7 +75,6 @@
       <xs:extension base="tns:Human">
         <xs:sequence>
           <xs:element minOccurs="0" name="IdUser" type="xs:int" />
-          <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>
@@ -90,6 +89,7 @@
           <xs:element minOccurs="0" name="joinDate" type="xs:dateTime" />
           <xs:element minOccurs="0" name="name" nillable="true" type="xs:string" />
           <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="userName" nillable="true" type="xs:string" />
         </xs:sequence>
       </xs:extension>
     </xs:complexContent>

@@ -41,7 +41,7 @@
             <TextBlock Grid.Row="1"   FontSize="15px"  TextAlignment="Center"  Grid.Column="1" HorizontalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd" VerticalAlignment="Center">אימייל</TextBlock>
             <TextBlock Grid.Row="2"   FontSize="15px"  TextAlignment="Center"   Grid.Column="1" HorizontalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd" VerticalAlignment="Center"  RenderTransformOrigin="0.661,0.468">ססמה</TextBlock>
             <TextBlock Grid.Row="3"   FontSize="15px"  TextAlignment="Center"   Grid.Column="1" HorizontalAlignment="Center" FontFamily="Gill Sans Nova Cond XBd" VerticalAlignment="Center"  RenderTransformOrigin="0.661,0.468">שם משתמש</TextBlock>
-            <TextBox  Grid.Row="0" Name="txbName"  Text="{Binding name}" Grid.Column="0" Height="25"  ></TextBox>
+            <TextBox  Grid.Row="0" Name="txbName"  Text="{Binding name}" Grid.Column="0" Height="25"></TextBox>
             <TextBox  Grid.Row="3" Name="txbUserName"  Text="{Binding userName}" Grid.Column="0" Height="25"  ></TextBox>
 
             <TextBox Grid.Row="1" Grid.Column="0" Height="25" Name="txbEmail">

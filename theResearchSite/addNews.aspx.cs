@@ -16,12 +16,12 @@ namespace theResearchSite
         protected void Page_Load(object sender, EventArgs e)
         {
             //בדיקות
-            //if(Session["עיתונאי"] == null)
-            //{
-            //    Response.Redirect("homePage.aspx");
-            //}
-               
-            if(!IsPostBack)
+            if (Session["journalist"] == null)
+            {
+                Response.Redirect("homePage.aspx");
+            }
+
+            if (!IsPostBack)
             {
                 populate();
             }       

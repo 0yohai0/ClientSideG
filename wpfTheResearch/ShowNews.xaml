@@ -11,7 +11,7 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition></RowDefinition>
-            <RowDefinition Height="2.4*"></RowDefinition>
+            <RowDefinition Height="1.6*"></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
@@ -28,10 +28,11 @@
                     <ColumnDefinition></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions >
-                    <RowDefinition Height="22" ></RowDefinition>
-                    <RowDefinition Height="22"></RowDefinition>
-                    <RowDefinition Height="22"></RowDefinition>
-                    <RowDefinition Height="26"></RowDefinition>
+                    <RowDefinition Height="24" ></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="24"></RowDefinition>
+                    <RowDefinition Height="28"></RowDefinition>
                     <RowDefinition></RowDefinition>
                 </Grid.RowDefinitions>
 
@@ -39,27 +40,31 @@
                 <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="1">חיפוש לפי קטגוריה</TextBlock>
                 <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="2">חיפוש לפי רמת הרשאה</TextBlock>
                 <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="3">מיונים</TextBlock>
+                <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Column="1" Grid.Row="4">כיוון מיון</TextBlock>
 
                 <TextBox Name="txbNewsNameDemarc" HorizontalAlignment="Right" Height="18" Width="300" Grid.Column="0" Grid.Row="0" TextAlignment="Right" FontSize="15"></TextBox>
                 <ComboBox Name="cmbNewsCategoryDemarc"  HorizontalAlignment="Right" Width="300"  Height="18"  Grid.Column="0" Grid.Row="1"></ComboBox>
                 <ComboBox Name="cmbNewsAuthDemarc"  HorizontalAlignment="Right" Width="300"  Height="18"  Grid.Column="0" Grid.Row="2"></ComboBox>
 
-                <WrapPanel Grid.Row="3"  FlowDirection="RightToLeft" HorizontalAlignment="Right" Grid.RowSpan="2">
+                <WrapPanel Grid.Row="3"  FlowDirection="RightToLeft" HorizontalAlignment="Right" >
+                    <RadioButton Name="rbViews" Content="מספר צפיות" Width="91"/>
+                    <RadioButton Name="rbComments" Content="מספר תגובות" Width="92" />
+                    <RadioButton x:Name="rbDate" Content="תאריך העלאה"/>
+                </WrapPanel>
+                <WrapPanel Grid.Row="4" FlowDirection="RightToLeft" HorizontalAlignment="Right">
 
-                    <CheckBox Name="cbViews" Content="אורך החדשה" Width="91"/>
-                    <CheckBox Name="cbComments" Content="מספר תגובות" Width="92" />
-                    <CheckBox x:Name="cbDate" Content="תאריך העלאה"/>
                     <RadioButton Name="rbAsc" Content="עולה" Width="50" />
                     <RadioButton  Name="rbDesc" Content="יורד" Width="50"/>
                 </WrapPanel>
-
-                <Grid Grid.Row="4" Grid.Column="1">
+                <Button Name="btReset" Click="btReset_Click" Grid.Column="0" Width="80" HorizontalAlignment="Left" Grid.Row="5" Margin="50,0,0,-1">איפוס</Button>
+                <Grid Grid.Row="5" Grid.Column="1">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition></ColumnDefinition>
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
-                    <Button Name="btSend" Click="btSend_Click" Grid.Column="1">חיפוש</Button>
-                    <Button Name="btReset" Click="btReset_Click" Grid.Column="0">איפוס</Button>
+                    <Button Name="btSort" Click="btSort_Click" Grid.Column="1">מיון</Button>
+                    <Button Name="btDemarc" Click="btDemarc_Click" Grid.Column="0">תיחום</Button>
+
                 </Grid>
             </Grid>
         </Grid>

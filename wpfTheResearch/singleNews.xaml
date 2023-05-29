@@ -38,8 +38,10 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock VerticalAlignment="Center" TextDecorations="Baseline"  HorizontalAlignment="Center" FontSize="15">תגובות</TextBlock>
-                    <StackPanel Name="spComments" Orientation="Vertical" CanVerticallyScroll="True" Grid.Row="1" FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right">
-                   </StackPanel>
+                    <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                        <WrapPanel Name="spComments" Orientation="Vertical"   FlowDirection="RightToLeft" VerticalAlignment="Center" HorizontalAlignment="Right"></WrapPanel>
+                    </ScrollViewer>
+                
                 </Grid>
 
                 <Grid Grid.Column="0">

@@ -63,8 +63,6 @@ C:\projects\Project2022-2023\FinalProject\theResearchSite\bin\Microsoft.CodeDom.
 C:\projects\Project2022-2023\FinalProject\theResearchSite\obj\Debug\theResearchSite.csproj.CopyComplete
 C:\projects\Project2022-2023\FinalProject\theResearchSite\obj\Debug\theResearchSite.dll
 C:\projects\Project2022-2023\FinalProject\theResearchSite\obj\Debug\theResearchSite.pdb
-C:\theResearch\clientSide\theResearchSite\obj\Debug\theResearchSite.csproj.AssemblyReference.cache
-C:\theResearch\clientSide\theResearchSite\obj\Debug\theResearchSite.csproj.CoreCompileInputs.cache
 C:\theResearch\clientSide\theResearchSite\bin\theResearchSite.dll.config
 C:\theResearch\clientSide\theResearchSite\bin\theResearchSite.dll
 C:\theResearch\clientSide\theResearchSite\bin\theResearchSite.pdb
@@ -119,6 +117,8 @@ C:\theResearch\clientSide\theResearchSite\bin\roslyn\VBCSCompiler.exe
 C:\theResearch\clientSide\theResearchSite\bin\roslyn\VBCSCompiler.exe.config
 C:\theResearch\clientSide\theResearchSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\theResearch\clientSide\theResearchSite\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\theResearch\clientSide\theResearchSite\obj\Debug\theResearchSite.csproj.AssemblyReference.cache
+C:\theResearch\clientSide\theResearchSite\obj\Debug\theResearchSite.csproj.CoreCompileInputs.cache
 C:\theResearch\clientSide\theResearchSite\obj\Debug\theResearchSite.csproj.CopyComplete
 C:\theResearch\clientSide\theResearchSite\obj\Debug\theResearchSite.dll
 C:\theResearch\clientSide\theResearchSite\obj\Debug\theResearchSite.pdb

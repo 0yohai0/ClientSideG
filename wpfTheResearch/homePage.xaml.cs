@@ -46,13 +46,16 @@ namespace viewModelWpfTheResearch
         }
         private void btLogIn_Click(object sender, RoutedEventArgs e)
         {
+            generalError.Text = "";
+            emailError.Text = "";
+            passwordError.Text = "";
             string email = txbEmail.Text;
             string password = txbPassword.Text;
 
             HumanClient humanClient = new HumanClient();         
-            User user = new User() { email = email, password = password };
-            UserList Allusers = humanClient.selectAllUsers();
-            User TestUser = Allusers.Find(x=>(x.email == user.email) && (x.password == user.password));
+            Worker user = new Worker() { email = email, password = password };
+            WorkerList AllWorkers = humanClient.selectAllWorkers();
+            Worker Testworker = (Worker)AllWorkers.Find(x=>(x.email == user.email) && (x.password == user.password));
 
             //בדיקת מייל לפי רנד
             ValidationSoapClient validationSoapClient = new ValidationSoapClient();
@@ -60,13 +63,14 @@ namespace viewModelWpfTheResearch
             {
                 emailError.Text = "אימייל לא תקין";
             }
-            if(TestUser == null)
+            if(Testworker == null)
             {
                 //משתמש לא קיים
+                generalError.Text = "המשתמש לא קיים";
                 return; 
             }
 
-            string result = TestUser.authLevel.name;
+            string result = Testworker.authLevel.name;
             if (result == "מנהל")
             {
 

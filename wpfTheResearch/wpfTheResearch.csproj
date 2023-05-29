@@ -148,9 +148,6 @@
       <DependentUpon>singleNews.xaml</DependentUpon>
     </Compile>
     <Compile Include="sortHelper.cs" />
-    <Compile Include="textBox-farFromHome.xaml.cs">
-      <DependentUpon>textBox-farFromHome.xaml</DependentUpon>
-    </Compile>
     <Compile Include="ValidationRuleEmail.cs" />
     <Compile Include="validationRulePassword.cs" />
   </ItemGroup>
@@ -363,10 +360,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="textBox-farFromHome.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\aboutIcon.png" />
@@ -544,6 +537,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="icons\news-icon-modified.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="newsImages\microscope.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="newsImages\צילום מסך 2021-11-20 160334.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

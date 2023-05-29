@@ -285,6 +285,9 @@ namespace theResearchSite.UserNewsInteractionService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string passwordField;
         
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string userNameField;
+        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public theResearchSite.UserNewsInteractionService.AuthLevel authLevel {
             get {
@@ -349,6 +352,19 @@ namespace theResearchSite.UserNewsInteractionService {
                 }
             }
         }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string userName {
+            get {
+                return this.userNameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.userNameField, value) != true)) {
+                    this.userNameField = value;
+                    this.RaisePropertyChanged("userName");
+                }
+            }
+        }
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -360,9 +376,6 @@ namespace theResearchSite.UserNewsInteractionService {
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IdUserField;
         
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private string userNameField;
-        
         [System.Runtime.Serialization.DataMemberAttribute()]
         public int IdUser {
             get {
@@ -372,19 +385,6 @@ namespace theResearchSite.UserNewsInteractionService {
                 if ((this.IdUserField.Equals(value) != true)) {
                     this.IdUserField = value;
                     this.RaisePropertyChanged("IdUser");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public string userName {
-            get {
-                return this.userNameField;
-            }
-            set {
-                if ((object.ReferenceEquals(this.userNameField, value) != true)) {
-                    this.userNameField = value;
-                    this.RaisePropertyChanged("userName");
                 }
             }
         }

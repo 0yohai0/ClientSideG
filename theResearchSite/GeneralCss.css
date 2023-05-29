@@ -17,11 +17,11 @@ body {
     overflow-y:hidden;
     background-color:#f6f6f6;
 }
-.body-wrap{
-    position:absolute;
-    overflow-y:scroll;
-    height:100%;
-    width:100%;
+.body-wrap {
+    position: absolute;
+    overflow-y: scroll;
+    height:-webkit-fill-available;
+    width: 100%;
 }
 ::-webkit-scrollbar{
     width:0;
@@ -442,11 +442,14 @@ nav.show {
     right: 5vw;
     width: 50vw;
 }
-
+.about-head{
+    color:red!important;
+}
 .head {
+    text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif !important;
-    color: #eb3d3d !important;
-    text-shadow: 1px 1px 1px #121212 !important;
+    color: white;
+    text-shadow: 2px 1px 1px #121212 !important;
     font-size: 40px !important;
 }
 
@@ -883,7 +886,7 @@ nav.show {
     width: 25%;
     height:85vh;
     margin-bottom:15vh;
-    justify-content:space-between!important;
+    justify-content:start!important;
 }
 .more-news-headLine {
     width: 90%;
@@ -953,12 +956,14 @@ nav.show {
     text-align: right;
     outline: none;
     width: 100%;
-    padding-bottom:29px;
+    font-size:20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-bottom:12px;
     border:1px thin black; 
     resize: none!important;
 }
 .txb-comment::placeholder{
-   font-family:'Segoe UI Emoji';
+   font-family:'Times New Roman', Times, serif;
    font-size:20px;
 }
 .bt-post-comment-wrap {
@@ -990,6 +995,7 @@ nav.show {
     height:auto;
     justify-content:start!important;
     padding:18px 0;
+    border-bottom:0.8px solid #971d1d;
 }
 .comment-head-info{
     width:100%;
@@ -1036,10 +1042,6 @@ nav.show {
     height:210px;
 }
 
-.outer-favorites{
-    margin: 0 auto;
-    overflow-y:scroll;
-}
 .img-td {
     width: 360px;
     text-align: center;
@@ -1134,7 +1136,6 @@ nav.show {
     color: white;
     cursor:pointer;
     display:inline-block!important;
-
     transition:0.25s ease-in;
 }
 .reset-bt-all:hover{

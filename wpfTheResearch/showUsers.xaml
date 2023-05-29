@@ -10,30 +10,33 @@
 
     <Grid>
         <Grid.RowDefinitions  >
-            <RowDefinition Height="3*"></RowDefinition>
+            <RowDefinition ></RowDefinition>
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
         </Grid.ColumnDefinitions>
+        <WrapPanel>
+            <ListView Name="lvUsers" Grid.Row="0"  HorizontalContentAlignment="Center"  GridViewColumnHeader.Click="lvUsers_Click" ScrollViewer.CanContentScroll="True"   SelectionChanged="lvUsers_SelectionChanged"   HorizontalAlignment="Center" VerticalAlignment="Top"  Height="auto"  Background="MintCream" Margin="4,10,0,-11" Grid.RowSpan="2" >
+                <ListView.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="הוסף משתמש" Click="Insert"></MenuItem>
+                        <MenuItem Header="עדכון פרטי משתמש" Click="Update"></MenuItem>
+                    </ContextMenu>
+                </ListView.ContextMenu>
+                <ListView.View>
+                    <GridView  x:Name="gpoeple" >
+                        <GridViewColumn  Header="רמת הרשאה " Width="120" DisplayMemberBinding="{Binding authLevel.name}"></GridViewColumn>
+                        <GridViewColumn Header="ססמה"  Width="120" DisplayMemberBinding="{Binding password}"></GridViewColumn>
+                        <GridViewColumn Header="אימייל" Width="120" DisplayMemberBinding="{Binding email}"></GridViewColumn>
+                        <GridViewColumn Header="שם" Width="120" DisplayMemberBinding="{Binding name}"></GridViewColumn>
+                        <GridViewColumn Header="שם משתמש" Width="120" DisplayMemberBinding="{Binding userName}"></GridViewColumn>
+                        <GridViewColumn Header="מספר מזהה" Width="120" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </WrapPanel>
 
-        <ListView Name="lvUsers" Grid.Row="0" GridViewColumnHeader.Click="lvUsers_Click"   SelectionChanged="lvUsers_SelectionChanged"   HorizontalAlignment="Center" VerticalAlignment="Top"  Height="auto"  Background="MintCream" Margin="4,10,0,-11" Grid.RowSpan="2" >
-            <ListView.ContextMenu>
-                <ContextMenu>
-                    <MenuItem Header="הוסף משתמש" Click="Insert"></MenuItem>
-                    <MenuItem Header="עדכון פרטי משתמש" Click="Update"></MenuItem>
-                </ContextMenu>
-            </ListView.ContextMenu>
-            <ListView.View>
-                <GridView  x:Name="gpoeple" >
-                    <GridViewColumn  Header="רמת הרשאה " Width="150" DisplayMemberBinding="{Binding authLevel.name}"></GridViewColumn>
-                    <GridViewColumn Header="ססמה"  Width="140" DisplayMemberBinding="{Binding password}"></GridViewColumn>
-                    <GridViewColumn Header="אימייל" Width="140" DisplayMemberBinding="{Binding email}"></GridViewColumn>
-                    <GridViewColumn Header="שם משתמש" Width="140" DisplayMemberBinding="{Binding name}"></GridViewColumn>
-                    <GridViewColumn Header="מספר מזהה" Width="150" DisplayMemberBinding="{Binding Id}"></GridViewColumn>
-                </GridView>
-            </ListView.View>
-        </ListView>
 
         <Grid Grid.Row="1">
             <Grid.RowDefinitions>
@@ -48,16 +51,18 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
 
-            <TextBox  Grid.Row="0" Width="140" Name="txbIdUser" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="4"></TextBox>
-            <TextBox  Grid.Row="0" Width="140" Name="txbUserName" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="3"></TextBox>
-            <TextBox  Grid.Row="0" Width="140" Name="txbEmail" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="2"></TextBox>
-            <TextBox  Grid.Row="0" Width="140" Name="txbPassword" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="1"></TextBox>
-            <ComboBox Grid.Row="0" Width="140" Name="cmbDemarc" HorizontalAlignment="center"  SelectedValuePath = "IdAuthLevel" DisplayMemberPath = "name" VerticalAlignment="Center" Grid.Column="0"></ComboBox>
+            <TextBox  Grid.Row="0" Width="115" Name="txbIdUser" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="5"></TextBox>
+            <TextBox  Grid.Row="0" Width="115" Name="txbName" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="4"></TextBox>
+            <TextBox  Grid.Row="0" Width="115" Name="txbUserName" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="3"></TextBox>
+            <TextBox  Grid.Row="0" Width="115" Name="txbEmail" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="2"></TextBox>
+            <TextBox  Grid.Row="0" Width="115" Name="txbPassword" HorizontalAlignment="center" VerticalAlignment="Center" Grid.Column="1"></TextBox>
+            <ComboBox Grid.Row="0" Width="115" Name="cmbDemarc" HorizontalAlignment="center"  SelectedValuePath = "IdAuthLevel" DisplayMemberPath = "name" VerticalAlignment="Center" Grid.Column="0"></ComboBox>
 
-            <Button Name="btDemarcation" Grid.Column="3" Grid.Row="1" Height="40"  Click="btDemarcation_Click">תיחום</Button>
-            <Button Name="btReset" Grid.Column="1" Grid.Row="1"  Height="40"  Click="btReset_Click">איפוס</Button>
+            <Button Name="btDemarcation" Width="110" Grid.Column="3" Grid.Row="1" Height="40"  Click="btDemarcation_Click">תיחום</Button>
+            <Button Name="btReset" Grid.Column="2"  Width="110" Grid.Row="1"  Height="40"  Click="btReset_Click">איפוס</Button>
 
         </Grid>
     </Grid>

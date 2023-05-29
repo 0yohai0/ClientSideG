@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using viewModelWpfTheResearch;
 using wpfTheResearch.AuthService;
+using WpfViewModelTheResearch;
 
 namespace wpfTheResearch
 {
@@ -78,32 +79,37 @@ namespace wpfTheResearch
 
         private void btDemarcation_Click(object sender, RoutedEventArgs e)
         {
+            AuthLevelList NewauthLevels = new AuthLevelList();
+            foreach(AuthLevel authLevel in authLevels)
+            {
+                NewauthLevels.Add(authLevel);
+            }
             string name = txbAuthName.Text;
             int.TryParse(txbIdAuth.Text, out int id);
 
-            AuthLevelList newAuthLevels = new AuthLevelList();
-            newAuthLevels = authLevels;
 
             if (name.Length > 0)
             {
-                foreach (AuthLevel auth in newAuthLevels.FindAll(x => x.name != name))
+                foreach (AuthLevel auth in authLevels.FindAll(x => x.name != name))
                 {
-                    newAuthLevels.Remove(auth);
+                    NewauthLevels.Remove(auth);
                 }
             }
             if(id>0)
             {
-                foreach (AuthLevel auth in newAuthLevels.FindAll(x => x.Id != id))
+                foreach (AuthLevel auth in authLevels.FindAll(x => x.Id != id))
                 {
-                    newAuthLevels.Remove(auth);
+                    NewauthLevels.Remove(auth);
                 }
             }          
-            populate(newAuthLevels);
+            populate(NewauthLevels);
         }
 
         private void btReset_Click(object sender, RoutedEventArgs e)
         {
             populate(authLevels);
+            txbAuthName.Text = "";
+            txbIdAuth.Text = "";
         }
 
         private void lvAuths_SelectionChanged(object sender, SelectionChangedEventArgs e)

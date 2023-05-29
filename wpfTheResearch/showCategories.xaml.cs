@@ -33,6 +33,7 @@ namespace wpfTheResearch
         {
             int result = client.Add(category);
             categories.Add(category);
+            categories = client.selectAll();
             populate();
             return result;
         }
