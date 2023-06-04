@@ -14,6 +14,7 @@ var logo = document.querySelector(".logo")
 var register = document.getElementById("btRegister")
 var out = document.getElementById("btLogOut")
 var about = document.getElementById("about")
+var imgLogo = document.getElementById("logo-img")
 
 icon.addEventListener('click', function () {
     icon.classList.toggle('humburger-icon-black')
@@ -27,6 +28,7 @@ icon.addEventListener('click', function () {
     register.classList.toggle('red-register')
     about.classList.toggle('about-red')
     out.classList.toggle('red-register')
+    imgLogo.classList.toggle('slide')
 });
 
 

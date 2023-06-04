@@ -227,7 +227,23 @@ namespace theResearchSite.HumanService {
     public partial class Worker : theResearchSite.HumanService.Human {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IdWorkerField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private double salaryField;
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int IdWorker {
+            get {
+                return this.IdWorkerField;
+            }
+            set {
+                if ((this.IdWorkerField.Equals(value) != true)) {
+                    this.IdWorkerField = value;
+                    this.RaisePropertyChanged("IdWorker");
+                }
+            }
+        }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
         public double salary {

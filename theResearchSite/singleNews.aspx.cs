@@ -133,11 +133,11 @@ namespace theResearchSite
             lSingleNews.Text += $"<div class=\"news-info flex-line-center\"> <div class=\"news-authers\">כותבים כותבים</div>  <div class=\"news-date\">{singleNews.dateTimePublished.Date.ToString().Substring(0, 11).Trim()}</div> </div>";
             if(!isFavorited)
             {
-              lSingleNews.Text += "<div  class=\"user-news-interaction flex-line-center\"><div class=\"news-comments\"><i class='fas fa-comment-alt'></i> <div style=\"font-size:12px;\">"+commentCount+ "</div> </div> <input type=\"submit\" name=\"addCartFavorites\" style=\"border:none; background-color:transparent; color:black; cursor:pointer;\" value=\"&#9829;\" class=\"add-heart\"/></div>";
+              lSingleNews.Text += "<div  class=\"user-news-interaction flex-line-center\"><div class=\"news-comments\"><i class=\"fa-sharp fa-solid fa-comments\"></i> <div style=\"font-size:18px;color:blue;\">💬" + commentCount+ "</div> </div> <input type=\"submit\" name=\"addCartFavorites\" style=\"border:none; background-color:transparent; color:black; cursor:pointer;\" value=\"&#9829;\" class=\"add-heart\"/></div>";
             }
             else
             {
-              lSingleNews.Text += "<div  class=\"user-news-interaction flex-line-center\"><div class=\"news-comments\"><i class='fas fa-comment-alt'></i> <div style=\"font-size:12px;\">"+commentCount+ "</div> </div> <input type=\"submit\" name=\"removeFromFevorites"+singleNews.Id+"\" style=\"border:none; color:red; background-color:transparent;  cursor:pointer;\" value=\"&#9829;\" class=\"add-heart\"/></div>";
+              lSingleNews.Text += "<div  class=\"user-news-interaction flex-line-center\"><div class=\"news-comments\"><i class=\"fa-sharp fa-solid fa-comments\"></i> <div style=\"font-size:18px;color:blue;\">💬" + commentCount+ "</div> </div> <input type=\"submit\" name=\"removeFromFevorites"+singleNews.Id+"\" style=\"border:none; color:red; background-color:transparent;  cursor:pointer;\" value=\"&#9829;\" class=\"add-heart\"/></div>";
             }
 
             lSingleNews.Text += "</div>";
@@ -151,7 +151,11 @@ namespace theResearchSite
                 }
                 else
                 {
-                    lSingleNews.Text += $"<div class=\"text-design\"> -תוכן למנויים- </div>";
+                    lSingleNews.Text += "<div class=\"only-for-subs-wrap\">";
+                    lSingleNews.Text += $"<div class=\"only-for-subs-wrap-head\"> -תוכן למנויים- </div>";
+                    lSingleNews.Text += $"<div class=\"only-for-subs-wrap-content\">תוכן זה שמור למנויים, במידה ותרצי/ה לקרוא את הכתבה הצטרפ/י למועדון המנויים לאתר חדשות המדע הטוב ביותר </div>";
+                    lSingleNews.Text += $"<div class=\"link-to-sub-page-wrap\"><a href=\"subscriptionPage.aspx\" class=\"link-to-sub-page\">לקניית מנוי</a> </div>";
+                    lSingleNews.Text += "</div>";
                 }
             }
             else
@@ -189,7 +193,7 @@ namespace theResearchSite
             
 
             lSingleNews.Text += "<div class=\"scroll-me\">";
-            foreach (NewsService.News news in AllnewsInCategory.FindAll(x => x.category.name == singleNews.category.name))
+            foreach (NewsService.News news in AllnewsInCategory.FindAll(x => x.category.name == singleNews.category.name && x.Id!= newsId))
             {
                  lSingleNews.Text += "<div class=\"single-side-news-wrap flex-culomn-center\">";
                  lSingleNews.Text += $"<a href=\"singleNews.aspx?NewsId={news.Id}\"><img src=\"{news.imagePath}\" class=\"news-side-img\" /></a>";

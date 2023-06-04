@@ -9,6 +9,7 @@ using System.Web.UI.WebControls.WebParts;
 using theResearchSite.NewsService;
 using theResearchSite.CategoryService;
 using theResearchSite.UserNewsInteractionService;
+using System.ServiceModel;
 
 namespace theResearchSite
 {
@@ -160,7 +161,7 @@ namespace theResearchSite
                     lNews.Text += "<div class=\"news-line-wrap\">";
 
                     lNews.Text += $"<div id=\"{newsList[0].category.name}\" class=\"category-head\">";
-                    lNews.Text += $"<div class=\"category-head-name\">{newsList[0].category.name}</div> <div class=\"more-category-link\"> <a class=\"category-link-design\" href=\"a\">לעוד חדשות בנושא</a> </div>";
+                    lNews.Text += $"<div class=\"category-head-name\">{newsList[0].category.name}</div> <div class=\"more-category-link\"> <a class=\"category-link-design\" href=\"newsInCategory.aspx?categoryname={newsList[0].category.name}\">לעוד חדשות בנושא</a> </div>";
                     lNews.Text += "</div>";
 
                     lNews.Text += "<div class=\"news-in-category\">";
@@ -236,7 +237,7 @@ namespace theResearchSite
 
         public void addToCart(int newsId)
         {
-            if (Session["user"] == null)
+            if (Session["user"] == null&& Session["journalist"] == null && Session["admin"] == null)
                 return;
             //בדיקה האם קיים
             if (newsCart.Count>0)

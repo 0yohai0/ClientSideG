@@ -241,6 +241,7 @@
     <Content Include="generalImages\nightSky.jpg" />
     <Content Include="generalImages\spaceEarth.jpeg" />
     <Content Include="generalImages\splash.jpg" />
+    <Content Include="generalImages\המחקר.png" />
     <Content Include="GeneralJS.js" />
     <Content Include="GvNews.aspx" />
     <Content Include="homePage.aspx" />
@@ -253,6 +254,7 @@
     <Content Include="newsImages\newProtonStructure.jpg" />
     <Content Include="newsImages\theEarthIsElipsoid.jpg" />
     <Content Include="newsImages\universeEnd.jpg" />
+    <Content Include="newsInCategory.aspx" />
     <Content Include="paymentComplete.aspx" />
     <Content Include="register.aspx" />
     <Content Include="singleNews.aspx" />
@@ -346,6 +348,13 @@
     </Compile>
     <Compile Include="logIn.aspx.designer.cs">
       <DependentUpon>logIn.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="newsInCategory.aspx.cs">
+      <DependentUpon>newsInCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="newsInCategory.aspx.designer.cs">
+      <DependentUpon>newsInCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="paymentComplete.aspx.cs">
       <DependentUpon>paymentComplete.aspx</DependentUpon>

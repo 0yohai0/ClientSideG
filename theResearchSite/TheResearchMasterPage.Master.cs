@@ -26,6 +26,9 @@ namespace theResearchSite
         protected void btLogOut_Click(object sender, EventArgs e)
         {
             Session["user"] = null;
+            Session["admin"] = null;
+            Session["subscribed"] = null;
+            Session["journalist"] = null;
             Response.Redirect("logIn.aspx");
         }
     }

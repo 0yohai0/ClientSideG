@@ -100,12 +100,13 @@ namespace theResearchSite
 
 
             //אם אין משתמש כזה הוא לא קיים- הוצאת שגיאה
-            if (userTest == null)
+            if (userTest == null && workerTest == null)
             {
                 //הוצאת שגיאה
+                
             }
             //אם קיים משתמש לתת הרשאה
-            if (userTest != null)
+            if (userTest != null || workerTest != null)
             {
                 //הכנסת נתונים לעוגייה
                 HttpCookie userInfo = new HttpCookie("userInfo");
@@ -116,7 +117,11 @@ namespace theResearchSite
 
                 Session["fromLogIn"] = true;
 
-                string authLevel = userTest.authLevel.name;
+                string authLevel = "";
+                if (userTest != null)
+                    authLevel = userTest.authLevel.name;
+                if(workerTest != null)
+                    authLevel = workerTest.authLevel.name;
 
                 if (authLevel == "משתמש")
                 {
@@ -133,15 +138,21 @@ namespace theResearchSite
                 }
                 if (authLevel == "עיתונאי")
                 {
+                    Session["userId"] = workerTest.IdWorker;
                     Session["journalist"] = true;
-                    Response.Redirect("homePage.aspx");
+                    Response.Redirect("addNews.aspx");
                 }
                 if (authLevel == "מנהל")
                 {
+                    Session["userId"] = workerTest.IdWorker;
                     Session["admin"] = true;
                     Response.Redirect("GvNews.aspx");
                 }
             }
+
+
+
+
         }
 
 
